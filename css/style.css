@@ -14884,3 +14884,888 @@ body:not(.dark-mode)
 .achievement-card:hover::after {
     left: 140%;
 }
+/* =====================================================
+   PREMIUM STUDENT REVIEWS
+   DAY + NIGHT MODE
+   ===================================================== */
+
+.student-reviews-section {
+    --review-bg: #f5f9fc;
+    --review-card: rgba(255,255,255,.92);
+    --review-card-border: rgba(15,23,42,.10);
+    --review-heading: #172033;
+    --review-text: #64748b;
+    --review-muted: #94a3b8;
+    --review-accent: #0891b2;
+    --review-accent-soft: rgba(8,145,178,.09);
+    --review-shadow: 0 18px 45px rgba(15,23,42,.10);
+
+    position: relative;
+    padding: 90px 0;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(8,145,178,.08),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(14,165,233,.07),
+            transparent 30%
+        ),
+        var(--review-bg);
+
+    transition:
+        background .4s ease,
+        color .4s ease;
+}
+
+
+/* =====================================================
+   NIGHT MODE
+   ===================================================== */
+
+/*
+   Agar tumhare website me body par .dark-mode
+   class lagti hai to ye directly kaam karega.
+*/
+
+body.dark-mode .student-reviews-section {
+    --review-bg: #050914;
+    --review-card: rgba(15,23,42,.78);
+    --review-card-border: rgba(255,255,255,.09);
+    --review-heading: #f8fafc;
+    --review-text: #94a3b8;
+    --review-muted: #64748b;
+    --review-accent: #00e5ff;
+    --review-accent-soft: rgba(0,229,255,.08);
+    --review-shadow: 0 20px 50px rgba(0,0,0,.35);
+}
+
+
+/* =====================================================
+   CONTAINER
+   ===================================================== */
+
+.student-reviews-container {
+    width: min(1150px, 92%);
+    margin: auto;
+}
+
+
+/* =====================================================
+   HEADING
+   ===================================================== */
+
+.student-reviews-heading {
+    max-width: 720px;
+
+    margin:
+        0 auto 50px;
+
+    text-align: center;
+}
+
+
+.student-reviews-tag {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding:
+        8px 15px;
+
+    border-radius: 30px;
+
+    color: var(--review-accent);
+
+    background:
+        var(--review-accent-soft);
+
+    border:
+        1px solid
+        var(--review-card-border);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+.student-reviews-tag i {
+    font-size: 12px;
+}
+
+
+.student-reviews-heading h2 {
+    margin:
+        18px 0 12px;
+
+    color:
+        var(--review-heading);
+
+    font-size:
+        clamp(30px, 5vw, 46px);
+
+    line-height: 1.15;
+
+    transition:
+        color .4s ease;
+}
+
+
+.student-reviews-heading h2 span {
+    color:
+        var(--review-accent);
+}
+
+
+.student-reviews-heading p {
+    margin: 0;
+
+    color:
+        var(--review-text);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   REVIEW GRID
+   ===================================================== */
+
+.student-reviews-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =====================================================
+   REVIEW CARD
+   ===================================================== */
+
+.student-review-card {
+    position: relative;
+
+    padding: 25px;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    border:
+        1px solid
+        var(--review-card-border);
+
+    background:
+        var(--review-card);
+
+    box-shadow:
+        var(--review-shadow);
+
+    backdrop-filter:
+        blur(14px);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease,
+        background .4s ease;
+
+    animation:
+        reviewCardIn
+        .7s ease both;
+}
+
+
+.student-review-card:nth-child(1) {
+    animation-delay: .08s;
+}
+
+.student-review-card:nth-child(2) {
+    animation-delay: .18s;
+}
+
+.student-review-card:nth-child(3) {
+    animation-delay: .28s;
+}
+
+
+.student-review-card:hover {
+    transform:
+        translateY(-8px);
+
+    border-color:
+        var(--review-accent);
+
+    box-shadow:
+        0 25px 55px
+        rgba(8,145,178,.14);
+}
+
+
+/* =====================================================
+   CARD GLOW
+   ===================================================== */
+
+.student-review-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    top: -70px;
+    right: -70px;
+
+    border-radius: 50%;
+
+    background:
+        var(--review-accent-soft);
+
+    filter:
+        blur(4px);
+
+    transition:
+        transform .5s ease;
+}
+
+
+.student-review-card:hover::before {
+    transform:
+        scale(1.5);
+}
+
+
+/* =====================================================
+   TOP AREA
+   ===================================================== */
+
+.review-top {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+/* Avatar */
+
+.review-avatar {
+    flex-shrink: 0;
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color:
+        var(--review-accent);
+
+    background:
+        var(--review-accent-soft);
+
+    border:
+        1px solid
+        var(--review-card-border);
+
+    font-size: 20px;
+}
+
+
+.review-student-info {
+    min-width: 0;
+
+    flex: 1;
+}
+
+
+.review-student-info h3 {
+    margin: 0 0 3px;
+
+    color:
+        var(--review-heading);
+
+    font-size: 15px;
+
+    font-weight: 800;
+}
+
+
+.review-student-info span {
+    color:
+        var(--review-muted);
+
+    font-size: 10px;
+}
+
+
+/* Stars */
+
+.review-stars {
+    color: #f59e0b;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   QUOTE
+   ===================================================== */
+
+.review-quote {
+    position: relative;
+    z-index: 2;
+
+    margin:
+        22px 0 10px;
+
+    color:
+        var(--review-accent);
+
+    font-size: 22px;
+}
+
+
+.review-short {
+    position: relative;
+    z-index: 2;
+
+    min-height: 70px;
+
+    margin: 0;
+
+    color:
+        var(--review-text);
+
+    font-size: 12px;
+
+    line-height: 1.75;
+}
+
+
+/* =====================================================
+   READ FULL REVIEW BUTTON
+   ===================================================== */
+
+.read-review-btn {
+    position: relative;
+    z-index: 3;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 18px;
+
+    padding: 9px 15px;
+
+    border: 1px solid
+        var(--review-card-border);
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    color:
+        var(--review-accent);
+
+    background:
+        var(--review-accent-soft);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    transition:
+        .3s ease;
+}
+
+
+.read-review-btn i {
+    transition:
+        transform .3s ease;
+}
+
+
+.read-review-btn:hover {
+    color: #fff;
+
+    background:
+        var(--review-accent);
+
+    border-color:
+        var(--review-accent);
+}
+
+
+.read-review-btn:hover i {
+    transform:
+        translateX(4px);
+}
+
+
+/* =====================================================
+   REVIEW POPUP
+   ===================================================== */
+
+.review-popup {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 999999;
+
+    display: none;
+}
+
+
+.review-popup.show {
+    display: block;
+}
+
+
+/* Overlay */
+
+.review-popup-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(2,6,23,.78);
+
+    backdrop-filter:
+        blur(12px);
+
+    animation:
+        reviewOverlayIn
+        .3s ease;
+}
+
+
+/* Popup card */
+
+.review-popup-card {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: min(
+        92%,
+        560px
+    );
+
+    padding:
+        40px 35px 30px;
+
+    transform:
+        translate(-50%, -50%)
+        scale(.9);
+
+    border-radius: 25px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    background:
+        #ffffff;
+
+    box-shadow:
+        0 35px 90px
+        rgba(0,0,0,.35);
+
+    text-align: center;
+
+    animation:
+        reviewPopupIn
+        .4s
+        cubic-bezier(.22,1,.36,1)
+        forwards;
+}
+
+
+/* Night popup */
+
+body.dark-mode .review-popup-card {
+    background:
+        linear-gradient(
+            145deg,
+            #101827,
+            #07101d
+        );
+
+    border-color:
+        rgba(0,229,255,.16);
+
+    box-shadow:
+        0 35px 90px
+        rgba(0,0,0,.55);
+}
+
+
+/* =====================================================
+   CLOSE
+   ===================================================== */
+
+.review-popup-close {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid
+        rgba(100,116,139,.18);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    color:
+        var(--review-text);
+
+    background:
+        rgba(100,116,139,.08);
+
+    font-size: 15px;
+
+    transition:
+        .3s ease;
+}
+
+
+.review-popup-close:hover {
+    color: #fff;
+
+    background: #ef4444;
+
+    transform:
+        rotate(90deg);
+}
+
+
+/* =====================================================
+   POPUP ICON
+   ===================================================== */
+
+.review-popup-icon {
+    width: 65px;
+    height: 65px;
+
+    margin:
+        0 auto 16px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    color:
+        var(--review-accent);
+
+    background:
+        var(--review-accent-soft);
+
+    font-size: 25px;
+}
+
+
+.review-popup-stars {
+    margin-bottom: 10px;
+
+    color: #f59e0b;
+
+    font-size: 16px;
+
+    letter-spacing: 2px;
+}
+
+
+.review-popup-card h2 {
+    margin: 0;
+
+    color:
+        #172033;
+
+    font-size: 23px;
+}
+
+
+body.dark-mode .review-popup-card h2 {
+    color: #f8fafc;
+}
+
+
+.review-popup-course {
+    display: block;
+
+    margin-top: 5px;
+
+    color:
+        var(--review-accent);
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+.review-popup-text {
+    margin:
+        22px auto;
+
+    max-width: 450px;
+
+    color:
+        #64748b;
+
+    font-size: 13px;
+
+    line-height: 1.85;
+}
+
+
+body.dark-mode .review-popup-text {
+    color:
+        #94a3b8;
+}
+
+
+/* =====================================================
+   POPUP FOOTER
+   ===================================================== */
+
+.review-popup-footer {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding:
+        8px 14px;
+
+    border-radius: 30px;
+
+    color:
+        var(--review-accent);
+
+    background:
+        var(--review-accent-soft);
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+
+.review-popup-footer i {
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   ANIMATIONS
+   ===================================================== */
+
+@keyframes reviewCardIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@keyframes reviewOverlayIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes reviewPopupIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -46%)
+            scale(.9);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+}
+
+
+/* =====================================================
+   TABLET
+   ===================================================== */
+
+@media (max-width: 950px) {
+
+    .student-reviews-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 650px) {
+
+    .student-reviews-section {
+        padding: 65px 0;
+    }
+
+    .student-reviews-container {
+        width: 94%;
+    }
+
+    .student-reviews-heading {
+        margin-bottom: 30px;
+    }
+
+    .student-reviews-heading h2 {
+        font-size: 29px;
+    }
+
+    .student-reviews-heading p {
+        font-size: 12px;
+    }
+
+
+    /* One card per row */
+
+    .student-reviews-grid {
+        grid-template-columns:
+            1fr;
+
+        gap: 15px;
+    }
+
+
+    .student-review-card {
+        padding: 20px;
+
+        border-radius: 18px;
+    }
+
+
+    .review-avatar {
+        width: 46px;
+        height: 46px;
+
+        font-size: 17px;
+    }
+
+
+    .review-student-info h3 {
+        font-size: 14px;
+    }
+
+
+    .review-stars {
+        font-size: 11px;
+    }
+
+
+    .review-short {
+        min-height: auto;
+
+        font-size: 11px;
+    }
+
+
+    /* Popup */
+
+    .review-popup-card {
+        width: 90%;
+
+        padding:
+            35px 20px 25px;
+
+        border-radius: 21px;
+    }
+
+
+    .review-popup-text {
+        font-size: 12px;
+
+        line-height: 1.75;
+    }
+
+}
