@@ -4330,3 +4330,156 @@ async function downloadCertificateImage(
 
 }
 });
+/* =====================================================
+   ACHIEVEMENT COUNTER ANIMATION
+   ===================================================== */
+
+const achievementSection =
+    document.querySelector(
+        ".achievements-section"
+    );
+
+const achievementCounters =
+    document.querySelectorAll(
+        ".achievement-counter"
+    );
+
+
+if (
+    achievementSection &&
+    achievementCounters.length
+) {
+
+    let counterStarted = false;
+
+
+    function startAchievementCounters() {
+
+        if (counterStarted) {
+            return;
+        }
+
+        counterStarted = true;
+
+
+        achievementCounters.forEach(
+            function (counter) {
+
+                const target =
+                    Number(
+                        counter.dataset.target
+                    ) || 0;
+
+                let current = 0;
+
+                const duration = 1800;
+
+                const startTime =
+                    performance.now();
+
+
+                function updateCounter(
+                    currentTime
+                ) {
+
+                    const progress =
+                        Math.min(
+                            (
+                                currentTime -
+                                startTime
+                            ) / duration,
+                            1
+                        );
+
+
+                    /*
+                       Smooth easing
+                    */
+
+                    const easedProgress =
+                        1 -
+                        Math.pow(
+                            1 - progress,
+                            3
+                        );
+
+
+                    current =
+                        Math.floor(
+                            target *
+                            easedProgress
+                        );
+
+
+                    counter.textContent =
+                        current;
+
+
+                    if (progress < 1) {
+
+                        requestAnimationFrame(
+                            updateCounter
+                        );
+
+                    } else {
+
+                        counter.textContent =
+                            target;
+
+                    }
+
+                }
+
+
+                requestAnimationFrame(
+                    updateCounter
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =================================================
+       START WHEN SECTION ENTERS SCREEN
+       ================================================= */
+
+    const achievementObserver =
+        new IntersectionObserver(
+
+            function (entries) {
+
+                entries.forEach(
+                    function (entry) {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            startAchievementCounters();
+
+                            achievementObserver
+                                .unobserve(
+                                    achievementSection
+                                );
+
+                        }
+
+                    }
+                );
+
+            },
+
+            {
+                threshold: 0.25
+            }
+
+        );
+
+
+    achievementObserver.observe(
+        achievementSection
+    );
+
+}
