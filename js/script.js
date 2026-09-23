@@ -1314,28 +1314,677 @@ if (welcomePopup) {
         }, 300);
 
 
-        /* =================================================
-           RESULT BUTTON
-           ================================================= */
+   /* =================================================
+   VIEW RESULT
+   ================================================= */
 
-        const viewResultBtn =
-            document.getElementById(
-                "viewResultBtn"
+const viewResultBtn =
+    document.getElementById(
+        "viewResultBtn"
+    );
+
+
+if (viewResultBtn) {
+
+    viewResultBtn.onclick =
+        function () {
+
+            /* =========================================
+               CHECK FIREBASE
+               ========================================= */
+
+            if (
+                typeof database === "undefined"
+            ) {
+
+                alert(
+                    "Result database is not available."
+                );
+
+                return;
+
+            }
+
+
+            /* =========================================
+               CHECK STUDENT
+               ========================================= */
+
+            if (
+                !student ||
+                !student.rollNumber
+            ) {
+
+                alert(
+                    "Student information not found."
+                );
+
+                return;
+
+            }
+
+
+            /* =========================================
+               SHOW LOADING
+               ========================================= */
+
+            viewResultBtn.disabled = true;
+
+            viewResultBtn.innerHTML = `
+
+                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                <span>
+                    Loading Result...
+                </span>
+
+            `;
+
+
+            /* =========================================
+               GET RESULTS FROM FIREBASE
+               ========================================= */
+
+            database
+                .ref("examResults")
+                .once("value")
+
+                .then(function (snapshot) {
+
+                    const data =
+                        snapshot.val();
+
+
+                    /* =================================
+                       NO RESULT
+                       ================================= */
+
+                    if (!data) {
+
+                        showStudentResultPopup(
+                            null
+                        );
+
+                        return;
+
+                    }
+
+
+                    /* =================================
+                       FIND CURRENT STUDENT RESULT
+                       ================================= */
+
+                    let studentResult =
+                        null;
+
+
+                    Object.values(data)
+                        .forEach(
+                            function (result) {
+
+                                if (
+                                    String(
+                                        result.rollNumber
+                                    ).trim()
+                                    ===
+                                    String(
+                                        student.rollNumber
+                                    ).trim()
+                                ) {
+
+                                    /* Latest result */
+                                    if (
+                                        !studentResult ||
+                                        Number(
+                                            result.timestamp || 0
+                                        )
+                                        >
+                                        Number(
+                                            studentResult.timestamp || 0
+                                        )
+                                    ) {
+
+                                        studentResult =
+                                            result;
+
+                                    }
+
+                                }
+
+                            }
+                        );
+
+
+                    /* =================================
+                       SHOW RESULT
+                       ================================= */
+
+                    showStudentResultPopup(
+                        studentResult
+                    );
+
+                })
+
+                .catch(function (error) {
+
+                    console.error(
+                        "View Result Error:",
+                        error
+                    );
+
+
+                    alert(
+                        "Result load नहीं हो सका।"
+                    );
+
+                })
+
+                .finally(function () {
+
+                    viewResultBtn.disabled =
+                        false;
+
+
+                    viewResultBtn.innerHTML = `
+
+                        <i class="fa-solid fa-chart-column"></i>
+
+                        <span>
+                            View Result
+                        </span>
+
+                    `;
+
+                });
+
+        };
+
+}
+
+
+/* =================================================
+   STUDENT RESULT POPUP
+   ================================================= */
+
+function showStudentResultPopup(
+    result
+) {
+
+    /* =============================================
+       REMOVE OLD POPUP
+       ============================================= */
+
+    const oldPopup =
+        document.getElementById(
+            "studentResultPopup"
+        );
+
+
+    if (oldPopup) {
+
+        oldPopup.remove();
+
+    }
+
+
+    /* =============================================
+       NO RESULT
+       ============================================= */
+
+    if (!result) {
+
+        const noResultPopup =
+            document.createElement(
+                "div"
             );
 
 
-        if (viewResultBtn) {
+        noResultPopup.id =
+            "studentResultPopup";
 
-            viewResultBtn.onclick =
-                function () {
 
-                    alert(
-                        "Your examination result will appear here."
-                    );
+        noResultPopup.className =
+            "student-result-popup";
 
-                };
+
+        noResultPopup.innerHTML = `
+
+            <div class="student-result-card">
+
+                <button
+                    type="button"
+                    class="student-result-close"
+                    id="closeStudentResult">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+
+                <div class="student-result-icon">
+
+                    <i class="fa-solid fa-file-circle-question"></i>
+
+                </div>
+
+
+                <span class="student-result-tag">
+
+                    RESULT STATUS
+
+                </span>
+
+
+                <h2>
+                    Result Not Available
+                </h2>
+
+
+                <p>
+
+                    अभी आपके Roll Number के लिए
+                    कोई examination result नहीं मिला।
+
+                </p>
+
+
+                <div class="student-result-roll">
+
+                    <i class="fa-solid fa-id-card"></i>
+
+                    ${escapeHTML(
+                        student.rollNumber || "—"
+                    )}
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="student-result-ok"
+                    id="closeStudentResult2">
+
+                    <i class="fa-solid fa-check"></i>
+
+                    Okay
+
+                </button>
+
+            </div>
+
+        `;
+
+
+        document.body.appendChild(
+            noResultPopup
+        );
+
+
+        setTimeout(function () {
+
+            noResultPopup.classList.add(
+                "show"
+            );
+
+        }, 20);
+
+
+        bindResultCloseButtons(
+            noResultPopup
+        );
+
+
+        return;
+
+    }
+
+
+    /* =============================================
+       RESULT VALUES
+       ============================================= */
+
+    const correct =
+        Number(
+            result.correctAnswers || 0
+        );
+
+
+    const wrong =
+        Number(
+            result.wrongAnswers || 0
+        );
+
+
+    const total =
+        Number(
+            result.totalQuestions || 0
+        );
+
+
+    const percentage =
+        Number(
+            result.percentage || 0
+        );
+
+
+    const passed =
+        String(
+            result.result || ""
+        ).toUpperCase()
+        ===
+        "PASS";
+
+
+    /* =============================================
+       RESULT POPUP
+       ============================================= */
+
+    const popup =
+        document.createElement(
+            "div"
+        );
+
+
+    popup.id =
+        "studentResultPopup";
+
+
+    popup.className =
+        "student-result-popup";
+
+
+    popup.innerHTML = `
+
+        <div class="student-result-card">
+
+            <button
+                type="button"
+                class="student-result-close"
+                id="closeStudentResult">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+            <div class="student-result-icon">
+
+                ${
+                    passed
+                        ? `
+                            <i class="fa-solid fa-trophy"></i>
+                          `
+                        : `
+                            <i class="fa-solid fa-clipboard-check"></i>
+                          `
+                }
+
+            </div>
+
+
+            <span class="student-result-tag">
+
+                EXAMINATION RESULT
+
+            </span>
+
+
+            <h2>
+
+                ${escapeHTML(
+                    result.studentName ||
+                    student.name ||
+                    "Student"
+                )}
+
+            </h2>
+
+
+            <div class="student-result-course">
+
+                <i class="fa-solid fa-book-open"></i>
+
+                ${escapeHTML(
+                    result.course ||
+                    student.course ||
+                    "Course"
+                )}
+
+            </div>
+
+
+            <div class="student-result-info">
+
+                <div>
+
+                    <span>
+                        Roll Number
+                    </span>
+
+                    <strong>
+
+                        ${escapeHTML(
+                            result.rollNumber ||
+                            student.rollNumber ||
+                            "—"
+                        )}
+
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Exam Status
+                    </span>
+
+                    <strong class="
+                        ${
+                            passed
+                                ? "result-pass"
+                                : "result-fail"
+                        }
+                    ">
+
+                        ${
+                            passed
+                                ? "PASS"
+                                : "FAIL"
+                        }
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="student-result-stats">
+
+                <div>
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    <span>
+                        Correct
+                    </span>
+
+                    <strong>
+                        ${correct}
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <i class="fa-solid fa-circle-xmark"></i>
+
+                    <span>
+                        Wrong
+                    </span>
+
+                    <strong>
+                        ${wrong}
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <i class="fa-solid fa-list-check"></i>
+
+                    <span>
+                        Total
+                    </span>
+
+                    <strong>
+                        ${total}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="student-result-percentage">
+
+                <span>
+                    Percentage
+                </span>
+
+
+                <strong>
+                    ${percentage.toFixed(2)}%
+                </strong>
+
+            </div>
+
+
+            <div class="student-result-date">
+
+                <i class="fa-regular fa-calendar"></i>
+
+                ${
+                    result.completedAt
+                        ? new Date(
+                            result.completedAt
+                          ).toLocaleString()
+                        : "—"
+                }
+
+            </div>
+
+
+            <button
+                type="button"
+                class="student-result-ok"
+                id="closeStudentResult2">
+
+                <i class="fa-solid fa-check"></i>
+
+                Close Result
+
+            </button>
+
+        </div>
+
+    `;
+
+
+    document.body.appendChild(
+        popup
+    );
+
+
+    setTimeout(function () {
+
+        popup.classList.add(
+            "show"
+        );
+
+    }, 20);
+
+
+    bindResultCloseButtons(
+        popup
+    );
+
+}
+
+
+/* =================================================
+   CLOSE RESULT POPUP
+   ================================================= */
+
+function bindResultCloseButtons(
+    popup
+) {
+
+    const closeBtn =
+        popup.querySelector(
+            "#closeStudentResult"
+        );
+
+
+    const closeBtn2 =
+        popup.querySelector(
+            "#closeStudentResult2"
+        );
+
+
+    function closeResult() {
+
+        popup.classList.remove(
+            "show"
+        );
+
+
+        setTimeout(function () {
+
+            popup.remove();
+
+        }, 300);
+
+    }
+
+
+    if (closeBtn) {
+
+        closeBtn.onclick =
+            closeResult;
+
+    }
+
+
+    if (closeBtn2) {
+
+        closeBtn2.onclick =
+            closeResult;
+
+    }
+
+
+    popup.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                event.target ===
+                popup
+            ) {
+
+                closeResult();
+
+            }
 
         }
+    );
+
+}
 
     });
 
