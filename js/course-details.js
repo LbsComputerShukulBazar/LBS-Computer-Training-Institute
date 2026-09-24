@@ -1639,8 +1639,8 @@ async function downloadCoursePDF() {
 
         const marginLeft = 10;
         const marginRight = 10;
-        const marginTop = 15;
-        const marginBottom = 15;
+        const marginTop = 10;
+        const marginBottom = 11;
 
 
         const printableWidth =
