@@ -16927,3 +16927,327 @@ body.dark-mode .notice-read-more {
     }
 
 }
+/* =====================================================
+   NOTICE ULTRA PREMIUM ANIMATION
+   ===================================================== */
+
+/* Floating card animation */
+
+.notice-card {
+    animation:
+        noticeCardFloat 5s ease-in-out infinite;
+}
+
+/* Har card thoda different timing par move hoga */
+
+.notice-card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.notice-card:nth-child(2) {
+    animation-delay: .7s;
+}
+
+.notice-card:nth-child(3) {
+    animation-delay: 1.4s;
+}
+
+.notice-card:nth-child(4) {
+    animation-delay: 2.1s;
+}
+
+
+/* =====================================================
+   FLOAT ANIMATION
+   ===================================================== */
+
+@keyframes noticeCardFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+}
+
+
+/* Hover animation ko floating animation se override */
+
+.notice-card:hover {
+    animation-play-state: paused;
+
+    transform:
+        translateY(-9px)
+        scale(1.015);
+}
+
+
+/* =====================================================
+   PREMIUM LIGHT SWEEP
+   ===================================================== */
+
+.notice-card {
+    isolation: isolate;
+}
+
+.notice-card::after {
+    content: "";
+
+    position: absolute;
+
+    top: -120%;
+    left: -80%;
+
+    width: 55%;
+    height: 300%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.45),
+            transparent
+        );
+
+    transform: rotate(20deg);
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transition:
+        left .7s ease,
+        opacity .3s ease;
+}
+
+.notice-card:hover::after {
+    left: 130%;
+    opacity: 1;
+}
+
+
+/* =====================================================
+   ICON PULSE
+   ===================================================== */
+
+.notice-card:first-child .notice-icon {
+    animation:
+        noticeIconPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes noticeIconPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 0 rgba(8,145,178,.15);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 8px rgba(8,145,178,.05);
+    }
+
+}
+
+
+/* =====================================================
+   NEW / EXAM BADGE PULSE
+   ===================================================== */
+
+.notice-card:first-child .notice-badge,
+.notice-card:nth-child(2) .notice-badge {
+    animation:
+        noticeBadgePulse 2s ease-in-out infinite;
+}
+
+@keyframes noticeBadgePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+
+}
+
+
+/* =====================================================
+   TOP DECORATIVE DOTS
+   ===================================================== */
+
+.notice-heading {
+    position: relative;
+}
+
+.notice-heading::before,
+.notice-heading::after {
+    content: "✦";
+
+    position: absolute;
+
+    top: 10px;
+
+    font-size: 18px;
+
+    color: #0891b2;
+
+    opacity: .55;
+
+    animation:
+        noticeStarMove 3s ease-in-out infinite;
+}
+
+.notice-heading::before {
+    left: 15%;
+}
+
+.notice-heading::after {
+    right: 15%;
+
+    animation-delay:
+        1.5s;
+}
+
+@keyframes noticeStarMove {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: .4;
+    }
+
+    50% {
+        transform:
+            translateY(-7px)
+            rotate(20deg);
+
+        opacity: 1;
+    }
+
+}
+
+
+/* =====================================================
+   CARD TOP GLOW LINE
+   ===================================================== */
+
+.notice-card {
+    border-top:
+        2px solid rgba(8,145,178,.18);
+}
+
+.notice-card:hover {
+    border-top-color:
+        rgba(8,145,178,.65);
+}
+
+
+/* =====================================================
+   READ MORE ARROW
+   ===================================================== */
+
+.notice-read-more i {
+    animation:
+        noticeArrowMove 2s ease-in-out infinite;
+}
+
+@keyframes noticeArrowMove {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(4px);
+    }
+
+}
+
+
+/* =====================================================
+   DARK MODE
+   ===================================================== */
+
+body.dark-mode .notice-card::after {
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.08),
+            transparent
+        );
+}
+
+body.dark-mode .notice-heading::before,
+body.dark-mode .notice-heading::after {
+    color: #22d3ee;
+}
+
+body.dark-mode .notice-card {
+    border-top-color:
+        rgba(34,211,238,.15);
+}
+
+body.dark-mode .notice-card:hover {
+    border-top-color:
+        rgba(34,211,238,.65);
+}
+
+body.dark-mode .notice-card:first-child
+.notice-icon {
+    animation-name:
+        noticeIconPulseDark;
+}
+
+@keyframes noticeIconPulseDark {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 0 rgba(34,211,238,.15);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 8px rgba(34,211,238,.06);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE OPTIMIZATION
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+    .notice-card {
+        animation-duration: 6s;
+    }
+
+    .notice-heading::before {
+        left: 5%;
+    }
+
+    .notice-heading::after {
+        right: 5%;
+    }
+
+    .notice-heading::before,
+    .notice-heading::after {
+        font-size: 13px;
+    }
+
+}
