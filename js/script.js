@@ -5130,3 +5130,390 @@ document.addEventListener(
 
     }
 );
+
+/* =====================================================
+   TECHNOLOGY SHOWCASE SLIDER
+   ===================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const technologySlider =
+        document.querySelector(".technology-slider");
+
+    if (!technologySlider) {
+        return;
+    }
+
+
+    const technologySlides =
+        technologySlider.querySelectorAll(
+            ".technology-slide"
+        );
+
+
+    const technologyDots =
+        technologySlider.querySelectorAll(
+            ".technology-dot"
+        );
+
+
+    const technologyPrev =
+        document.getElementById(
+            "technologyPrev"
+        );
+
+
+    const technologyNext =
+        document.getElementById(
+            "technologyNext"
+        );
+
+
+    /* =================================================
+       CHECK SLIDES
+       ================================================= */
+
+    if (!technologySlides.length) {
+        return;
+    }
+
+
+    let technologyCurrent =
+        0;
+
+
+    let technologyTimer =
+        null;
+
+
+    /* =================================================
+       SHOW SLIDE
+       ================================================= */
+
+    function showTechnologySlide(index) {
+
+        /* -----------------------------
+           LOOP
+           ----------------------------- */
+
+        if (
+            index >=
+            technologySlides.length
+        ) {
+
+            index = 0;
+
+        }
+
+
+        if (index < 0) {
+
+            index =
+                technologySlides.length - 1;
+
+        }
+
+
+        technologyCurrent =
+            index;
+
+
+        /* -----------------------------
+           REMOVE ACTIVE
+           ----------------------------- */
+
+        technologySlides.forEach(
+            function (slide) {
+
+                slide.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
+        technologyDots.forEach(
+            function (dot) {
+
+                dot.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
+        /* -----------------------------
+           ADD ACTIVE
+           ----------------------------- */
+
+        technologySlides[
+            technologyCurrent
+        ].classList.add(
+            "active"
+        );
+
+
+        if (
+            technologyDots[
+                technologyCurrent
+            ]
+        ) {
+
+            technologyDots[
+                technologyCurrent
+            ].classList.add(
+                "active"
+            );
+
+        }
+
+    }
+
+
+    /* =================================================
+       NEXT SLIDE
+       ================================================= */
+
+    function nextTechnologySlide() {
+
+        showTechnologySlide(
+            technologyCurrent + 1
+        );
+
+    }
+
+
+    /* =================================================
+       PREVIOUS SLIDE
+       ================================================= */
+
+    function previousTechnologySlide() {
+
+        showTechnologySlide(
+            technologyCurrent - 1
+        );
+
+    }
+
+
+    /* =================================================
+       AUTO PLAY
+       ================================================= */
+
+    function startTechnologyAutoPlay() {
+
+        stopTechnologyAutoPlay();
+
+
+        technologyTimer =
+            setInterval(
+                function () {
+
+                    nextTechnologySlide();
+
+                },
+                5000
+            );
+
+    }
+
+
+    /* =================================================
+       STOP AUTO PLAY
+       ================================================= */
+
+    function stopTechnologyAutoPlay() {
+
+        if (technologyTimer) {
+
+            clearInterval(
+                technologyTimer
+            );
+
+            technologyTimer =
+                null;
+
+        }
+
+    }
+
+
+    /* =================================================
+       NEXT BUTTON
+       ================================================= */
+
+    if (technologyNext) {
+
+        technologyNext.addEventListener(
+            "click",
+            function () {
+
+                nextTechnologySlide();
+
+                startTechnologyAutoPlay();
+
+            }
+        );
+
+    }
+
+
+    /* =================================================
+       PREVIOUS BUTTON
+       ================================================= */
+
+    if (technologyPrev) {
+
+        technologyPrev.addEventListener(
+            "click",
+            function () {
+
+                previousTechnologySlide();
+
+                startTechnologyAutoPlay();
+
+            }
+        );
+
+    }
+
+
+    /* =================================================
+       DOT NAVIGATION
+       ================================================= */
+
+    technologyDots.forEach(
+        function (dot, index) {
+
+            dot.addEventListener(
+                "click",
+                function () {
+
+                    showTechnologySlide(
+                        index
+                    );
+
+                    startTechnologyAutoPlay();
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =================================================
+       PAUSE WHEN MOUSE IS OVER SLIDER
+       ================================================= */
+
+    technologySlider.addEventListener(
+        "mouseenter",
+        function () {
+
+            stopTechnologyAutoPlay();
+
+        }
+    );
+
+
+    /* =================================================
+       RESUME WHEN MOUSE LEAVES
+       ================================================= */
+
+    technologySlider.addEventListener(
+        "mouseleave",
+        function () {
+
+            startTechnologyAutoPlay();
+
+        }
+    );
+
+
+    /* =================================================
+       TOUCH / SWIPE SUPPORT
+       ================================================= */
+
+    let technologyTouchStartX =
+        0;
+
+
+    let technologyTouchEndX =
+        0;
+
+
+    technologySlider.addEventListener(
+        "touchstart",
+        function (event) {
+
+            technologyTouchStartX =
+                event.changedTouches[0].screenX;
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    technologySlider.addEventListener(
+        "touchend",
+        function (event) {
+
+            technologyTouchEndX =
+                event.changedTouches[0].screenX;
+
+
+            const swipeDistance =
+                technologyTouchEndX -
+                technologyTouchStartX;
+
+
+            /* Swipe Left */
+
+            if (
+                swipeDistance < -50
+            ) {
+
+                nextTechnologySlide();
+
+                startTechnologyAutoPlay();
+
+            }
+
+
+            /* Swipe Right */
+
+            if (
+                swipeDistance > 50
+            ) {
+
+                previousTechnologySlide();
+
+                startTechnologyAutoPlay();
+
+            }
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    /* =================================================
+       START
+       ================================================= */
+
+    showTechnologySlide(0);
+
+    startTechnologyAutoPlay();
+
+
+    console.log(
+        "Technology Showcase Slider Loaded Successfully"
+    );
+
+});
