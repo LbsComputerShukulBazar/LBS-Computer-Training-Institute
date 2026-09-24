@@ -1171,7 +1171,7 @@ function createPDFInfoBox(label, value) {
 
 
 /* =====================================================
-   PDF DOWNLOAD
+   PDF DOWNLOAD — A4 WITH PROPER PAGE MARGINS
    ===================================================== */
 
 async function downloadCoursePDF() {
@@ -1182,11 +1182,16 @@ async function downloadCoursePDF() {
     ];
 
     downloadButtons.forEach(function(button) {
+
         if (button) {
+
             button.disabled = true;
+
             button.innerHTML =
                 '<i class="fa-solid fa-spinner fa-spin"></i> Preparing PDF...';
+
         }
+
     });
 
 
@@ -1194,23 +1199,42 @@ async function downloadCoursePDF() {
 
         const { jsPDF } = window.jspdf;
 
-        /*
-         * Create a temporary PDF layout
-         */
 
-        const pdfContent = document.createElement("div");
+        /* =================================================
+           TEMPORARY PDF CONTENT
+           ================================================= */
+
+        const pdfContent =
+            document.createElement("div");
+
 
         pdfContent.style.position = "fixed";
         pdfContent.style.left = "-10000px";
         pdfContent.style.top = "0";
+
+        /*
+         * A4 proportion ke according content width
+         */
+
         pdfContent.style.width = "794px";
+
         pdfContent.style.background = "#ffffff";
         pdfContent.style.color = "#172033";
-        pdfContent.style.padding = "45px";
-        pdfContent.style.fontFamily = "Arial, sans-serif";
-        pdfContent.style.boxSizing = "border-box";
+
+        pdfContent.style.padding = "35px";
+
+        pdfContent.style.fontFamily =
+            "Arial, sans-serif";
+
+        pdfContent.style.boxSizing =
+            "border-box";
+
         pdfContent.style.zIndex = "-1";
 
+
+        /* =================================================
+           PDF HTML
+           ================================================= */
 
         pdfContent.innerHTML = `
 
@@ -1304,6 +1328,7 @@ async function downloadCoursePDF() {
                     border:1px solid #e6eaf1;
                     border-radius:12px;
                 ">
+
                     <small style="color:#64748b;">
                         Duration
                     </small>
@@ -1314,6 +1339,7 @@ async function downloadCoursePDF() {
                     ">
                         ${course.duration}
                     </div>
+
                 </div>
 
 
@@ -1322,6 +1348,7 @@ async function downloadCoursePDF() {
                     border:1px solid #e6eaf1;
                     border-radius:12px;
                 ">
+
                     <small style="color:#64748b;">
                         Course Fees
                     </small>
@@ -1332,6 +1359,7 @@ async function downloadCoursePDF() {
                     ">
                         ₹${course.fees}
                     </div>
+
                 </div>
 
 
@@ -1340,6 +1368,7 @@ async function downloadCoursePDF() {
                     border:1px solid #e6eaf1;
                     border-radius:12px;
                 ">
+
                     <small style="color:#64748b;">
                         Eligibility
                     </small>
@@ -1350,6 +1379,7 @@ async function downloadCoursePDF() {
                     ">
                         ${course.eligibility}
                     </div>
+
                 </div>
 
 
@@ -1358,6 +1388,7 @@ async function downloadCoursePDF() {
                     border:1px solid #e6eaf1;
                     border-radius:12px;
                 ">
+
                     <small style="color:#64748b;">
                         Learning Mode
                     </small>
@@ -1368,6 +1399,7 @@ async function downloadCoursePDF() {
                     ">
                         ${course.mode}
                     </div>
+
                 </div>
 
             </div>
@@ -1380,6 +1412,7 @@ async function downloadCoursePDF() {
             ">
                 About This Course
             </h2>
+
 
             <p style="
                 color:#64748b;
@@ -1399,6 +1432,7 @@ async function downloadCoursePDF() {
                 What You Will Learn
             </h2>
 
+
             <ul style="
                 padding-left:20px;
                 color:#475569;
@@ -1407,7 +1441,13 @@ async function downloadCoursePDF() {
             ">
 
                 ${course.skills.map(function(skill) {
-                    return `<li>${skill}</li>`;
+
+                    return `
+                        <li>
+                            ${skill}
+                        </li>
+                    `;
+
                 }).join("")}
 
             </ul>
@@ -1433,28 +1473,46 @@ async function downloadCoursePDF() {
                             display:flex;
                             align-items:center;
                             gap:12px;
+
                             padding:12px;
+
                             margin-bottom:8px;
+
                             background:#f6f8fc;
-                            border:1px solid #e6eaf1;
+
+                            border:
+                                1px solid
+                                #e6eaf1;
+
                             border-radius:9px;
+
+                            page-break-inside:avoid;
+                            break-inside:avoid;
                         ">
 
                             <div style="
                                 width:28px;
                                 height:28px;
+
                                 display:flex;
                                 align-items:center;
                                 justify-content:center;
+
                                 background:#2563eb;
+
                                 color:white;
+
                                 border-radius:7px;
+
                                 font-size:10px;
+
                                 font-weight:bold;
+
                                 flex-shrink:0;
                             ">
-                                ${String(index + 1).padStart(2,"0")}
+                                ${String(index + 1).padStart(2, "0")}
                             </div>
+
 
                             <div style="
                                 font-size:12px;
@@ -1475,10 +1533,17 @@ async function downloadCoursePDF() {
 
             <div style="
                 margin-top:35px;
+
                 padding-top:18px;
-                border-top:2px solid #e6eaf1;
+
+                border-top:
+                    2px solid
+                    #e6eaf1;
+
                 text-align:center;
+
                 color:#64748b;
+
                 font-size:10px;
             ">
 
@@ -1502,29 +1567,56 @@ async function downloadCoursePDF() {
         document.body.appendChild(pdfContent);
 
 
-        /*
-         * Convert HTML to image
-         */
+        /* =================================================
+           WAIT FOR IMAGES
+           ================================================= */
 
-        const canvas = await html2canvas(
-            pdfContent,
-            {
-                scale: 2,
-                useCORS: true,
-                backgroundColor: "#ffffff"
-            }
+        const images =
+            pdfContent.querySelectorAll("img");
+
+
+        await Promise.all(
+
+            Array.from(images).map(function(img) {
+
+                return new Promise(function(resolve) {
+
+                    if (img.complete) {
+
+                        resolve();
+
+                    } else {
+
+                        img.onload = resolve;
+                        img.onerror = resolve;
+
+                    }
+
+                });
+
+            })
+
         );
 
 
-        const imageData =
-            canvas.toDataURL(
-                "image/png"
+        /* =================================================
+           HTML → CANVAS
+           ================================================= */
+
+        const canvas =
+            await html2canvas(
+                pdfContent,
+                {
+                    scale: 2,
+                    useCORS: true,
+                    backgroundColor: "#ffffff"
+                }
             );
 
 
-        /*
-         * Create PDF
-         */
+        /* =================================================
+           CREATE A4 PDF
+           ================================================= */
 
         const pdf =
             new jsPDF(
@@ -1541,73 +1633,229 @@ async function downloadCoursePDF() {
             pdf.internal.pageSize.getHeight();
 
 
+        /*
+         * Proper A4 margins
+         */
+
+        const marginLeft = 10;
+        const marginRight = 10;
+        const marginTop = 10;
+        const marginBottom = 10;
+
+
+        const printableWidth =
+            pageWidth -
+            marginLeft -
+            marginRight;
+
+
+        const printableHeight =
+            pageHeight -
+            marginTop -
+            marginBottom;
+
+
+        /* =================================================
+           IMAGE SIZE
+           ================================================= */
+
         const imageWidth =
-            pageWidth - 20;
+            printableWidth;
+
 
         const imageHeight =
             (canvas.height * imageWidth) /
             canvas.width;
 
 
-        let heightLeft =
-            imageHeight;
+        /*
+         * Canvas pixels corresponding to
+         * one printable A4 page
+         */
 
-        let position = 10;
-
-
-        pdf.addImage(
-            imageData,
-            "PNG",
-            10,
-            position,
-            imageWidth,
-            imageHeight
-        );
-
-
-        heightLeft -=
-            pageHeight - 20;
-
-
-        while (heightLeft > 0) {
-
-            position =
-                heightLeft - imageHeight + 10;
-
-            pdf.addPage();
-
-            pdf.addImage(
-                imageData,
-                "PNG",
-                10,
-                position,
-                imageWidth,
-                imageHeight
+        const pagePixelHeight =
+            Math.floor(
+                canvas.width *
+                (
+                    printableHeight /
+                    imageWidth
+                )
             );
 
-            heightLeft -=
-                pageHeight - 20;
+
+        let sourceY = 0;
+
+        let pageNumber = 0;
+
+
+        /* =================================================
+           SPLIT CONTENT INTO A4 PAGES
+           ================================================= */
+
+        while (
+            sourceY <
+            canvas.height
+        ) {
+
+            const remainingPixels =
+                canvas.height -
+                sourceY;
+
+
+            const currentPageHeight =
+                Math.min(
+                    pagePixelHeight,
+                    remainingPixels
+                );
+
+
+            /*
+             * Temporary canvas for this page
+             */
+
+            const pageCanvas =
+                document.createElement(
+                    "canvas"
+                );
+
+
+            pageCanvas.width =
+                canvas.width;
+
+            pageCanvas.height =
+                currentPageHeight;
+
+
+            const pageContext =
+                pageCanvas.getContext(
+                    "2d"
+                );
+
+
+            /*
+             * White background
+             */
+
+            pageContext.fillStyle =
+                "#ffffff";
+
+            pageContext.fillRect(
+                0,
+                0,
+                pageCanvas.width,
+                pageCanvas.height
+            );
+
+
+            /*
+             * Copy current section
+             */
+
+            pageContext.drawImage(
+
+                canvas,
+
+                0,
+                sourceY,
+
+                canvas.width,
+                currentPageHeight,
+
+                0,
+                0,
+
+                canvas.width,
+                currentPageHeight
+
+            );
+
+
+            /*
+             * Add new PDF page
+             */
+
+            if (pageNumber > 0) {
+
+                pdf.addPage();
+
+            }
+
+
+            /*
+             * Convert cropped canvas
+             * to image
+             */
+
+            const pageImage =
+                pageCanvas.toDataURL(
+                    "image/png"
+                );
+
+
+            /*
+             * Calculate displayed height
+             */
+
+            const currentImageHeight =
+                (
+                    currentPageHeight *
+                    printableWidth
+                ) /
+                canvas.width;
+
+
+            /*
+             * Put page content inside
+             * proper A4 margins
+             */
+
+            pdf.addImage(
+
+                pageImage,
+
+                "PNG",
+
+                marginLeft,
+                marginTop,
+
+                printableWidth,
+                currentImageHeight
+
+            );
+
+
+            sourceY +=
+                currentPageHeight;
+
+
+            pageNumber++;
 
         }
 
 
-        /*
-         * Download
-         */
+        /* =================================================
+           DOWNLOAD
+           ================================================= */
 
         const fileName =
             course.title
-                .replace(/[^a-z0-9]/gi, "-")
+                .replace(
+                    /[^a-z0-9]/gi,
+                    "-"
+                )
                 .toLowerCase();
 
+
         pdf.save(
-            "LBS-" + fileName + "-Course-Details.pdf"
+            "LBS-" +
+            fileName +
+            "-Course-Details.pdf"
         );
 
 
-        /*
-         * Remove temporary content
-         */
+        /* =================================================
+           REMOVE TEMP CONTENT
+           ================================================= */
 
         document.body.removeChild(
             pdfContent
@@ -1621,6 +1869,7 @@ async function downloadCoursePDF() {
             error
         );
 
+
         alert(
             "PDF generate nahi ho pa raha. Browser console me error check karein."
         );
@@ -1628,9 +1877,9 @@ async function downloadCoursePDF() {
     }
 
 
-    /*
-     * Restore buttons
-     */
+    /* =================================================
+       RESTORE BUTTONS
+       ================================================= */
 
     downloadButtons.forEach(function(button) {
 
