@@ -17878,3 +17878,614 @@ body.dark-mode
     }
 
 }
+/* =====================================================
+   WELCOME / HERO SECTION
+   ===================================================== */
+
+.welcome-section {
+    position: relative;
+
+    min-height: 88vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        100px 25px 70px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(8,145,178,.10),
+            transparent 42%
+        );
+}
+
+
+/* =====================================================
+   CONTAINER
+   ===================================================== */
+
+.welcome-container {
+
+    width: min(1150px, 100%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 80px;
+}
+
+
+/* =====================================================
+   LOGO AREA
+   ===================================================== */
+
+.welcome-logo-wrap {
+
+    position: relative;
+
+    width: 270px;
+    height: 270px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Animated Ring */
+
+.welcome-logo-ring {
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    border:
+        2px solid rgba(8,145,178,.35);
+
+    border-top-color:
+        #0891b2;
+
+    animation:
+        welcomeLogoRotate
+        7s linear infinite;
+}
+
+
+@keyframes welcomeLogoRotate {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =====================================================
+   LOGO
+   ===================================================== */
+
+.welcome-logo {
+
+    position: relative;
+
+    width: 220px;
+    height: 220px;
+
+    object-fit: contain;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    padding: 8px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.16);
+
+    animation:
+        welcomeLogoFloat
+        4s ease-in-out infinite;
+}
+
+
+@keyframes welcomeLogoFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-9px);
+    }
+
+}
+
+
+/* =====================================================
+   CONTENT
+   ===================================================== */
+
+.welcome-content {
+
+    max-width: 650px;
+
+    text-align: left;
+}
+
+
+/* =====================================================
+   SMALL TITLE
+   ===================================================== */
+
+.welcome-small-title {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        7px 13px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(8,145,178,.08);
+
+    border:
+        1px solid
+        rgba(8,145,178,.15);
+
+    color:
+        #0891b2;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   HEADING
+   ===================================================== */
+
+.welcome-content h1 {
+
+    margin:
+        20px 0 12px;
+
+    color:
+        #172033;
+
+    font-size:
+        clamp(36px, 5vw, 64px);
+
+    line-height: 1.05;
+
+    font-weight: 900;
+
+    letter-spacing: -1.5px;
+}
+
+
+.welcome-content h1 span {
+
+    display: block;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0891b2,
+            #06b6d4,
+            #22d3ee
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color:
+        transparent;
+}
+
+
+/* =====================================================
+   TAGLINE
+   ===================================================== */
+
+.welcome-tagline {
+
+    margin:
+        0 0 14px;
+
+    color:
+        #334155;
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   DESCRIPTION
+   ===================================================== */
+
+.welcome-description {
+
+    max-width: 560px;
+
+    margin: 0;
+
+    color:
+        #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   BUTTONS
+   ===================================================== */
+
+.welcome-buttons {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-top: 27px;
+}
+
+
+.welcome-primary-btn,
+.welcome-secondary-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 45px;
+
+    padding:
+        11px 20px;
+
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    transition:
+        .3s ease;
+}
+
+
+.welcome-primary-btn {
+
+    background:
+        linear-gradient(
+            135deg,
+            #0891b2,
+            #22d3ee
+        );
+
+    color:
+        #ffffff;
+
+    box-shadow:
+        0 10px 25px
+        rgba(8,145,178,.22);
+}
+
+
+.welcome-secondary-btn {
+
+    background:
+        transparent;
+
+    color:
+        #0891b2;
+
+    border:
+        1px solid
+        rgba(8,145,178,.3);
+}
+
+
+.welcome-primary-btn:hover,
+.welcome-secondary-btn:hover {
+
+    transform:
+        translateY(-3px);
+}
+
+
+.welcome-primary-btn:hover {
+
+    box-shadow:
+        0 15px 35px
+        rgba(8,145,178,.3);
+}
+
+
+.welcome-secondary-btn:hover {
+
+    background:
+        rgba(8,145,178,.08);
+}
+
+
+/* =====================================================
+   SCROLL INDICATOR
+   ===================================================== */
+
+.welcome-scroll {
+
+    position: absolute;
+
+    bottom: 22px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color:
+        #94a3b8;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+}
+
+
+.welcome-scroll i {
+
+    color:
+        #0891b2;
+
+    animation:
+        welcomeScroll
+        1.5s ease-in-out infinite;
+}
+
+
+@keyframes welcomeScroll {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(6px);
+    }
+
+}
+
+
+/* =====================================================
+   DARK MODE
+   ===================================================== */
+
+body.dark-mode .welcome-section {
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(34,211,238,.08),
+            transparent 42%
+        );
+}
+
+
+body.dark-mode .welcome-logo {
+
+    background:
+        #ffffff;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.5);
+}
+
+
+body.dark-mode .welcome-content h1 {
+
+    color:
+        #f8fafc;
+}
+
+
+body.dark-mode .welcome-tagline {
+
+    color:
+        #cbd5e1;
+}
+
+
+body.dark-mode .welcome-description {
+
+    color:
+        #94a3b8;
+}
+
+
+body.dark-mode .welcome-secondary-btn {
+
+    color:
+        #22d3ee;
+
+    border-color:
+        rgba(34,211,238,.3);
+}
+
+
+body.dark-mode .welcome-secondary-btn:hover {
+
+    background:
+        rgba(34,211,238,.08);
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 800px) {
+
+    .welcome-section {
+
+        min-height: auto;
+
+        padding:
+            80px 20px 65px;
+    }
+
+
+    .welcome-container {
+
+        flex-direction: column;
+
+        gap: 35px;
+
+        text-align: center;
+    }
+
+
+    .welcome-logo-wrap {
+
+        width: 190px;
+        height: 190px;
+    }
+
+
+    .welcome-logo {
+
+        width: 155px;
+        height: 155px;
+    }
+
+
+    .welcome-content {
+
+        max-width: 100%;
+
+        text-align: center;
+    }
+
+
+    .welcome-content h1 {
+
+        font-size:
+            clamp(31px, 9vw, 48px);
+
+        letter-spacing:
+            -1px;
+    }
+
+
+    .welcome-tagline {
+
+        font-size: 14px;
+    }
+
+
+    .welcome-description {
+
+        font-size: 12px;
+    }
+
+
+    .welcome-buttons {
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .welcome-section {
+
+        padding:
+            70px 16px 60px;
+    }
+
+
+    .welcome-logo-wrap {
+
+        width: 165px;
+        height: 165px;
+    }
+
+
+    .welcome-logo {
+
+        width: 135px;
+        height: 135px;
+    }
+
+
+    .welcome-buttons {
+
+        width: 100%;
+
+        flex-direction: column;
+    }
+
+
+    .welcome-primary-btn,
+    .welcome-secondary-btn {
+
+        width: 100%;
+    }
+
+
+    .welcome-scroll {
+
+        display: none;
+    }
+
+}
