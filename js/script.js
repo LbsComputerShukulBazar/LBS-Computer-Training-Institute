@@ -4483,3 +4483,228 @@ if (
     );
 
 }
+/* =====================================================
+   STUDENT REVIEWS
+   FULL REVIEW POPUP
+   ===================================================== */
+
+const reviewPopup =
+    document.getElementById("reviewPopup");
+
+const closeReviewPopup =
+    document.getElementById("closeReviewPopup");
+
+const reviewPopupName =
+    document.getElementById("reviewPopupName");
+
+const reviewPopupCourse =
+    document.getElementById("reviewPopupCourse");
+
+const reviewPopupText =
+    document.getElementById("reviewPopupText");
+
+const reviewPopupStars =
+    document.getElementById("reviewPopupStars");
+
+const reviewPopupOverlay =
+    document.querySelector(".review-popup-overlay");
+
+
+/* =====================================================
+   REVIEW DATA
+   ===================================================== */
+
+const studentReviews = [
+
+    {
+        name: "Rahul Kumar",
+
+        course: "ADCA Student",
+
+        stars: "★★★★★",
+
+        review:
+            "The training environment at LBS Computer Training Institute is very good. The computer classes are easy to understand and the practical learning helped me improve my computer skills. The teachers explain every topic in a simple way."
+    },
+
+
+    {
+        name: "Priya Singh",
+
+        course: "O Level Student",
+
+        stars: "★★★★★",
+
+        review:
+            "I learned many useful computer skills during my training. The learning experience was comfortable and the practical sessions helped me understand the topics better. I really enjoyed learning different computer applications."
+    },
+
+
+    {
+        name: "Amit Verma",
+
+        course: "CCC Student",
+
+        stars: "★★★★★",
+
+        review:
+            "The overall learning experience was very good. The online examination system is simple and easy to use. I learned important computer concepts and gained more confidence while working with different computer applications."
+    }
+
+];
+
+
+/* =====================================================
+   OPEN REVIEW
+   ===================================================== */
+
+const readReviewButtons =
+    document.querySelectorAll(
+        ".read-review-btn"
+    );
+
+
+readReviewButtons.forEach(
+    function (button) {
+
+        button.addEventListener(
+            "click",
+            function () {
+
+                const reviewIndex =
+                    Number(
+                        button.dataset.review
+                    );
+
+
+                const review =
+                    studentReviews[
+                        reviewIndex
+                    ];
+
+
+                if (!review) {
+                    return;
+                }
+
+
+                /* Fill popup */
+
+                if (reviewPopupName) {
+
+                    reviewPopupName.textContent =
+                        review.name;
+
+                }
+
+
+                if (reviewPopupCourse) {
+
+                    reviewPopupCourse.textContent =
+                        review.course;
+
+                }
+
+
+                if (reviewPopupStars) {
+
+                    reviewPopupStars.textContent =
+                        review.stars;
+
+                }
+
+
+                if (reviewPopupText) {
+
+                    reviewPopupText.textContent =
+                        review.review;
+
+                }
+
+
+                /* Show popup */
+
+                if (reviewPopup) {
+
+                    reviewPopup.classList.add(
+                        "show"
+                    );
+
+                    document.body.style.overflow =
+                        "hidden";
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   CLOSE REVIEW
+   ===================================================== */
+
+function closeStudentReviewPopup() {
+
+    if (reviewPopup) {
+
+        reviewPopup.classList.remove(
+            "show"
+        );
+
+    }
+
+    document.body.style.overflow = "";
+
+}
+
+
+/* Close button */
+
+if (closeReviewPopup) {
+
+    closeReviewPopup.addEventListener(
+        "click",
+        closeStudentReviewPopup
+    );
+
+}
+
+
+/* Click outside popup */
+
+if (reviewPopupOverlay) {
+
+    reviewPopupOverlay.addEventListener(
+        "click",
+        closeStudentReviewPopup
+    );
+
+}
+
+
+/* =====================================================
+   ESC KEY
+   ===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key === "Escape" &&
+            reviewPopup &&
+            reviewPopup.classList.contains(
+                "show"
+            )
+        ) {
+
+            closeStudentReviewPopup();
+
+        }
+
+    }
+);
+
