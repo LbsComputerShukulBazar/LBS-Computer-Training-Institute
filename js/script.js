@@ -3936,7 +3936,7 @@ function openCertificatePreview(student) {
                ================================= */
 
             const certificateNumber =
-                "LBS-CERT-" +
+                "PCTI" +
                 rollNumber.replace(
                     /[^A-Z0-9-]/gi,
                     ""
