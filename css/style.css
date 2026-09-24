@@ -194,6 +194,531 @@ a {
 
 
 /* =====================================================
+   PREMIUM CURVED WELCOME MARQUEE
+   ===================================================== */
+
+.welcome-marquee {
+
+    position: relative;
+
+    width: 100%;
+
+    margin-top:
+        calc(var(--navbar-height) + 10px);
+
+    height: 72px;
+
+    overflow: hidden;
+
+    z-index: 10;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8,145,178,.05),
+            rgba(34,211,238,.10),
+            rgba(8,145,178,.05)
+        );
+
+    border-top:
+        1px solid
+        rgba(8,145,178,.15);
+
+    border-bottom:
+        1px solid
+        rgba(8,145,178,.15);
+
+    box-shadow:
+        0 8px 30px
+        rgba(8,145,178,.08);
+
+}
+
+
+/* =====================================================
+   TRACK
+   ===================================================== */
+
+.welcome-marquee-track {
+
+    position: absolute;
+
+    left: -500px;
+
+    top: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 90px;
+
+    width: max-content;
+
+    transform:
+        translateY(-50%);
+
+    animation:
+        premiumWelcomeMove
+        16s
+        cubic-bezier(.45,.05,.55,.95)
+        infinite;
+
+}
+
+
+/* =====================================================
+   INDIVIDUAL ITEM
+   ===================================================== */
+
+.welcome-marquee-item {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    min-width: 390px;
+
+    padding:
+        10px 20px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,.58);
+
+    border:
+        1px solid
+        rgba(8,145,178,.13);
+
+    box-shadow:
+        0 8px 30px
+        rgba(8,145,178,.08);
+
+    backdrop-filter:
+        blur(14px);
+
+    -webkit-backdrop-filter:
+        blur(14px);
+
+}
+
+
+/* =====================================================
+   ICON
+   ===================================================== */
+
+.welcome-marquee-icon {
+
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    color:
+        #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0891b2,
+            #06b6d4
+        );
+
+    box-shadow:
+        0 8px 22px
+        rgba(8,145,178,.28);
+
+    font-size: 17px;
+
+    animation:
+        welcomeIconFloat
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes welcomeIconFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-3px)
+            rotate(-4deg);
+    }
+
+}
+
+
+/* =====================================================
+   TEXT
+   ===================================================== */
+
+.welcome-marquee-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    white-space: nowrap;
+}
+
+
+.welcome-marquee-text strong {
+
+    color:
+        var(--text);
+
+    font-size:
+        11px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1px;
+}
+
+
+.welcome-marquee-text small {
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        8px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1.5px;
+}
+
+
+/* =====================================================
+   STAR
+   ===================================================== */
+
+.welcome-marquee-star {
+
+    margin-left: auto;
+
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color:
+        #06b6d4;
+
+    background:
+        rgba(6,182,212,.08);
+
+    font-size: 10px;
+
+    animation:
+        welcomeStarSpin
+        4s
+        linear
+        infinite;
+}
+
+
+@keyframes welcomeStarSpin {
+
+    from {
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+
+}
+
+
+/* =====================================================
+   CURVED MOVEMENT
+   ===================================================== */
+
+@keyframes premiumWelcomeMove {
+
+    0% {
+
+        transform:
+            translate(-20px,-50%)
+            rotate(-2deg);
+
+        opacity: 0;
+
+    }
+
+    8% {
+
+        opacity: 1;
+
+    }
+
+    25% {
+
+        transform:
+            translate(20vw,-54%)
+            rotate(1.5deg);
+
+    }
+
+    50% {
+
+        transform:
+            translate(50vw,-46%)
+            rotate(-1.5deg);
+
+    }
+
+    75% {
+
+        transform:
+            translate(78vw,-53%)
+            rotate(1.5deg);
+
+    }
+
+    92% {
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            translate(110vw,-50%)
+            rotate(-2deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =====================================================
+   EDGE FADE
+   ===================================================== */
+
+.welcome-marquee::before,
+.welcome-marquee::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    width: 130px;
+
+    height: 100%;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+
+.welcome-marquee::before {
+
+    left: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--surface),
+            transparent
+        );
+}
+
+
+.welcome-marquee::after {
+
+    right: 0;
+
+    background:
+        linear-gradient(
+            270deg,
+            var(--surface),
+            transparent
+        );
+}
+
+
+/* =====================================================
+   DARK MODE
+   ===================================================== */
+
+body.dark-mode .welcome-marquee {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8,145,178,.04),
+            rgba(34,211,238,.07),
+            rgba(8,145,178,.04)
+        );
+
+    border-color:
+        rgba(34,211,238,.12);
+
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,.28);
+}
+
+
+body.dark-mode
+.welcome-marquee-item {
+
+    background:
+        rgba(15,23,42,.72);
+
+    border-color:
+        rgba(255,255,255,.08);
+
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,.25);
+}
+
+
+body.dark-mode
+.welcome-marquee-text strong {
+
+    color:
+        #f8fafc;
+}
+
+
+body.dark-mode
+.welcome-marquee-text small {
+
+    color:
+        #94a3b8;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width:600px) {
+
+    .welcome-marquee {
+
+        height: 62px;
+
+        margin-top:
+            calc(var(--navbar-height) + 8px);
+    }
+
+
+    .welcome-marquee-track {
+
+        gap: 45px;
+
+        animation-duration:
+            13s;
+    }
+
+
+    .welcome-marquee-item {
+
+        min-width: 300px;
+
+        padding:
+            8px 13px;
+
+        gap: 10px;
+
+        border-radius: 15px;
+    }
+
+
+    .welcome-marquee-icon {
+
+        width: 35px;
+        height: 35px;
+
+        border-radius: 11px;
+
+        font-size: 14px;
+    }
+
+
+    .welcome-marquee-text strong {
+
+        font-size:
+            9px;
+
+        letter-spacing:
+            .7px;
+    }
+
+
+    .welcome-marquee-text small {
+
+        font-size:
+            7px;
+
+        letter-spacing:
+            1px;
+    }
+
+
+    .welcome-marquee-star {
+
+        width: 23px;
+        height: 23px;
+
+        font-size: 8px;
+    }
+
+
+    .welcome-marquee::before,
+    .welcome-marquee::after {
+
+        width: 65px;
+    }
+
+}
+
+/* =====================================================
    NAVIGATION MENU
    ===================================================== */
 
