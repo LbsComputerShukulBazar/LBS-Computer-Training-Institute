@@ -4753,3 +4753,315 @@ faqQuestions.forEach(function(question) {
 
 });
 
+
+/* =====================================================
+   NOTICE DETAILS POPUP
+   ===================================================== */
+
+const noticePopup =
+    document.getElementById("noticePopup");
+
+const noticePopupClose =
+    document.getElementById("noticePopupClose");
+
+const noticePopupDone =
+    document.getElementById("noticePopupDone");
+
+const noticePopupOverlay =
+    document.querySelector(
+        ".notice-popup-overlay"
+    );
+
+const noticePopupTitle =
+    document.getElementById(
+        "noticePopupTitle"
+    );
+
+const noticePopupText =
+    document.getElementById(
+        "noticePopupText"
+    );
+
+const noticePopupBadge =
+    document.getElementById(
+        "noticePopupBadge"
+    );
+
+const noticePopupDate =
+    document.getElementById(
+        "noticePopupDate"
+    );
+
+const noticePopupIcon =
+    document.getElementById(
+        "noticePopupIcon"
+    );
+
+
+/* =====================================================
+   NOTICE DATA
+   ===================================================== */
+
+const noticeDetails = [
+
+    {
+        title:
+            "New Course Admissions Open",
+
+        badge:
+            "NEW",
+
+        date:
+            "Latest Update",
+
+        icon:
+            "fa-graduation-cap",
+
+        text:
+            "Admissions are now open for selected computer training courses at LBS Computer Training Institute. Students can explore the available courses, eligibility, duration and fee details from the Courses section."
+    },
+
+
+    {
+        title:
+            "Online Examination Update",
+
+        badge:
+            "EXAM",
+
+        date:
+            "Important Notice",
+
+        icon:
+            "fa-laptop-code",
+
+        text:
+            "Students can check the examination section for available online examination information and instructions. Please read all examination instructions carefully before starting the examination."
+    },
+
+
+    {
+        title:
+            "Certificate Download Available",
+
+        badge:
+            "UPDATE",
+
+        date:
+            "Student Update",
+
+        icon:
+            "fa-certificate",
+
+        text:
+            "Eligible students can view their certificate and download the digital certificate after completing the required examination process."
+    },
+
+
+    {
+        title:
+            "Important Student Information",
+
+        badge:
+            "INFO",
+
+        date:
+            "Institute Notice",
+
+        icon:
+            "fa-circle-info",
+
+        text:
+            "Students are advised to regularly check the LBS Computer Training Institute website for important updates, examination information, results, certificates and institute announcements."
+    }
+
+];
+
+
+/* =====================================================
+   OPEN POPUP
+   ===================================================== */
+
+function openNoticePopup(index) {
+
+    if (!noticePopup) {
+        return;
+    }
+
+    const notice =
+        noticeDetails[index];
+
+    if (!notice) {
+        return;
+    }
+
+
+    /* Title */
+
+    if (noticePopupTitle) {
+
+        noticePopupTitle.textContent =
+            notice.title;
+
+    }
+
+
+    /* Description */
+
+    if (noticePopupText) {
+
+        noticePopupText.textContent =
+            notice.text;
+
+    }
+
+
+    /* Badge */
+
+    if (noticePopupBadge) {
+
+        noticePopupBadge.textContent =
+            notice.badge;
+
+    }
+
+
+    /* Date */
+
+    if (noticePopupDate) {
+
+        noticePopupDate.innerHTML =
+            '<i class="fa-regular fa-calendar"></i> ' +
+            notice.date;
+
+    }
+
+
+    /* Icon */
+
+    if (noticePopupIcon) {
+
+        noticePopupIcon.innerHTML =
+            '<i class="fa-solid ' +
+            notice.icon +
+            '"></i>';
+
+    }
+
+
+    /* Show */
+
+    noticePopup.classList.add(
+        "show"
+    );
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+/* =====================================================
+   CLOSE POPUP
+   ===================================================== */
+
+function closeNoticePopup() {
+
+    if (!noticePopup) {
+        return;
+    }
+
+    noticePopup.classList.remove(
+        "show"
+    );
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+/* =====================================================
+   READ MORE BUTTONS
+   ===================================================== */
+
+const noticeReadMoreButtons =
+    document.querySelectorAll(
+        ".notice-read-more"
+    );
+
+
+noticeReadMoreButtons.forEach(
+    function(button, index) {
+
+        button.addEventListener(
+            "click",
+            function() {
+
+                openNoticePopup(
+                    index
+                );
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   CLOSE EVENTS
+   ===================================================== */
+
+if (noticePopupClose) {
+
+    noticePopupClose.addEventListener(
+        "click",
+        closeNoticePopup
+    );
+
+}
+
+
+if (noticePopupDone) {
+
+    noticePopupDone.addEventListener(
+        "click",
+        closeNoticePopup
+    );
+
+}
+
+
+if (noticePopupOverlay) {
+
+    noticePopupOverlay.addEventListener(
+        "click",
+        closeNoticePopup
+    );
+
+}
+
+
+/* =====================================================
+   ESC KEY
+   ===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape" &&
+            noticePopup &&
+            noticePopup.classList.contains(
+                "show"
+            )
+        ) {
+
+            closeNoticePopup();
+
+        }
+
+    }
+);
