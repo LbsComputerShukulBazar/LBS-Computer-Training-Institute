@@ -977,79 +977,96 @@ async function downloadCoursePDF() {
             
 
 
-        /* Create PDF */
+        /* =====================================================
+   CREATE PDF — CLEAN PAGE BREAK
+   ===================================================== */
 
-        const {
-            jsPDF
-        } = window.jspdf;
+const pdf =
+    new jsPDF(
+        "p",
+        "mm",
+        "a4"
+    );
 
+const pageWidth =
+    pdf.internal.pageSize.getWidth();
 
-        const pdf =
-            new jsPDF(
-                "p",
-                "mm",
-                "a4"
-            );
-
-
-        const pageWidth =
-            pdf.internal.pageSize.getWidth();
-
-        const pageHeight =
-            pdf.internal.pageSize.getHeight();
+const pageHeight =
+    pdf.internal.pageSize.getHeight();
 
 
-        const imageWidth =
-            pageWidth - 20;
+/*
+ * PDF margins
+ */
 
-        const imageHeight =
-            canvas.height *
-            imageWidth /
-            canvas.width;
+const marginX = 10;
+const marginY = 10;
 
+const usableWidth =
+    pageWidth - (marginX * 2);
 
-        let heightLeft =
-            imageHeight;
-
-        let position = 10;
-
-
-        pdf.addImage(
-            imageData,
-            "PNG",
-            10,
-            position,
-            imageWidth,
-            imageHeight
-        );
+const usableHeight =
+    pageHeight - (marginY * 2);
 
 
-        heightLeft -=
-            pageHeight - 20;
+/*
+ * Image size
+ */
+
+const imageWidth =
+    usableWidth;
+
+const imageHeight =
+    (canvas.height * imageWidth) /
+    canvas.width;
 
 
-        while (heightLeft > 0) {
+/*
+ * First page
+ */
 
-            position =
-                heightLeft -
-                imageHeight +
-                10;
+let remainingHeight =
+    imageHeight;
 
-            pdf.addPage();
+let sourcePosition = 0;
 
-            pdf.addImage(
-                imageData,
-                "PNG",
-                10,
-                position,
-                imageWidth,
-                imageHeight
-            );
+pdf.addImage(
+    imageData,
+    "PNG",
+    marginX,
+    marginY,
+    imageWidth,
+    imageHeight
+);
 
-            heightLeft -=
-                pageHeight - 20;
 
-        }
+/*
+ * Remaining pages
+ */
+
+remainingHeight -= usableHeight;
+
+
+while (remainingHeight > 0) {
+
+    pdf.addPage();
+
+    sourcePosition =
+        remainingHeight - imageHeight + marginY;
+
+    pdf.addImage(
+        imageData,
+        "PNG",
+        marginX,
+        sourcePosition,
+        imageWidth,
+        imageHeight
+    );
+
+    remainingHeight -=
+        usableHeight;
+
+}
 
 
         /* Download */
