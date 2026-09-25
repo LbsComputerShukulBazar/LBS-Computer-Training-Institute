@@ -5727,3 +5727,113 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 });
+
+/* =====================================================
+   PREMIUM LOCATION — SCROLL REVEAL
+   ===================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const locationSection =
+        document.querySelector(".premium-location-section");
+
+    if (!locationSection) return;
+
+
+    /* Elements */
+
+    const locationHeading =
+        locationSection.querySelector(".location-heading");
+
+    const locationInfo =
+        locationSection.querySelector(".location-info-card");
+
+    const locationMap =
+        locationSection.querySelector(".location-map-card");
+
+
+    /* Initial state */
+
+    if (locationHeading)
+        locationHeading.classList.add("location-hidden");
+
+    if (locationInfo)
+        locationInfo.classList.add("location-hidden-left");
+
+    if (locationMap)
+        locationMap.classList.add("location-hidden-right");
+
+
+    /* Observer */
+
+    const locationObserver =
+        new IntersectionObserver(
+            (entries, observer) => {
+
+                entries.forEach(entry => {
+
+                    if (!entry.isIntersecting)
+                        return;
+
+
+                    /* Heading */
+
+                    if (locationHeading) {
+
+                        locationHeading.classList.add(
+                            "location-show"
+                        );
+
+                    }
+
+
+                    /* Left card */
+
+                    if (locationInfo) {
+
+                        setTimeout(() => {
+
+                            locationInfo.classList.add(
+                                "location-show"
+                            );
+
+                        }, 180);
+
+                    }
+
+
+                    /* Map */
+
+                    if (locationMap) {
+
+                        setTimeout(() => {
+
+                            locationMap.classList.add(
+                                "location-show"
+                            );
+
+                        }, 350);
+
+                    }
+
+
+                    /* Run only once */
+
+                    observer.unobserve(
+                        locationSection
+                    );
+
+                });
+
+            },
+            {
+                threshold: 0.18
+            }
+        );
+
+
+    locationObserver.observe(
+        locationSection
+    );
+
+});
