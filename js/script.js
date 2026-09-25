@@ -5517,3 +5517,84 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 });
+/* =====================================================
+   WHY CHOOSE US — SCROLL REVEAL
+   ===================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const whyCards =
+        document.querySelectorAll(".why-card");
+
+    if (!whyCards.length) return;
+
+
+    /* Initially hidden */
+
+    whyCards.forEach(card => {
+
+        card.classList.add("why-card-hidden");
+
+    });
+
+
+    /* Observer */
+
+    const whyObserver =
+        new IntersectionObserver(
+
+            (entries, observer) => {
+
+                entries.forEach(entry => {
+
+                    if (!entry.isIntersecting) return;
+
+
+                    const card =
+                        entry.target;
+
+
+                    const delay =
+                        Number(
+                            card.dataset.revealDelay || 0
+                        );
+
+
+                    setTimeout(() => {
+
+                        card.classList.remove(
+                            "why-card-hidden"
+                        );
+
+                        card.classList.add(
+                            "why-card-visible"
+                        );
+
+                    }, delay);
+
+
+                    observer.unobserve(card);
+
+                });
+
+            },
+
+            {
+                threshold: 0.15
+            }
+
+        );
+
+
+    /* Observe cards */
+
+    whyCards.forEach((card, index) => {
+
+        card.dataset.revealDelay =
+            index * 100;
+
+        whyObserver.observe(card);
+
+    });
+
+});
