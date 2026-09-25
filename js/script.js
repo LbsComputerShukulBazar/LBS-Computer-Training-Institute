@@ -5837,3 +5837,44 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 });
+/* =====================================================
+   GALLERY TEASER — SCROLL REVEAL
+   ===================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const galleryCard =
+        document.querySelector(".gallery-teaser-card");
+
+    if (!galleryCard) return;
+
+    const galleryObserver =
+        new IntersectionObserver(
+            (entries, observer) => {
+
+                entries.forEach(entry => {
+
+                    if (!entry.isIntersecting)
+                        return;
+
+                    galleryCard.classList.add(
+                        "gallery-visible"
+                    );
+
+                    observer.unobserve(
+                        galleryCard
+                    );
+
+                });
+
+            },
+            {
+                threshold: 0.18
+            }
+        );
+
+    galleryObserver.observe(
+        galleryCard
+    );
+
+});
