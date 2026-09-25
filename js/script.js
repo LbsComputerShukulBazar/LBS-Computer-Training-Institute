@@ -5598,3 +5598,132 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+
+/* =====================================================
+   DIRECTOR'S MESSAGE — MODAL
+   ===================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const openBtn =
+        document.getElementById(
+            "openDirectorMessage"
+        );
+
+    const closeBtn =
+        document.getElementById(
+            "closeDirectorMessage"
+        );
+
+    const modal =
+        document.getElementById(
+            "directorMessageModal"
+        );
+
+    const overlay =
+        document.getElementById(
+            "directorModalOverlay"
+        );
+
+
+    /* Safety check */
+
+    if (
+        !openBtn ||
+        !closeBtn ||
+        !modal
+    ) {
+        return;
+    }
+
+
+    /* =========================
+       OPEN MODAL
+       ========================= */
+
+    function openDirectorModal() {
+
+        modal.classList.add("active");
+
+        modal.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        document.body.style.overflow =
+            "hidden";
+
+    }
+
+
+    /* =========================
+       CLOSE MODAL
+       ========================= */
+
+    function closeDirectorModal() {
+
+        modal.classList.remove("active");
+
+        modal.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        document.body.style.overflow =
+            "";
+
+    }
+
+
+    /* =========================
+       BUTTON
+       ========================= */
+
+    openBtn.addEventListener(
+        "click",
+        openDirectorModal
+    );
+
+
+    closeBtn.addEventListener(
+        "click",
+        closeDirectorModal
+    );
+
+
+    /* =========================
+       OVERLAY CLICK
+       ========================= */
+
+    if (overlay) {
+
+        overlay.addEventListener(
+            "click",
+            closeDirectorModal
+        );
+
+    }
+
+
+    /* =========================
+       ESC KEY
+       ========================= */
+
+    document.addEventListener(
+        "keydown",
+        (event) => {
+
+            if (
+                event.key === "Escape" &&
+                modal.classList.contains("active")
+            ) {
+
+                closeDirectorModal();
+
+            }
+
+        }
+    );
+
+});
