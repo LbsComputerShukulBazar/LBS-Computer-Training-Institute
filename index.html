@@ -6715,115 +6715,104 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
             /* =============================================
-               CREATE CARDS
-               ============================================= */
+   CREATE PREMIUM TOP 5 CARDS
+   ============================================= */
 
-            topStudentsList.innerHTML =
-                topFive.map(function (student, index) {
+topStudentsList.innerHTML =
+    topFive.map(function (student, index) {
 
-                    let studentIcon = "👨‍🎓";
+        return `
 
-                    if (index === 0) {
-                        studentIcon = "🏆";
-                    }
-
-                    else if (index === 1) {
-                        studentIcon = "🥈";
-                    }
-
-                    else if (index === 2) {
-                        studentIcon = "🥉";
-                    }
-
-                    else if (index === 3) {
-                        studentIcon = "🧑‍💻";
-                    }
-
-                    else if (index === 4) {
-                        studentIcon = "🎓";
-                    }
+            <div class="top-student-card">
 
 
-                    return `
+                <!-- RANK -->
 
-                        <div class="top-student-card">
+                <div class="top-student-rank">
 
+                    #${index + 1}
 
-                            <div class="top-student-rank">
-
-                                #${index + 1}
-
-                            </div>
+                </div>
 
 
-                            <div class="top-student-avatar">
+                <!-- DEFAULT USER PROFILE -->
 
-                                ${studentIcon}
+                <div class="top-student-avatar">
 
-                            </div>
+                    <i class="fa-solid fa-user"></i>
 
-
-                            <h3 class="top-student-name">
-
-                                ${escapeHTML(
-                                    student.studentName ||
-                                    "Student"
-                                )}
-
-                            </h3>
+                </div>
 
 
-                            <span class="top-student-course">
+                <!-- STUDENT INFORMATION -->
 
-                                ${escapeHTML(
-                                    student.course ||
-                                    "Course"
-                                )}
+                <div class="top-student-info">
 
-                            </span>
+                    <h3 class="top-student-name">
 
+                        ${escapeHTML(
+                            student.studentName ||
+                            "Student"
+                        )}
 
-                            <div class="top-student-score">
-
-                                <span>
-                                    SCORE
-                                </span>
-
-                                <strong>
-
-                                    ${
-                                        student.correctAnswers || 0
-                                    }
-
-                                    /
-
-                                    ${
-                                        student.totalQuestions || 0
-                                    }
-
-                                </strong>
-
-                            </div>
+                    </h3>
 
 
-                            <div class="top-student-percentage">
+                    <span class="top-student-course">
 
-                                <i class="fa-solid fa-chart-line"></i>
+                        ${escapeHTML(
+                            student.course ||
+                            "Course"
+                        )}
 
-                                ${
-                                    Number(
-                                        student.percentage || 0
-                                    ).toFixed(2)
-                                }%
+                    </span>
 
-                            </div>
+                </div>
 
 
-                        </div>
+                <!-- SCORE -->
 
-                    `;
+                <div class="top-student-score">
 
-                }).join("");
+                    <span>
+                        SCORE
+                    </span>
+
+                    <strong>
+
+                        ${
+                            student.correctAnswers || 0
+                        }
+
+                        /
+
+                        ${
+                            student.totalQuestions || 0
+                        }
+
+                    </strong>
+
+                </div>
+
+
+                <!-- PERCENTAGE -->
+
+                <div class="top-student-percentage">
+
+                    ${
+                        Number(
+                            student.percentage || 0
+                        ).toFixed(2)
+                    }%
+
+                </div>
+
+
+            </div>
+
+        `;
+
+    }).join("");
 
         });
 
