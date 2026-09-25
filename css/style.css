@@ -26270,3 +26270,776 @@ body.dark-mode .top-student-card {
     }
 
 }
+
+/* =====================================================
+   PREMIUM GALLERY TEASER
+   ===================================================== */
+
+.gallery-teaser-section {
+    position: relative;
+    padding: 100px 20px;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 50%,
+            rgba(8,145,178,.08),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(34,211,238,.06),
+            transparent 30%
+        );
+}
+
+
+/* =====================================================
+   MAIN CARD
+   ===================================================== */
+
+.gallery-teaser-card {
+    position: relative;
+
+    width: min(1050px, 100%);
+    min-height: 360px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 65px 35px;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(8,145,178,.08),
+            var(--surface),
+            rgba(34,211,238,.05)
+        );
+
+    border:
+        1px solid
+        rgba(8,145,178,.18);
+
+    box-shadow:
+        0 30px 80px
+        rgba(15,23,42,.09);
+
+    isolation: isolate;
+}
+
+
+/* =====================================================
+   CARD GLOW
+   ===================================================== */
+
+.gallery-teaser-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 330px;
+    height: 330px;
+
+    top: -180px;
+    left: -120px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(34,211,238,.10);
+
+    filter:
+        blur(45px);
+
+    z-index: -1;
+}
+
+.gallery-teaser-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    right: -130px;
+    bottom: -180px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(8,145,178,.09);
+
+    filter:
+        blur(45px);
+
+    z-index: -1;
+}
+
+
+/* =====================================================
+   CONTENT
+   ===================================================== */
+
+.gallery-teaser-content {
+    position: relative;
+
+    max-width: 700px;
+
+    z-index: 5;
+}
+
+
+/* =====================================================
+   LABEL
+   ===================================================== */
+
+.gallery-label {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        9px 17px;
+
+    border-radius:
+        50px;
+
+    color:
+        #0891b2;
+
+    background:
+        rgba(8,145,178,.08);
+
+    border:
+        1px solid
+        rgba(8,145,178,.18);
+
+    font-size:
+        10px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1.8px;
+}
+
+
+/* =====================================================
+   HEADING
+   ===================================================== */
+
+.gallery-teaser-content h2 {
+
+    margin:
+        20px 0 15px;
+
+    color:
+        var(--text);
+
+    font-size:
+        clamp(38px,5vw,62px);
+
+    line-height:
+        1;
+
+    font-weight:
+        950;
+
+    letter-spacing:
+        -2.5px;
+}
+
+.gallery-teaser-content h2 span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #0891b2,
+            #06b6d4,
+            #22d3ee,
+            #0891b2
+        );
+
+    background-size:
+        200% auto;
+
+    -webkit-background-clip:
+        text;
+
+    background-clip:
+        text;
+
+    -webkit-text-fill-color:
+        transparent;
+
+    animation:
+        galleryGradient
+        4s linear infinite;
+}
+
+@keyframes galleryGradient {
+
+    0% {
+        background-position:
+            0% center;
+    }
+
+    100% {
+        background-position:
+            200% center;
+    }
+
+}
+
+
+/* =====================================================
+   DESCRIPTION
+   ===================================================== */
+
+.gallery-teaser-content p {
+
+    max-width:
+        620px;
+
+    margin:
+        0 auto;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.85;
+}
+
+
+/* =====================================================
+   SHOW GALLERY BUTTON
+   ===================================================== */
+
+.gallery-show-btn {
+
+    position:
+        relative;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        18px;
+
+    margin-top:
+        28px;
+
+    padding:
+        14px 18px 14px 20px;
+
+    color:
+        #fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0891b2,
+            #06b6d4
+        );
+
+    border-radius:
+        15px;
+
+    text-decoration:
+        none;
+
+    font-size:
+        11px;
+
+    font-weight:
+        900;
+
+    box-shadow:
+        0 12px 30px
+        rgba(8,145,178,.28);
+
+    overflow:
+        hidden;
+
+    transition:
+        .35s ease;
+}
+
+.gallery-show-btn::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        -100%;
+
+    width:
+        70%;
+
+    height:
+        100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.25),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        .6s ease;
+}
+
+.gallery-show-btn:hover::before {
+
+    left:
+        130%;
+}
+
+.gallery-show-btn:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 18px 40px
+        rgba(8,145,178,.38);
+}
+
+.gallery-show-btn span {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        9px;
+}
+
+.gallery-show-btn > i {
+
+    width:
+        30px;
+
+    height:
+        30px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        9px;
+
+    background:
+        rgba(255,255,255,.16);
+
+    transition:
+        transform .3s ease;
+}
+
+.gallery-show-btn:hover > i {
+
+    transform:
+        translateX(4px);
+}
+
+
+/* =====================================================
+   FLOATING ICONS
+   ===================================================== */
+
+.gallery-floating-icon {
+
+    position:
+        absolute;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        55px;
+
+    height:
+        55px;
+
+    border-radius:
+        17px;
+
+    color:
+        #0891b2;
+
+    background:
+        rgba(255,255,255,.55);
+
+    border:
+        1px solid
+        rgba(8,145,178,.15);
+
+    box-shadow:
+        0 12px 30px
+        rgba(15,23,42,.08);
+
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
+
+    font-size:
+        18px;
+
+    animation:
+        galleryFloat
+        4s ease-in-out infinite;
+}
+
+.icon-one {
+
+    left:
+        7%;
+
+    top:
+        28%;
+
+    animation-delay:
+        0s;
+}
+
+.icon-two {
+
+    right:
+        8%;
+
+    top:
+        22%;
+
+    animation-delay:
+        .8s;
+}
+
+.icon-three {
+
+    right:
+        13%;
+
+    bottom:
+        18%;
+
+    animation-delay:
+        1.5s;
+}
+
+@keyframes galleryFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-12px)
+            rotate(5deg);
+    }
+
+}
+
+
+/* =====================================================
+   FLOATING STARS
+   ===================================================== */
+
+.gallery-floating-star {
+
+    position:
+        absolute;
+
+    color:
+        #22d3ee;
+
+    font-size:
+        13px;
+
+    opacity:
+        .7;
+
+    animation:
+        galleryStar
+        3s ease-in-out infinite;
+}
+
+.gallery-floating-star.star-one {
+
+    top:
+        16%;
+
+    left:
+        25%;
+}
+
+.gallery-floating-star.star-two {
+
+    right:
+        25%;
+
+    bottom:
+        20%;
+
+    animation-delay:
+        1s;
+}
+
+@keyframes galleryStar {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity:
+            .35;
+    }
+
+    50% {
+        transform:
+            translateY(-10px)
+            rotate(25deg);
+
+        opacity:
+            1;
+    }
+
+}
+
+
+/* =====================================================
+   DARK MODE
+   ===================================================== */
+
+body.dark-mode .gallery-teaser-card {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(8,145,178,.10),
+            rgba(15,23,42,.88),
+            rgba(34,211,238,.05)
+        );
+
+    border-color:
+        rgba(34,211,238,.15);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.30);
+}
+
+body.dark-mode .gallery-floating-icon {
+
+    background:
+        rgba(15,23,42,.75);
+
+    border-color:
+        rgba(34,211,238,.15);
+}
+
+
+/* =====================================================
+   SCROLL REVEAL
+   ===================================================== */
+
+.gallery-teaser-card {
+
+    opacity:
+        0;
+
+    transform:
+        translateY(45px)
+        scale(.97);
+
+    transition:
+        opacity .8s ease,
+        transform .9s
+        cubic-bezier(.16,1,.3,1);
+}
+
+.gallery-teaser-card.gallery-visible {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    .gallery-teaser-section {
+
+        padding:
+            75px 14px;
+    }
+
+    .gallery-teaser-card {
+
+        min-height:
+            390px;
+
+        padding:
+            55px 22px;
+
+        border-radius:
+            27px;
+    }
+
+    .gallery-teaser-content h2 {
+
+        font-size:
+            38px;
+
+        letter-spacing:
+            -1.5px;
+    }
+
+    .gallery-teaser-content p {
+
+        font-size:
+            11px;
+
+        line-height:
+            1.8;
+    }
+
+    .gallery-floating-icon {
+
+        width:
+            43px;
+
+        height:
+            43px;
+
+        border-radius:
+            13px;
+
+        font-size:
+            14px;
+    }
+
+    .icon-one {
+
+        left:
+            5%;
+
+        top:
+            14%;
+    }
+
+    .icon-two {
+
+        right:
+            5%;
+
+        top:
+            12%;
+    }
+
+    .icon-three {
+
+        right:
+            7%;
+
+        bottom:
+            10%;
+    }
+
+    .gallery-floating-star {
+
+        display:
+            none;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+   ===================================================== */
+
+@media (max-width: 400px) {
+
+    .gallery-teaser-card {
+
+        min-height:
+            400px;
+
+        padding:
+            50px 18px;
+    }
+
+    .gallery-teaser-content h2 {
+
+        font-size:
+            33px;
+    }
+
+    .gallery-show-btn {
+
+        padding:
+            12px 15px 12px 16px;
+    }
+
+}
