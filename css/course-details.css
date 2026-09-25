@@ -1512,70 +1512,7 @@
 }
 
 
-/* =====================================================
-   FOOTER
-   ===================================================== */
 
-.course-footer {
-
-    padding:
-        25px 0;
-
-    color: #cbd5e1;
-
-    background:
-        #111827;
-
-}
-
-
-.course-footer-content {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 20px;
-
-}
-
-
-.course-footer-content > div {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 5px;
-
-}
-
-
-.course-footer-content strong {
-
-    color: #ffffff;
-
-    font-size: 12px;
-
-}
-
-
-.course-footer-content span {
-
-    color: #94a3b8;
-
-    font-size: 9px;
-
-}
-
-
-.course-footer-copy {
-
-    white-space: nowrap;
-
-}
 
 
 /* =====================================================
