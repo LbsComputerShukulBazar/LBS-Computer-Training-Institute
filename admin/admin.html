@@ -1,0 +1,6483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="LBS Computer Training Institute - Computer Education, Courses, Online Admission and Online Examination">
+
+    <title>LBS Computer Training Institute</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="site-header">
+
+        <nav class="navbar">
+
+            <!-- Logo / Institute Name -->
+            <a href="#home" class="brand">
+
+  <div class="brand-logo">
+    <img src="/images/logo.png" alt="LBS Computer Training Institute Logo">
+  </div>
+  
+  <div class="brand-text">
+    <span class="brand-name">LBS</span>
+    <span class="brand-subtitle">
+      Computer Training Institute
+    </span>
+  </div>
+  
+</a>
+
+
+            <!-- Navigation Links -->
+            <ul class="nav-menu">
+
+                <li>
+                    <a href="index.html#home" class="nav-link active">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#about" class="nav-link">
+                        <i class="fa-solid fa-building-columns"></i>
+                        <span>About</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/index.html#courses" class="nav-link">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <span>Courses</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#syllabus" class="nav-link">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>Syllabus</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#admission" class="nav-link">
+                        <i class="fa-solid fa-file-signature"></i>
+                        <span>Admission</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#student" class="nav-link">
+                        <i class="fa-solid fa-user-graduate"></i>
+                        <span>Student</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#exam" class="nav-link">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        <span>Online Exam</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#scorecard" class="nav-link">
+                        <i class="fa-solid fa-chart-column"></i>
+                        <span>Scorecard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#gallery" class="nav-link">
+                        <i class="fa-solid fa-images"></i>
+                        <span>Gallery</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact" class="nav-link">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <!-- Navbar Actions -->
+            <div class="nav-actions">
+
+                <!-- Dark / Light Mode -->
+                <button
+                    class="theme-toggle"
+                    id="themeToggle"
+                    type="button"
+                    aria-label="Toggle dark mode">
+
+                    <i class="fa-solid fa-moon"></i>
+
+                </button>
+                <button type="button" class="admin-logout-btn" id="adminLogoutBtn">
+    <i class="fa-solid fa-right-from-bracket"></i>
+    <span>Logout</span>
+</button>
+                <!-- Mobile Menu -->
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+            </div>
+
+        </nav>
+
+    </header>
+    
+    
+    
+    <!-- =====================================================
+     PREMIUM ADMIN DASHBOARD
+     ===================================================== -->
+
+<main class="admin-dashboard">
+
+    <!-- ================= DASHBOARD HEADER ================= -->
+
+   <section class="dashboard-header">
+
+        <div class="dashboard-heading">
+
+            <div class="dashboard-icon">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+            <div>
+                <span class="dashboard-eyebrow">
+                    LBS ADMINISTRATION
+                </span>
+
+                <h1>
+                    Admin Dashboard
+                </h1>
+
+                <p>
+                    Manage students, fees and institute
+                    activities from one place.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-status">
+
+            <span class="status-dot"></span>
+
+            <span>
+                System Active
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MAIN STAT CARDS ================= -->
+
+    <section class="dashboard-stats">
+
+
+        <!-- TOTAL STUDENTS -->
+
+        <article class="dashboard-card students-card">
+
+            <div class="dashboard-card-top">
+
+                <div class="dashboard-card-icon">
+                    <i class="fa-solid fa-user-graduate"></i>
+                </div>
+
+                <span class="dashboard-card-label">
+                    STUDENTS
+                </span>
+
+            </div>
+
+            <div class="dashboard-card-content">
+
+                <h2
+                    class="dashboard-number"
+                    id="totalStudents"
+                    data-value="0">
+                    0
+                </h2>
+
+                <p>
+                    Total Students
+                </p>
+
+            </div>
+
+            <div class="dashboard-card-footer">
+
+                <i class="fa-solid fa-users"></i>
+
+                <span>
+                    All registered students
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- ACTIVE STUDENTS -->
+
+        <article class="dashboard-card active-card">
+
+            <div class="dashboard-card-top">
+
+                <div class="dashboard-card-icon">
+                    <i class="fa-solid fa-user-check"></i>
+                </div>
+
+                <span class="dashboard-card-label">
+                    ACTIVE
+                </span>
+
+            </div>
+
+            <div class="dashboard-card-content">
+
+                <h2
+                    class="dashboard-number"
+                    id="activeStudents"
+                    data-value="0">
+                    0
+                </h2>
+
+                <p>
+                    Active Students
+                </p>
+
+            </div>
+
+            <div class="dashboard-card-footer">
+
+                <span class="live-dot"></span>
+
+                <span>
+                    Currently enrolled
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- COMPLETED STUDENTS -->
+
+        <article class="dashboard-card completed-card">
+
+            <div class="dashboard-card-top">
+
+                <div class="dashboard-card-icon">
+                    <i class="fa-solid fa-user-graduate"></i>
+                </div>
+
+                <span class="dashboard-card-label">
+                    COMPLETED
+                </span>
+
+            </div>
+
+            <div class="dashboard-card-content">
+
+                <h2
+                    class="dashboard-number"
+                    id="completedStudents"
+                    data-value="0">
+                    0
+                </h2>
+
+                <p>
+                    Completed Students
+                </p>
+
+            </div>
+
+            <div class="dashboard-card-footer">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <span>
+                    Course completed
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- TOTAL FEES -->
+
+        <article class="dashboard-card total-fees-card">
+
+            <div class="dashboard-card-top">
+
+                <div class="dashboard-card-icon">
+                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                </div>
+
+                <span class="dashboard-card-label">
+                    FEES
+                </span>
+
+            </div>
+
+            <div class="dashboard-card-content">
+
+                <h2 class="dashboard-money">
+
+                    <span>₹</span>
+
+                    <span
+                        class="dashboard-number"
+                        id="totalFees"
+                        data-value="0">
+                        0
+                    </span>
+
+                </h2>
+
+                <p>
+                    Total Fees
+                </p>
+
+            </div>
+
+            <div class="dashboard-card-footer">
+
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+
+                <span>
+                    Total payable amount
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- COLLECTED FEES -->
+
+        <article class="dashboard-card collected-card">
+
+            <div class="dashboard-card-top">
+
+                <div class="dashboard-card-icon">
+                    <i class="fa-solid fa-wallet"></i>
+                </div>
+
+                <span class="dashboard-card-label">
+                    COLLECTED
+                </span>
+
+            </div>
+
+            <div class="dashboard-card-content">
+
+                <h2 class="dashboard-money">
+
+                    <span>₹</span>
+
+                    <span
+                        class="dashboard-number"
+                        id="collectedFees"
+                        data-value="0">
+                        0
+                    </span>
+
+                </h2>
+
+                <p>
+                    Collected Fees
+                </p>
+
+            </div>
+
+            <div class="dashboard-card-footer">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <span>
+                    Successfully received
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- PENDING FEES -->
+
+        <article class="dashboard-card pending-card">
+
+            <div class="dashboard-card-top">
+
+                <div class="dashboard-card-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+
+                <span class="dashboard-card-label">
+                    PENDING
+                </span>
+
+            </div>
+
+            <div class="dashboard-card-content">
+
+                <h2 class="dashboard-money">
+
+                    <span>₹</span>
+
+                    <span
+                        class="dashboard-number"
+                        id="pendingFees"
+                        data-value="0">
+                        0
+                    </span>
+
+                </h2>
+
+                <p>
+                    Pending Fees
+                </p>
+
+            </div>
+
+            <div class="dashboard-card-footer">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                <span>
+                    Amount remaining
+                </span>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!-- =================================================
+         FEE COLLECTION BREAKDOWN
+         ================================================= -->
+
+    <section class="fee-breakdown-section">
+
+        <div class="section-heading">
+
+            <div class="section-heading-icon">
+                <i class="fa-solid fa-money-bill-transfer"></i>
+            </div>
+
+            <div>
+
+                <span>
+                    FEE MANAGEMENT
+                </span>
+
+                <h2>
+                    Collected Fees Breakdown
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="fee-breakdown-grid">
+
+
+            <!-- REGISTRATION -->
+
+            <div class="fee-breakdown-card">
+
+                <div class="fee-breakdown-icon">
+                    <i class="fa-solid fa-id-card"></i>
+                </div>
+
+                <div class="fee-breakdown-info">
+
+                    <span>
+                        Registration Fees
+                    </span>
+
+                    <strong>
+
+                        ₹<span
+                            class="fee-number"
+                            id="registrationFees"
+                            data-value="0">
+                            0
+                        </span>
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- MONTHLY -->
+
+            <div class="fee-breakdown-card">
+
+                <div class="fee-breakdown-icon">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+
+                <div class="fee-breakdown-info">
+
+                    <span>
+                        Monthly Fees
+                    </span>
+
+                    <strong>
+
+                        ₹<span
+                            class="fee-number"
+                            id="monthlyFees"
+                            data-value="0">
+                            0
+                        </span>
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXAM -->
+
+            <div class="fee-breakdown-card">
+
+                <div class="fee-breakdown-icon">
+                    <i class="fa-solid fa-file-pen"></i>
+                </div>
+
+                <div class="fee-breakdown-info">
+
+                    <span>
+                        Exam Fees
+                    </span>
+
+                    <strong>
+
+                        ₹<span
+                            class="fee-number"
+                            id="examFees"
+                            data-value="0">
+                            0
+                        </span>
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- BAG -->
+
+            <div class="fee-breakdown-card">
+
+                <div class="fee-breakdown-icon">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </div>
+
+                <div class="fee-breakdown-info">
+
+                    <span>
+                        Bag Fees
+                    </span>
+
+                    <strong>
+
+                        ₹<span
+                            class="fee-number"
+                            id="bagFees"
+                            data-value="0">
+                            0
+                        </span>
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- COLLECTION SUMMARY -->
+
+        <div class="collection-summary">
+
+            <div class="collection-summary-icon">
+                <i class="fa-solid fa-chart-pie"></i>
+            </div>
+
+            <div class="collection-summary-text">
+
+                <span>
+                    Total Collected
+                </span>
+
+                <strong>
+
+                    ₹<span
+                        id="breakdownTotal"
+                        class="fee-number"
+                        data-value="0">
+                        0
+                    </span>
+
+                </strong>
+
+                <small>
+                    Registration + Monthly + Exam + Bag
+                </small>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         DASHBOARD QUICK OVERVIEW
+         ================================================= -->
+
+    <section class="dashboard-overview">
+
+        <div class="overview-card">
+
+            <div class="overview-icon">
+                <i class="fa-solid fa-user-plus"></i>
+            </div>
+
+            <div>
+
+                <span>
+                    New Admissions
+                </span>
+
+                <strong
+                    id="newAdmissions"
+                    class="dashboard-number"
+                    data-value="0">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="overview-card">
+
+            <div class="overview-icon">
+                <i class="fa-solid fa-calendar-check"></i>
+            </div>
+
+            <div>
+
+                <span>
+                    Fee Payments
+                </span>
+
+                <strong
+                    id="totalPayments"
+                    class="dashboard-number"
+                    data-value="0">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="overview-card">
+
+            <div class="overview-icon">
+                <i class="fa-solid fa-receipt"></i>
+            </div>
+
+            <div>
+
+                <span>
+                    Payment Records
+                </span>
+
+                <strong
+                    id="paymentRecords"
+                    class="dashboard-number"
+                    data-value="0">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+<!-- =====================================================
+     ADMIN QUICK ACCESS
+     ===================================================== -->
+
+<section
+    class="admin-section quick-access-section"
+    id="quickAccess"
+>
+
+    <div class="section-heading">
+
+        <div class="section-heading-icon">
+            <i class="fa-solid fa-bolt"></i>
+        </div>
+
+        <div>
+
+            <span class="section-eyebrow">
+                QUICK NAVIGATION
+            </span>
+
+            <h2>
+                Quick Access
+            </h2>
+
+            <p>
+                Quickly access important sections of
+                your admin panel.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= QUICK ACCESS GRID ================= -->
+
+    <div class="quick-access-grid">
+
+
+        <!-- ADD STUDENT -->
+
+        <button
+            type="button"
+            class="quick-access-card quick-student"
+            data-target="addStudent"
+        >
+
+            <span class="quick-access-icon">
+                <i class="fa-solid fa-user-plus"></i>
+            </span>
+
+            <span class="quick-access-content">
+
+                <strong>
+                    Add Student
+                </strong>
+
+                <small>
+                    Register a new student
+                </small>
+
+            </span>
+
+            <i class="fa-solid fa-arrow-right quick-access-arrow"></i>
+
+        </button>
+
+
+        <!-- MANAGE STUDENTS -->
+
+        <button
+            type="button"
+            class="quick-access-card quick-manage"
+            data-target="manageStudents"
+        >
+
+            <span class="quick-access-icon">
+                <i class="fa-solid fa-users"></i>
+            </span>
+
+            <span class="quick-access-content">
+
+                <strong>
+                    Manage Students
+                </strong>
+
+                <small>
+                    View and manage students
+                </small>
+
+            </span>
+
+            <i class="fa-solid fa-arrow-right quick-access-arrow"></i>
+
+        </button>
+
+
+        <!-- FEES -->
+
+        <button
+            type="button"
+            class="quick-access-card quick-fees"
+            data-target="feesManagement"
+        >
+
+            <span class="quick-access-icon">
+                <i class="fa-solid fa-money-bill-wave"></i>
+            </span>
+
+            <span class="quick-access-content">
+
+                <strong>
+                    Fees Management
+                </strong>
+
+                <small>
+                    Manage student fee payments
+                </small>
+
+            </span>
+
+            <i class="fa-solid fa-arrow-right quick-access-arrow"></i>
+
+        </button>
+
+
+        <!-- FEE BREAKDOWN -->
+
+        <button
+            type="button"
+            class="quick-access-card quick-breakdown"
+            data-target="feeBreakdown"
+        >
+
+            <span class="quick-access-icon">
+                <i class="fa-solid fa-chart-pie"></i>
+            </span>
+
+            <span class="quick-access-content">
+
+                <strong>
+                    Fee Breakdown
+                </strong>
+
+                <small>
+                    View collected fee details
+                </small>
+
+            </span>
+
+            <i class="fa-solid fa-arrow-right quick-access-arrow"></i>
+
+        </button>
+
+
+        <!-- EXPENSE MANAGEMENT -->
+
+        <button
+            type="button"
+            class="quick-access-card quick-expense"
+            data-target="expenseManagement"
+        >
+
+            <span class="quick-access-icon">
+                <i class="fa-solid fa-wallet"></i>
+            </span>
+
+            <span class="quick-access-content">
+
+                <strong>
+                    Expense Management
+                </strong>
+
+                <small>
+                    Record institute expenses
+                </small>
+
+            </span>
+
+            <i class="fa-solid fa-arrow-right quick-access-arrow"></i>
+
+        </button>
+
+
+        <!-- EXPENSE HISTORY -->
+
+        <button
+            type="button"
+            class="quick-access-card quick-expense-history"
+            data-target="expenseHistory"
+        >
+
+            <span class="quick-access-icon">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+            </span>
+
+            <span class="quick-access-content">
+
+                <strong>
+                    Expense History
+                </strong>
+
+                <small>
+                    View and manage expenses
+                </small>
+
+            </span>
+
+            <i class="fa-solid fa-arrow-right quick-access-arrow"></i>
+
+        </button>
+
+
+        <!-- TRANSACTION HISTORY -->
+
+        <button
+            type="button"
+            class="quick-access-card quick-transactions"
+            data-target="transactionHistory"
+        >
+
+            <span class="quick-access-icon">
+                <i class="fa-solid fa-money-bill-transfer"></i>
+            </span>
+
+            <span class="quick-access-content">
+
+                <strong>
+                    Transaction History
+                </strong>
+
+                <small>
+                    View all income and expenses
+                </small>
+
+            </span>
+
+            <i class="fa-solid fa-arrow-right quick-access-arrow"></i>
+
+        </button>
+
+
+    </div>
+
+</section>
+    
+
+<!-- =====================================================
+     ADD STUDENT SECTION
+     ===================================================== -->
+
+<section class="admin-section add-student-section" id="addStudent">
+
+    <div class="section-heading">
+
+        <div class="section-heading-icon">
+            <i class="fa-solid fa-user-plus"></i>
+        </div>
+
+        <div>
+            <span class="section-eyebrow">
+                STUDENT MANAGEMENT
+            </span>
+
+            <h2>Add New Student</h2>
+
+            <p>
+                Register a new student with complete personal,
+                contact, address and course information.
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- ================= FORM CARD ================= -->
+
+    <div class="student-form-card">
+
+        <form id="addStudentForm" autocomplete="off">
+
+
+            <!-- =================================================
+                 STUDENT IDENTITY
+                 ================================================= -->
+
+            <div class="form-section">
+
+                <div class="form-section-title">
+
+                    <div class="form-section-icon">
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+
+                    <div>
+                        <h3>Student Identity</h3>
+
+                        <p>
+                            Basic identification information
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <!-- ROLL NUMBER -->
+
+                    <div class="form-group">
+
+                        <label for="studentRollNumber">
+                            <i class="fa-solid fa-hashtag"></i>
+                            Student Roll Number
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="fa-solid fa-fingerprint"></i>
+
+                            <input
+                                type="text"
+                                id="studentRollNumber"
+                                name="studentRollNumber"
+                                value="Generating..."
+                                readonly
+                            >
+
+                            <span class="input-status">
+                                <i class="fa-solid fa-lock"></i>
+                            </span>
+
+                        </div>
+
+                        <small>
+                            Automatically generated by the system
+                        </small>
+
+                    </div>
+
+
+                    <!-- STUDENT NAME -->
+
+                    <div class="form-group">
+
+                        <label for="studentName">
+                            <i class="fa-solid fa-user"></i>
+                            Student Name
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="fa-solid fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="studentName"
+                                name="studentName"
+                                placeholder="Enter student full name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FATHER NAME -->
+
+                    <div class="form-group">
+
+                        <label for="fatherName">
+                            <i class="fa-solid fa-person"></i>
+                            Father Name
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="fa-solid fa-person"></i>
+
+                            <input
+                                type="text"
+                                id="fatherName"
+                                name="fatherName"
+                                placeholder="Enter father's name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- MOTHER NAME -->
+
+                    <div class="form-group">
+
+                        <label for="motherName">
+                            <i class="fa-solid fa-person-dress"></i>
+                            Mother Name
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="fa-solid fa-person-dress"></i>
+
+                            <input
+                                type="text"
+                                id="motherName"
+                                name="motherName"
+                                placeholder="Enter mother's name"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DATE OF BIRTH -->
+
+                    <div class="form-group">
+
+                        <label for="dateOfBirth">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            Date of Birth
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="fa-solid fa-calendar-days"></i>
+
+                            <input
+                                type="date"
+                                id="dateOfBirth"
+                                name="dateOfBirth"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- GENDER CUSTOM DROPDOWN -->
+
+                    <div class="form-group">
+
+                        <label>
+                            <i class="fa-solid fa-venus-mars"></i>
+                            Gender
+                        </label>
+
+                        <div
+                            class="premium-select"
+                            id="genderSelect"
+                        >
+
+                            <button
+                                type="button"
+                                class="premium-select-trigger"
+                                aria-expanded="false"
+                            >
+
+                                <span class="premium-select-value">
+                                    <i class="fa-solid fa-venus-mars"></i>
+                                    Select Gender
+                                </span>
+
+                                <i class="fa-solid fa-chevron-down select-arrow"></i>
+
+                            </button>
+
+
+                            <div class="premium-select-menu">
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Male"
+                                >
+                                    <i class="fa-solid fa-mars"></i>
+                                    <span>Male</span>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Female"
+                                >
+                                    <i class="fa-solid fa-venus"></i>
+                                    <span>Female</span>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Other"
+                                >
+                                    <i class="fa-solid fa-user"></i>
+                                    <span>Other</span>
+                                </button>
+
+                            </div>
+
+                            <input
+                                type="hidden"
+                                name="gender"
+                                id="gender"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CONTACT INFORMATION
+                 ================================================= -->
+
+            <div class="form-section">
+
+                <div class="form-section-title">
+
+                    <div class="form-section-icon">
+                        <i class="fa-solid fa-address-book"></i>
+                    </div>
+
+                    <div>
+                        <h3>Contact Information</h3>
+
+                        <p>
+                            Student communication details
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <!-- MOBILE -->
+
+                    <div class="form-group">
+
+                        <label for="mobileNumber">
+                            <i class="fa-solid fa-phone"></i>
+                            Mobile Number
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="fa-solid fa-phone"></i>
+
+                            <input
+                                type="tel"
+                                id="mobileNumber"
+                                name="mobileNumber"
+                                placeholder="Enter 10-digit mobile number"
+                                maxlength="10"
+                                inputmode="numeric"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ALTERNATE MOBILE -->
+
+                    <div class="form-group">
+
+                        <label for="alternateMobile">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                            Alternate Mobile
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="fa-solid fa-mobile-screen"></i>
+
+                            <input
+                                type="tel"
+                                id="alternateMobile"
+                                name="alternateMobile"
+                                placeholder="Enter alternate number"
+                                maxlength="10"
+                                inputmode="numeric"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group form-group-full">
+
+                        <label for="studentEmail">
+                            <i class="fa-solid fa-envelope"></i>
+                            Email Address
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="studentEmail"
+                                name="studentEmail"
+                                placeholder="Enter student email address"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ADDRESS
+                 ================================================= -->
+
+            <div class="form-section">
+
+                <div class="form-section-title">
+
+                    <div class="form-section-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+
+                    <div>
+                        <h3>Address Details</h3>
+
+                        <p>
+                            Complete residential address
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <!-- VILLAGE -->
+
+                    <div class="form-group">
+
+                        <label for="village">
+                            <i class="fa-solid fa-house"></i>
+                            Village / Town
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="fa-solid fa-house"></i>
+
+                            <input
+                                type="text"
+                                id="village"
+                                name="village"
+                                placeholder="Enter village / town"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- POST -->
+
+                    <div class="form-group">
+
+                        <label for="post">
+                            <i class="fa-solid fa-envelopes-bulk"></i>
+                            Post
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="fa-solid fa-envelopes-bulk"></i>
+
+                            <input
+                                type="text"
+                                id="post"
+                                name="post"
+                                placeholder="Enter post"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DISTRICT PREMIUM DROPDOWN -->
+
+                    <div class="form-group">
+
+                        <label>
+                            <i class="fa-solid fa-map"></i>
+                            District
+                            <span>*</span>
+                        </label>
+
+                        <div
+                            class="premium-select"
+                            id="districtSelect"
+                        >
+
+                            <button
+                                type="button"
+                                class="premium-select-trigger"
+                                aria-expanded="false"
+                            >
+
+                                <span class="premium-select-value">
+                                    <i class="fa-solid fa-map"></i>
+                                    Select District
+                                </span>
+
+                                <i class="fa-solid fa-chevron-down select-arrow"></i>
+
+                            </button>
+
+
+                            <div class="premium-select-menu">
+
+                                <div class="premium-select-search">
+
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                                    <input
+                                        type="text"
+                                        placeholder="Search district..."
+                                        autocomplete="off"
+                                    >
+
+                                </div>
+
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Amethi"
+                                >
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Amethi</span>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Ayodhya"
+                                >
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Ayodhya</span>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Prayagraj"
+                                >
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Prayagraj</span>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Lucknow"
+                                >
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Lucknow</span>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Sultanpur"
+                                >
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Sultanpur</span>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Raebareli"
+                                >
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Raebareli</span>
+                                </button>
+
+                            </div>
+
+                            <input
+                                type="hidden"
+                                name="district"
+                                id="district"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PINCODE -->
+
+                    <div class="form-group">
+
+                        <label for="pincode">
+                            <i class="fa-solid fa-map-pin"></i>
+                            Pincode
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="fa-solid fa-map-pin"></i>
+
+                            <input
+                                type="text"
+                                id="pincode"
+                                name="pincode"
+                                placeholder="Enter 6-digit pincode"
+                                maxlength="6"
+                                inputmode="numeric"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 COURSE DETAILS
+                 ================================================= -->
+
+            <div class="form-section">
+
+                <div class="form-section-title">
+
+                    <div class="form-section-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+
+                    <div>
+                        <h3>Course Details</h3>
+
+                        <p>
+                            Select the student's course and status
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <!-- COURSE PREMIUM DROPDOWN -->
+
+      <!-- COURSE PREMIUM DROPDOWN -->
+
+                    <div class="form-group">
+
+                        <label>
+                            <i class="fa-solid fa-laptop-code"></i>
+                            Course
+                            <span>*</span>
+                        </label>
+
+                        <div
+                            class="premium-select"
+                            id="courseSelect"
+                        >
+
+                            <button
+                                type="button"
+                                class="premium-select-trigger"
+                                aria-expanded="false"
+                            >
+
+                                <span class="premium-select-value">
+                                    <i class="fa-solid fa-laptop-code"></i>
+                                    Select Course
+                                </span>
+
+                                <i class="fa-solid fa-chevron-down select-arrow"></i>
+
+                            </button>
+
+
+                            <div class="premium-select-menu">
+
+                                <!-- SEARCH -->
+
+                                <div class="premium-select-search">
+
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                                    <input
+                                        type="text"
+                                        placeholder="Search course..."
+                                        autocomplete="off"
+                                    >
+
+                                </div>
+
+
+                                <!-- O LEVEL -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="O Level"
+                                >
+                                    <i class="fa-solid fa-computer"></i>
+                                    <span>O Level</span>
+                                </button>
+
+
+                                <!-- ADCA -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="ADCA"
+                                >
+                                    <i class="fa-solid fa-laptop-code"></i>
+                                    <span>ADCA</span>
+                                </button>
+
+
+                                <!-- DCA -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="DCA"
+                                >
+                                    <i class="fa-solid fa-desktop"></i>
+                                    <span>DCA</span>
+                                </button>
+
+
+                                <!-- CCC -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="CCC"
+                                >
+                                    <i class="fa-solid fa-certificate"></i>
+                                    <span>CCC</span>
+                                </button>
+
+
+                                <!-- MS OFFICE -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="MS Office"
+                                >
+                                    <i class="fa-solid fa-file-word"></i>
+                                    <span>MS Office</span>
+                                </button>
+
+
+                                <!-- MS WORD -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="MS Word"
+                                >
+                                    <i class="fa-solid fa-file-word"></i>
+                                    <span>MS Word</span>
+                                </button>
+
+
+                                <!-- MS EXCEL -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="MS Excel"
+                                >
+                                    <i class="fa-solid fa-table-cells"></i>
+                                    <span>MS Excel</span>
+                                </button>
+
+
+                                <!-- MS POWERPOINT -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="MS PowerPoint"
+                                >
+                                    <i class="fa-solid fa-file-powerpoint"></i>
+                                    <span>MS PowerPoint</span>
+                                </button>
+
+
+                                <!-- TALLY PRIME -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Tally Prime"
+                                >
+                                    <i class="fa-solid fa-calculator"></i>
+                                    <span>Tally Prime</span>
+                                </button>
+
+
+                                <!-- TALLY + GST -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Tally Prime with GST"
+                                >
+                                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                                    <span>Tally Prime with GST</span>
+                                </button>
+
+
+                                <!-- PHOTOSHOP -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Adobe Photoshop"
+                                >
+                                    <i class="fa-solid fa-image"></i>
+                                    <span>Adobe Photoshop</span>
+                                </button>
+
+
+                                <!-- CORELDRAW -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="CorelDRAW"
+                                >
+                                    <i class="fa-solid fa-pen-nib"></i>
+                                    <span>CorelDRAW</span>
+                                </button>
+
+
+                                <!-- GRAPHIC DESIGN -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Graphic Designing"
+                                >
+                                    <i class="fa-solid fa-palette"></i>
+                                    <span>Graphic Designing</span>
+                                </button>
+
+
+                                <!-- HTML -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="HTML"
+                                >
+                                    <i class="fa-brands fa-html5"></i>
+                                    <span>HTML</span>
+                                </button>
+
+
+                                <!-- CSS -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="CSS"
+                                >
+                                    <i class="fa-brands fa-css3-alt"></i>
+                                    <span>CSS</span>
+                                </button>
+
+
+                                <!-- JAVASCRIPT -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="JavaScript"
+                                >
+                                    <i class="fa-brands fa-js"></i>
+                                    <span>JavaScript</span>
+                                </button>
+
+
+                                <!-- WEB DESIGNING -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Web Designing"
+                                >
+                                    <i class="fa-solid fa-globe"></i>
+                                    <span>Web Designing</span>
+                                </button>
+
+
+                                <!-- COMPUTER TYPING -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Computer Typing"
+                                >
+                                    <i class="fa-solid fa-keyboard"></i>
+                                    <span>Computer Typing</span>
+                                </button>
+
+
+                                <!-- ENGLISH TYPING -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="English Typing"
+                                >
+                                    <i class="fa-solid fa-keyboard"></i>
+                                    <span>English Typing</span>
+                                </button>
+
+
+                                <!-- HINDI TYPING -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Hindi Typing"
+                                >
+                                    <i class="fa-solid fa-language"></i>
+                                    <span>Hindi Typing</span>
+                                </button>
+
+
+                                <!-- DATA ENTRY -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Data Entry"
+                                >
+                                    <i class="fa-solid fa-database"></i>
+                                    <span>Data Entry</span>
+                                </button>
+
+
+                                <!-- BASIC COMPUTER -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Basic Computer Course"
+                                >
+                                    <i class="fa-solid fa-computer"></i>
+                                    <span>Basic Computer Course</span>
+                                </button>
+
+
+                                <!-- INTERNET -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Internet & Digital Skills"
+                                >
+                                    <i class="fa-solid fa-globe"></i>
+                                    <span>Internet &amp; Digital Skills</span>
+                                </button>
+
+
+                                <!-- DTP -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="DTP"
+                                >
+                                    <i class="fa-solid fa-print"></i>
+                                    <span>DTP</span>
+                                </button>
+
+
+                                <!-- DIGITAL MARKETING -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Digital Marketing"
+                                >
+                                    <i class="fa-solid fa-bullhorn"></i>
+                                    <span>Digital Marketing</span>
+                                </button>
+
+
+                                <!-- OTHER -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Other"
+                                >
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                    <span>Other</span>
+                                </button>
+
+                            </div>
+
+
+                            <!-- ACTUAL VALUE -->
+
+                            <input
+                                type="hidden"
+                                name="course"
+                                id="course"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+                                        <!-- =================================================
+                         TOTAL COURSE FEE
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="totalCourseFee">
+
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                            Total Course Fee
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <div class="input-with-icon">
+
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                            <input
+                                type="number"
+                                id="totalCourseFee"
+                                name="totalCourseFee"
+                                placeholder="Enter total course fee"
+                                min="0"
+                                step="1"
+                                inputmode="numeric"
+                                required
+                            >
+
+                        </div>
+
+
+                        <small>
+                            Enter the complete fee for this course.
+                        </small>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         ADMISSION DATE
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="admissionDate">
+
+                            <i class="fa-solid fa-calendar-check"></i>
+
+                            Admission Date
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <div class="input-with-icon">
+
+                            <i class="fa-solid fa-calendar-check"></i>
+
+                            <input
+                                type="date"
+                                id="admissionDate"
+                                name="admissionDate"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         STUDENT STATUS PREMIUM DROPDOWN
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label>
+
+                            <i class="fa-solid fa-circle-check"></i>
+
+                            Student Status
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <div
+                            class="premium-select"
+                            id="studentStatusSelect"
+                        >
+
+                            <button
+                                type="button"
+                                class="premium-select-trigger"
+                                aria-expanded="false"
+                            >
+
+                                <span class="premium-select-value">
+
+                                    <i class="fa-solid fa-circle-check"></i>
+
+                                    Select Status
+
+                                </span>
+
+
+                                <i
+                                    class="fa-solid fa-chevron-down select-arrow"
+                                ></i>
+
+                            </button>
+
+
+                            <div class="premium-select-menu">
+
+                                <!-- ACTIVE -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Active"
+                                >
+
+                                    <i class="fa-solid fa-circle-check"></i>
+
+                                    <span>
+                                        Active
+                                    </span>
+
+                                </button>
+
+
+                                <!-- COMPLETED -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Completed"
+                                >
+
+                                    <i class="fa-solid fa-graduation-cap"></i>
+
+                                    <span>
+                                        Completed
+                                    </span>
+
+                                </button>
+
+                            </div>
+
+
+                            <input
+                                type="hidden"
+                                name="studentStatus"
+                                id="studentStatus"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================================
+                 STUDENT PHOTO
+                 ===================================================== -->
+
+            <div class="form-section">
+
+                <div class="form-section-title">
+
+                    <div class="form-section-icon">
+
+                        <i class="fa-solid fa-camera"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Student Photo
+                        </h3>
+
+                        <p>
+                            Upload a clear passport-size photograph
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="student-photo-upload">
+
+
+                    <!-- PHOTO PREVIEW -->
+
+                    <div
+                        class="student-photo-preview"
+                        id="studentPhotoPreview"
+                    >
+
+                        <i class="fa-solid fa-user"></i>
+
+                    </div>
+
+
+                    <!-- UPLOAD -->
+
+                    <div class="photo-upload-content">
+
+                        <label
+                            for="studentPhoto"
+                            class="photo-upload-btn"
+                        >
+
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                            Choose Student Photo
+
+                        </label>
+
+
+                        <input
+                            type="file"
+                            id="studentPhoto"
+                            name="studentPhoto"
+                            accept="image/jpeg,image/png,image/webp"
+                            hidden
+                        >
+
+
+                        <p>
+                            JPG, PNG or WEBP • Maximum 2 MB
+                        </p>
+                    
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================================
+                 FORM ACTIONS
+                 ===================================================== -->
+
+            <div class="student-form-actions">
+
+
+                <!-- RESET BUTTON -->
+
+                <button
+                    type="reset"
+                    class="student-reset-btn"
+                    id="resetStudentForm"
+                >
+
+                    <i class="fa-solid fa-rotate-left"></i>
+
+                    Reset Form
+
+                </button>
+
+
+                <!-- SAVE STUDENT -->
+
+                <button
+                    type="submit"
+                    class="student-save-btn"
+                    id="saveStudentBtn"
+                >
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    <span>
+                        Save Student
+                    </span>
+
+                </button>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STUDENT SAVE SUCCESS TOAST
+     ===================================================== -->
+
+<div
+    class="student-success-toast"
+    id="studentSuccessToast"
+    aria-live="polite"
+>
+
+    <div class="student-success-icon">
+
+        <i class="fa-solid fa-check"></i>
+
+    </div>
+
+
+    <div class="student-success-content">
+
+        <strong>
+            Student Added Successfully
+        </strong>
+
+        <span id="studentSuccessMessage">
+            Student details have been saved successfully.
+        </span>
+
+    </div>
+
+
+    <button
+        type="button"
+        id="closeStudentSuccess"
+        aria-label="Close notification"
+    >
+
+        <i class="fa-solid fa-xmark"></i>
+
+    </button>
+
+</div>
+
+<!-- =====================================================
+     FEES MANAGEMENT
+     ===================================================== -->
+
+<section class="admin-section fees-management-section" id="feesManagement">
+
+    <!-- SECTION HEADING -->
+
+    <div class="section-heading">
+
+        <div class="section-heading-icon">
+            <i class="fa-solid fa-money-bill-transfer"></i>
+        </div>
+
+        <div>
+
+            <span class="section-eyebrow">
+                FEES MANAGEMENT
+            </span>
+
+            <h2>Student Fees Management</h2>
+
+            <p>
+                Search student, select fee type and record payment details.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         FEES FORM CARD
+         ================================================= -->
+
+    <div class="fees-form-card">
+
+        <form
+            id="feesForm"
+            autocomplete="off"
+        >
+
+
+            <!-- =============================================
+                 STUDENT DETAILS
+                 ============================================= -->
+
+            <div class="fees-form-section">
+
+                <div class="fees-form-section-title">
+
+                    <div class="fees-form-section-icon">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>Student Details</h3>
+
+                        <p>
+                            Search and select the student
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="fees-form-grid">
+
+
+                    <!-- STUDENT SEARCH -->
+
+                    <div class="fees-form-group fees-form-group-full">
+
+                        <label>
+
+                            <i class="fa-solid fa-magnifying-glass"></i>
+
+                            Search Student
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <div
+                            class="fees-student-select premium-fees-select"
+                            id="feesStudentSelect"
+                        >
+
+                            <button
+                                type="button"
+                                class="fees-select-trigger"
+                                aria-expanded="false"
+                            >
+
+                                <span class="fees-select-value">
+
+                                    <i class="fa-solid fa-user-graduate"></i>
+
+                                    Search Student
+
+                                </span>
+
+
+                                <i
+                                    class="fa-solid fa-chevron-down fees-select-arrow"
+                                ></i>
+
+                            </button>
+
+
+                            <div class="fees-select-menu">
+
+                                <!-- SEARCH BOX -->
+
+                                <div class="fees-select-search">
+
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                                    <input
+                                        type="text"
+                                        id="feesStudentSearch"
+                                        placeholder="Search by student name, father name or roll number..."
+                                        autocomplete="off"
+                                    >
+
+                                </div>
+
+
+                                <!-- STUDENT RESULTS WILL COME FROM JS -->
+
+                                <div
+                                    class="fees-student-results"
+                                    id="feesStudentResults"
+                                >
+
+                                    <div class="fees-empty-result">
+
+                                        <i class="fa-solid fa-user-graduate"></i>
+
+                                        <span>
+                                            Search student to continue
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- SELECTED STUDENT ID -->
+
+                            <input
+                                type="hidden"
+                                name="studentId"
+                                id="feesStudentId"
+                                required
+                            >
+
+                        </div>
+
+
+                        <small>
+                            Student name, father name and roll number will be shown.
+                        </small>
+
+                    </div>
+
+
+                    <!-- SELECTED STUDENT NAME -->
+
+                    <div class="fees-form-group">
+
+                        <label for="feesStudentName">
+
+                            <i class="fa-solid fa-user"></i>
+
+                            Student Name
+
+                        </label>
+
+
+                        <div class="fees-input-with-icon">
+
+                            <i class="fa-solid fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="feesStudentName"
+                                name="feesStudentName"
+                                placeholder="Selected student name"
+                                readonly
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FATHER NAME -->
+
+                    <div class="fees-form-group">
+
+                        <label for="feesFatherName">
+
+                            <i class="fa-solid fa-person"></i>
+
+                            Father Name
+
+                        </label>
+
+
+                        <div class="fees-input-with-icon">
+
+                            <i class="fa-solid fa-person"></i>
+
+                            <input
+                                type="text"
+                                id="feesFatherName"
+                                name="feesFatherName"
+                                placeholder="Father name"
+                                readonly
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ROLL NUMBER -->
+
+                    <div class="fees-form-group">
+
+                        <label for="feesRollNumber">
+
+                            <i class="fa-solid fa-hashtag"></i>
+
+                            Roll Number
+
+                        </label>
+
+
+                        <div class="fees-input-with-icon">
+
+                            <i class="fa-solid fa-fingerprint"></i>
+
+                            <input
+                                type="text"
+                                id="feesRollNumber"
+                                name="feesRollNumber"
+                                placeholder="Roll number"
+                                readonly
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- COURSE -->
+
+                    <div class="fees-form-group">
+
+                        <label for="feesCourse">
+
+                            <i class="fa-solid fa-graduation-cap"></i>
+
+                            Course
+
+                        </label>
+
+
+                        <div class="fees-input-with-icon">
+
+                            <i class="fa-solid fa-laptop-code"></i>
+
+                            <input
+                                type="text"
+                                id="feesCourse"
+                                name="feesCourse"
+                                placeholder="Student course"
+                                readonly
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 FEE DETAILS
+                 ============================================= -->
+
+            <div class="fees-form-section">
+
+                <div class="fees-form-section-title">
+
+                    <div class="fees-form-section-icon">
+
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>Fee Details</h3>
+
+                        <p>
+                            Select the type of fee and enter amount
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="fees-form-grid">
+
+
+                    <!-- FEE TYPE -->
+
+                    <div class="fees-form-group">
+
+                        <label>
+
+                            <i class="fa-solid fa-receipt"></i>
+
+                            Fee Type
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <div
+                            class="premium-fees-select"
+                            id="feeTypeSelect"
+                        >
+
+                            <button
+                                type="button"
+                                class="fees-select-trigger"
+                                aria-expanded="false"
+                            >
+
+                                <span class="fees-select-value">
+
+                                    <i class="fa-solid fa-receipt"></i>
+
+                                    Select Fee Type
+
+                                </span>
+
+
+                                <i
+                                    class="fa-solid fa-chevron-down fees-select-arrow"
+                                ></i>
+
+                            </button>
+
+
+                            <div class="fees-select-menu">
+
+
+                                <!-- REGISTRATION -->
+
+                                <button
+                                    type="button"
+                                    class="fees-premium-option"
+                                    data-value="Registration Fee"
+                                >
+
+                                    <i class="fa-solid fa-id-card"></i>
+
+                                    <span>
+                                        Registration Fee
+                                    </span>
+
+                                </button>
+
+
+                                <!-- MONTHLY -->
+
+                                <button
+                                    type="button"
+                                    class="fees-premium-option"
+                                    data-value="Monthly Fee"
+                                >
+
+                                    <i class="fa-solid fa-calendar-days"></i>
+
+                                    <span>
+                                        Monthly Fee
+                                    </span>
+
+                                </button>
+
+
+                                <!-- EXAM -->
+
+                                <button
+                                    type="button"
+                                    class="fees-premium-option"
+                                    data-value="Exam Fee"
+                                >
+
+                                    <i class="fa-solid fa-file-pen"></i>
+
+                                    <span>
+                                        Exam Fee
+                                    </span>
+
+                                </button>
+
+
+                                <!-- BAG -->
+
+                                <button
+                                    type="button"
+                                    class="fees-premium-option"
+                                    data-value="Bag Fee"
+                                >
+
+                                    <i class="fa-solid fa-bag-shopping"></i>
+
+                                    <span>
+                                        Bag Fee
+                                    </span>
+
+                                </button>
+
+
+                            </div>
+
+
+                            <input
+                                type="hidden"
+                                name="feeType"
+                                id="feeType"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FEE AMOUNT -->
+
+                    <div class="fees-form-group">
+
+                        <label for="feeAmount">
+
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                            Fee Amount
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <div class="fees-input-with-icon">
+
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                            <input
+                                type="number"
+                                id="feeAmount"
+                                name="feeAmount"
+                                placeholder="Enter fee amount"
+                                min="0"
+                                step="1"
+                                inputmode="numeric"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PAYMENT MODE -->
+
+                    <div class="fees-form-group">
+
+                        <label>
+
+                            <i class="fa-solid fa-wallet"></i>
+
+                            Payment Mode
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <div
+                            class="premium-fees-select"
+                            id="paymentModeSelect"
+                        >
+
+                            <button
+                                type="button"
+                                class="fees-select-trigger"
+                                aria-expanded="false"
+                            >
+
+                                <span class="fees-select-value">
+
+                                    <i class="fa-solid fa-wallet"></i>
+
+                                    Select Payment Mode
+
+                                </span>
+
+
+                                <i
+                                    class="fa-solid fa-chevron-down fees-select-arrow"
+                                ></i>
+
+                            </button>
+
+
+                            <div class="fees-select-menu">
+
+
+                                <!-- CASH -->
+
+                                <button
+                                    type="button"
+                                    class="fees-premium-option"
+                                    data-value="Cash"
+                                >
+
+                                    <i class="fa-solid fa-money-bill-wave"></i>
+
+                                    <span>
+                                        Cash
+                                    </span>
+
+                                </button>
+
+
+                                <!-- ONLINE -->
+
+                                <button
+                                    type="button"
+                                    class="fees-premium-option"
+                                    data-value="Online"
+                                >
+
+                                    <i class="fa-solid fa-mobile-screen-button"></i>
+
+                                    <span>
+                                        Online
+                                    </span>
+
+                                </button>
+
+
+                                <!-- BANK -->
+
+                                <button
+                                    type="button"
+                                    class="fees-premium-option"
+                                    data-value="Bank"
+                                >
+
+                                    <i class="fa-solid fa-building-columns"></i>
+
+                                    <span>
+                                        Bank
+                                    </span>
+
+                                </button>
+
+
+                            </div>
+
+
+                            <input
+                                type="hidden"
+                                name="paymentMode"
+                                id="paymentMode"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PAYMENT DATE -->
+
+                    <div class="fees-form-group">
+
+                        <label for="feePaymentDate">
+
+                            <i class="fa-solid fa-calendar-check"></i>
+
+                            Payment Date
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <div class="fees-input-with-icon">
+
+                            <i class="fa-solid fa-calendar-check"></i>
+
+                            <input
+                                type="date"
+                                id="feePaymentDate"
+                                name="feePaymentDate"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TRANSACTION NUMBER -->
+
+                    <div
+                        class="fees-form-group fees-transaction-group"
+                    >
+
+                        <label for="transactionNumber">
+
+                            <i class="fa-solid fa-arrow-right-arrow-left"></i>
+
+                            Transaction / Reference Number
+
+                        </label>
+
+
+                        <div class="fees-input-with-icon">
+
+                            <i class="fa-solid fa-hashtag"></i>
+
+                            <input
+                                type="text"
+                                id="transactionNumber"
+                                name="transactionNumber"
+                                placeholder="Online / bank transaction number"
+                            >
+
+                        </div>
+
+
+                        <small>
+                            Required for online or bank payments.
+                        </small>
+
+                    </div>
+
+
+                    <!-- REMARKS -->
+
+                    <div
+                        class="fees-form-group fees-form-group-full"
+                    >
+
+                        <label for="feeRemarks">
+
+                            <i class="fa-solid fa-note-sticky"></i>
+
+                            Remarks
+
+                        </label>
+
+
+                        <div class="fees-input-with-icon fees-textarea-wrap">
+
+                            <i class="fa-solid fa-note-sticky"></i>
+
+                            <textarea
+                                id="feeRemarks"
+                                name="feeRemarks"
+                                rows="4"
+                                placeholder="Enter any additional remarks..."
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 FORM ACTIONS
+                 ============================================= -->
+                 <div class="fees-form-actions">
+
+    <!-- RESET -->
+
+    <button
+        type="reset"
+        class="fees-reset-btn"
+        id="resetFeesForm"
+    >
+
+        <i class="fa-solid fa-rotate-left"></i>
+
+        Reset Form
+
+    </button>
+
+
+    <!-- SAVE -->
+
+    <button
+        type="submit"
+        class="fees-save-btn"
+        id="saveFeesBtn"
+    >
+
+        <i class="fa-solid fa-money-bill-transfer"></i>
+
+        <span>
+            Save Fee
+        </span>
+
+    </button>
+
+</div>
+
+
+</form>
+
+</div>
+
+</section>
+<!-- =====================================================
+     STUDENT PAYMENT HISTORY / LEDGER
+     ===================================================== -->
+
+<section
+    class="admin-section student-payment-history-section"
+    id="studentPaymentHistory"
+>
+
+    <!-- ================= SECTION HEADING ================= -->
+
+    <div class="section-heading">
+
+        <div class="section-heading-icon">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+        </div>
+
+        <div>
+
+            <span class="section-eyebrow">
+                STUDENT FINANCIAL RECORD
+            </span>
+
+            <h2>
+                Student Payment History
+            </h2>
+
+            <p>
+                Search any student and view complete
+                payment history, fee summary and
+                transaction records.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         SEARCH CARD
+         ================================================= -->
+
+    <div class="student-ledger-search-card">
+
+        <div class="student-ledger-search-heading">
+
+            <div class="student-ledger-search-icon">
+
+                <i class="fa-solid fa-user-magnifying-glass"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    FIND STUDENT
+                </span>
+
+                <h3>
+                    Search Student Record
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <!-- SEARCH INPUT -->
+
+        <div class="student-ledger-search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="search"
+                id="studentLedgerSearch"
+                placeholder="Search by student name, roll number or father name..."
+                autocomplete="off"
+            >
+
+            <span class="student-ledger-search-shortcut">
+                <i class="fa-solid fa-keyboard"></i>
+                Search
+            </span>
+
+        </div>
+
+
+        <!-- SEARCH RESULTS -->
+
+        <div
+            class="student-ledger-search-results"
+            id="studentLedgerSearchResults"
+        >
+
+            <div class="student-ledger-search-empty">
+
+                <div class="student-ledger-empty-icon">
+
+                    <i class="fa-solid fa-user-graduate"></i>
+
+                </div>
+
+                <strong>
+                    Search for a student
+                </strong>
+
+                <span>
+                    Enter student name, roll number
+                    or father name.
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         SELECTED STUDENT PROFILE
+         ================================================= -->
+
+    <div
+        class="student-ledger-profile-card"
+        id="studentLedgerProfile"
+        hidden
+    >
+
+        <div class="student-ledger-profile-top">
+
+            <!-- STUDENT ICON -->
+
+            <div class="student-ledger-profile-avatar">
+
+                <i class="fa-solid fa-user-graduate"></i>
+
+            </div>
+
+
+            <!-- BASIC INFO -->
+
+            <div class="student-ledger-profile-info">
+
+                <span class="student-ledger-profile-label">
+                    STUDENT PROFILE
+                </span>
+
+                <h3 id="ledgerStudentName">
+                    —
+                </h3>
+
+                <p>
+                    <span>
+                        <i class="fa-solid fa-hashtag"></i>
+                        <strong id="ledgerStudentRoll">
+                            —
+                        </strong>
+                    </span>
+
+                    <span>
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <strong id="ledgerStudentCourse">
+                            —
+                        </strong>
+                    </span>
+
+                </p>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div
+                class="student-ledger-status"
+                id="ledgerStudentStatus"
+            >
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <span>
+                    Active
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROFILE DETAILS -->
+
+        <div class="student-ledger-profile-details">
+
+            <div class="student-ledger-detail">
+
+                <span>
+                    Father Name
+                </span>
+
+                <strong id="ledgerFatherName">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="student-ledger-detail">
+
+                <span>
+                    Admission Date
+                </span>
+
+                <strong id="ledgerAdmissionDate">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="student-ledger-detail">
+
+                <span>
+                    Total Course Fee
+                </span>
+
+                <strong>
+                    ₹<span id="ledgerTotalFee">
+                        0
+                    </span>
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         FEE SUMMARY
+         ================================================= -->
+
+    <div
+        class="student-ledger-summary"
+        id="studentLedgerSummary"
+        hidden
+    >
+
+        <!-- TOTAL FEE -->
+
+        <div class="student-ledger-summary-card total">
+
+            <div class="student-ledger-summary-icon">
+
+                <i class="fa-solid fa-file-invoice"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    Total Course Fee
+                </span>
+
+                <strong>
+                    ₹<span id="ledgerSummaryTotal">
+                        0
+                    </span>
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- PAID -->
+
+        <div class="student-ledger-summary-card paid">
+
+            <div class="student-ledger-summary-icon">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    Total Paid
+                </span>
+
+                <strong>
+                    ₹<span id="ledgerSummaryPaid">
+                        0
+                    </span>
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- PENDING -->
+
+        <div class="student-ledger-summary-card pending">
+
+            <div class="student-ledger-summary-icon">
+
+                <i class="fa-solid fa-clock"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    Pending Fee
+                </span>
+
+                <strong>
+                    ₹<span id="ledgerSummaryPending">
+                        0
+                    </span>
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- PAYMENTS -->
+
+        <div class="student-ledger-summary-card payments">
+
+            <div class="student-ledger-summary-icon">
+
+                <i class="fa-solid fa-receipt"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    Total Payments
+                </span>
+
+                <strong
+                    id="ledgerSummaryPayments"
+                >
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         PAYMENT HISTORY
+         ================================================= -->
+
+    <div
+        class="student-ledger-history-card"
+        id="studentLedgerHistory"
+        hidden
+    >
+
+        <div class="student-ledger-history-heading">
+
+            <div>
+
+                <span>
+                    PAYMENT RECORDS
+                </span>
+
+                <h3>
+                    Complete Payment History
+                </h3>
+
+            </div>
+
+            <div class="student-ledger-history-badge">
+
+                <i class="fa-solid fa-clock-rotate-left"></i>
+
+                <span id="ledgerHistoryCount">
+                    0 Payments
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- TABLE -->
+
+        <div class="student-ledger-table-wrapper">
+
+            <table class="student-ledger-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            #
+                        </th>
+
+                        <th>
+                            Payment Date
+                        </th>
+
+                        <th>
+                            Fee Type
+                        </th>
+
+                        <th>
+                            Amount
+                        </th>
+
+                        <th>
+                            Payment Mode
+                        </th>
+
+                        <th>
+                            Transaction
+                        </th>
+
+                        <th>
+                            Remarks
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody
+                    id="studentLedgerTableBody"
+                >
+
+                    <!-- Payment records will appear here -->
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- EMPTY -->
+
+        <div
+            class="student-ledger-no-payment"
+            id="studentLedgerNoPayment"
+            hidden
+        >
+
+            <div>
+
+                <i class="fa-solid fa-receipt"></i>
+
+            </div>
+
+            <h3>
+                No Payment Records
+            </h3>
+
+            <p>
+                No payment has been recorded
+                for this student yet.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         LOADING
+         ================================================= -->
+
+    <div
+        class="student-ledger-loading"
+        id="studentLedgerLoading"
+        hidden
+    >
+
+        <i class="fa-solid fa-spinner fa-spin"></i>
+
+        <span>
+            Loading student payment history...
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FEES SUCCESS TOAST
+     ===================================================== -->
+
+<div
+    class="fees-success-toast"
+    id="feesSuccessToast"
+    aria-live="polite"
+>
+
+    <div class="fees-success-icon">
+
+        <i class="fa-solid fa-check"></i>
+
+    </div>
+
+
+    <div class="fees-success-content">
+
+        <strong>
+            Fee Saved Successfully
+        </strong>
+
+        <span id="feesSuccessMessage">
+            Student fee details have been saved successfully.
+        </span>
+
+    </div>
+
+
+    <button
+        type="button"
+        id="closeFeesSuccess"
+        aria-label="Close notification"
+    >
+
+        <i class="fa-solid fa-xmark"></i>
+
+    </button>
+
+</div>
+<!-- =====================================================
+     MANAGE STUDENTS SECTION
+     ===================================================== -->
+
+<section
+    class="admin-section manage-students-section"
+    id="manageStudents"
+>
+
+    <!-- ================= SECTION HEADING ================= -->
+
+    <div class="section-heading">
+
+        <div class="section-heading-icon">
+            <i class="fa-solid fa-users-gear"></i>
+        </div>
+
+        <div>
+
+            <span class="section-eyebrow">
+                STUDENT MANAGEMENT
+            </span>
+
+            <h2>Manage Students</h2>
+
+            <p>
+                Search, view, update and manage all registered students.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= STUDENT STATUS TABS ================= -->
+
+    <div class="student-status-tabs">
+
+        <button
+            type="button"
+            class="student-status-tab active"
+            data-student-status="Active"
+        >
+
+            <i class="fa-solid fa-user-check"></i>
+
+            <span>
+                Active Students
+            </span>
+
+            <strong id="manageActiveCount">
+                0
+            </strong>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="student-status-tab"
+            data-student-status="Completed"
+        >
+
+            <i class="fa-solid fa-graduation-cap"></i>
+
+            <span>
+                Completed Students
+            </span>
+
+            <strong id="manageCompletedCount">
+                0
+            </strong>
+
+        </button>
+
+    </div>
+
+
+    <!-- ================= SEARCH CARD ================= -->
+
+    <div class="student-search-card">
+
+        <div class="student-search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="search"
+                id="manageStudentSearch"
+                placeholder="Search by student name, father name or roll number..."
+                autocomplete="off"
+            >
+
+            <button
+                type="button"
+                id="clearStudentSearch"
+                class="clear-student-search"
+                aria-label="Clear search"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <div class="student-search-info">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            <span id="manageStudentResultInfo">
+                Loading students...
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= STUDENT LIST ================= -->
+
+    <div class="student-list-card">
+
+        <div class="student-list-header">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    STUDENT RECORDS
+                </span>
+
+                <h3>
+                    Student List
+                </h3>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="student-refresh-btn"
+                id="refreshStudentsBtn"
+            >
+
+                <i class="fa-solid fa-rotate"></i>
+
+                <span>
+                    Refresh
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <!-- ================= TABLE ================= -->
+
+        <div class="student-table-wrapper">
+
+            <table
+                class="student-management-table"
+            >
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Student
+                        </th>
+
+                        <th>
+                            Father Name
+                        </th>
+
+                        <th>
+                            Roll Number
+                        </th>
+
+                        <th>
+                            Course
+                        </th>
+
+                        <th>
+                            Total Fee
+                        </th>
+
+                        <th>
+                            Collected
+                        </th>
+
+                        <th>
+                            Pending
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Actions
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody
+                    id="manageStudentsTableBody"
+                >
+
+                    <!-- JavaScript will load students here -->
+
+                    <tr class="student-table-loading">
+
+                        <td
+                            colspan="9"
+                        >
+
+                            <div class="student-loading-state">
+
+                                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                                <span>
+                                    Loading students...
+                                </span>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- ================= EMPTY STATE ================= -->
+
+        <div
+            class="student-empty-state"
+            id="studentEmptyState"
+            hidden
+        >
+
+            <div class="student-empty-icon">
+
+                <i class="fa-solid fa-user-slash"></i>
+
+            </div>
+
+            <h3>
+                No Students Found
+            </h3>
+
+            <p>
+                No student records match your current search.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= STUDENT DETAILS MODAL ================= -->
+
+    <div
+        class="student-modal"
+        id="studentDetailsModal"
+        hidden
+    >
+
+        <div
+            class="student-modal-overlay"
+            data-close-student-modal
+        ></div>
+
+
+        <div
+            class="student-modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="studentModalTitle"
+        >
+
+            <div class="student-modal-header">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        STUDENT DETAILS
+                    </span>
+
+                    <h3 id="studentModalTitle">
+                        Student Information
+                    </h3>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="student-modal-close"
+                    id="closeStudentDetailsModal"
+                    aria-label="Close"
+                >
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+            <div
+                class="student-modal-body"
+                id="studentDetailsContent"
+            >
+
+                <!-- JavaScript will insert details here -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= DELETE CONFIRMATION ================= -->
+
+    <div
+        class="student-modal"
+        id="deleteStudentModal"
+        hidden
+    >
+
+        <div
+            class="student-modal-overlay"
+            data-close-delete-modal
+        ></div>
+
+
+        <div
+            class="student-modal-card delete-confirm-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="deleteStudentTitle"
+        >
+
+            <div class="delete-confirm-icon">
+
+                <i class="fa-solid fa-trash-can"></i>
+
+            </div>
+
+
+            <h3 id="deleteStudentTitle">
+                Delete Student?
+            </h3>
+
+
+            <p id="deleteStudentMessage">
+
+                This action will permanently remove
+                the student record.
+
+            </p>
+
+
+            <div class="delete-confirm-actions">
+
+                <button
+                    type="button"
+                    class="secondary-action-btn"
+                    id="cancelStudentDelete"
+                >
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="danger-action-btn"
+                    id="confirmStudentDelete"
+                >
+
+                    <i class="fa-solid fa-trash-can"></i>
+
+                    Delete Student
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     EXPENSE MANAGEMENT
+     ===================================================== -->
+
+<section
+    class="admin-section expense-management-section"
+    id="expenseManagement"
+>
+
+    <!-- ================= SECTION HEADING ================= -->
+
+    <div class="section-heading">
+
+        <div class="section-heading-icon">
+            <i class="fa-solid fa-wallet"></i>
+        </div>
+
+        <div>
+
+            <span class="section-eyebrow">
+                FINANCIAL MANAGEMENT
+            </span>
+
+            <h2>
+                Expense Management
+            </h2>
+
+            <p>
+                Record and manage institute expenses
+                with complete payment details.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= EXPENSE FORM CARD ================= -->
+
+    <div class="expense-form-card">
+
+        <form
+            id="expenseForm"
+            autocomplete="off"
+        >
+
+
+            <!-- =================================================
+                 EXPENSE DETAILS
+                 ================================================= -->
+
+            <div class="form-section">
+
+                <div class="form-section-title">
+
+                    <div class="form-section-icon">
+                        <i class="fa-solid fa-receipt"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Expense Details
+                        </h3>
+
+                        <p>
+                            Enter the details of the institute expense
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <!-- ================= EXPENSE TITLE ================= -->
+
+                    <div class="form-group">
+
+                        <label for="expenseTitle">
+
+                            <i class="fa-solid fa-heading"></i>
+
+                            Expense Title
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <div class="input-with-icon">
+
+                            <i class="fa-solid fa-receipt"></i>
+
+                            <input
+                                type="text"
+                                id="expenseTitle"
+                                name="expenseTitle"
+                                placeholder="Enter expense title"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================= AMOUNT ================= -->
+
+                    <div class="form-group">
+
+                        <label for="expenseAmount">
+
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                            Amount
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <div class="input-with-icon">
+
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                            <input
+                                type="number"
+                                id="expenseAmount"
+                                name="expenseAmount"
+                                placeholder="Enter expense amount"
+                                min="1"
+                                step="0.01"
+                                inputmode="decimal"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         EXPENSE CATEGORY
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label>
+
+                            <i class="fa-solid fa-layer-group"></i>
+
+                            Expense Category
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <div
+                            class="premium-select expense-premium-select"
+                            id="expenseCategorySelect"
+                        >
+
+                            <button
+                                type="button"
+                                class="premium-select-trigger"
+                                aria-expanded="false"
+                            >
+
+                                <span class="premium-select-value">
+
+                                    <i class="fa-solid fa-layer-group"></i>
+
+                                    Select Category
+
+                                </span>
+
+
+                                <i
+                                    class="fa-solid fa-chevron-down select-arrow"
+                                ></i>
+
+                            </button>
+
+
+                            <div class="premium-select-menu">
+
+
+                                <!-- ELECTRICITY -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Electricity"
+                                >
+
+                                    <i class="fa-solid fa-bolt"></i>
+
+                                    <span>
+                                        Electricity
+                                    </span>
+
+                                </button>
+
+
+                                <!-- RENT -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Rent"
+                                >
+
+                                    <i class="fa-solid fa-building"></i>
+
+                                    <span>
+                                        Rent
+                                    </span>
+
+                                </button>
+
+
+                                <!-- STATIONERY -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Stationery"
+                                >
+
+                                    <i class="fa-solid fa-pen"></i>
+
+                                    <span>
+                                        Stationery
+                                    </span>
+
+                                </button>
+
+
+                                <!-- INTERNET -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Internet"
+                                >
+
+                                    <i class="fa-solid fa-wifi"></i>
+
+                                    <span>
+                                        Internet
+                                    </span>
+
+                                </button>
+
+
+                                <!-- SALARY -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Salary"
+                                >
+
+                                    <i class="fa-solid fa-users"></i>
+
+                                    <span>
+                                        Salary
+                                    </span>
+
+                                </button>
+
+
+                                <!-- MAINTENANCE -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Maintenance"
+                                >
+
+                                    <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                                    <span>
+                                        Maintenance
+                                    </span>
+
+                                </button>
+
+
+                                <!-- MARKETING -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Marketing"
+                                >
+
+                                    <i class="fa-solid fa-bullhorn"></i>
+
+                                    <span>
+                                        Marketing
+                                    </span>
+
+                                </button>
+
+
+                                <!-- TRANSPORT -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Transport"
+                                >
+
+                                    <i class="fa-solid fa-car"></i>
+
+                                    <span>
+                                        Transport
+                                    </span>
+
+                                </button>
+
+
+                                <!-- EQUIPMENT -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Equipment"
+                                >
+
+                                    <i class="fa-solid fa-computer"></i>
+
+                                    <span>
+                                        Equipment
+                                    </span>
+
+                                </button>
+
+
+                                <!-- OTHER -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Other"
+                                >
+
+                                    <i class="fa-solid fa-ellipsis"></i>
+
+                                    <span>
+                                        Other
+                                    </span>
+
+                                </button>
+
+                            </div>
+
+
+                            <input
+                                type="hidden"
+                                name="expenseCategory"
+                                id="expenseCategory"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         PAYMENT MODE
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label>
+
+                            <i class="fa-solid fa-wallet"></i>
+
+                            Payment Mode
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <div
+                            class="premium-select expense-premium-select"
+                            id="expensePaymentModeSelect"
+                        >
+
+                            <button
+                                type="button"
+                                class="premium-select-trigger"
+                                aria-expanded="false"
+                            >
+
+                                <span class="premium-select-value">
+
+                                    <i class="fa-solid fa-wallet"></i>
+
+                                    Select Payment Mode
+
+                                </span>
+
+
+                                <i
+                                    class="fa-solid fa-chevron-down select-arrow"
+                                ></i>
+
+                            </button>
+
+
+                            <div class="premium-select-menu">
+
+
+                                <!-- CASH -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Cash"
+                                >
+
+                                    <i class="fa-solid fa-money-bill-wave"></i>
+
+                                    <span>
+                                        Cash
+                                    </span>
+
+                                </button>
+
+
+                                <!-- ONLINE -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Online"
+                                >
+
+                                    <i class="fa-solid fa-mobile-screen-button"></i>
+
+                                    <span>
+                                        Online
+                                    </span>
+
+                                </button>
+
+
+                                <!-- BANK -->
+
+                                <button
+                                    type="button"
+                                    class="premium-option"
+                                    data-value="Bank"
+                                >
+
+                                    <i class="fa-solid fa-building-columns"></i>
+
+                                    <span>
+                                        Bank
+                                    </span>
+
+                                </button>
+
+                            </div>
+
+
+                            <input
+                                type="hidden"
+                                name="expensePaymentMode"
+                                id="expensePaymentMode"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         EXPENSE DATE
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="expenseDate">
+
+                            <i class="fa-solid fa-calendar-days"></i>
+
+                            Expense Date
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <div class="input-with-icon">
+
+                            <i class="fa-solid fa-calendar-days"></i>
+
+                            <input
+                                type="date"
+                                id="expenseDate"
+                                name="expenseDate"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         TRANSACTION NUMBER
+                         ================================================= -->
+
+                    <div class="form-group">
+
+                        <label for="expenseTransactionNumber">
+
+                            <i class="fa-solid fa-hashtag"></i>
+
+                            Transaction Number
+
+                        </label>
+
+
+                        <div class="input-with-icon">
+
+                            <i class="fa-solid fa-receipt"></i>
+
+                            <input
+                                type="text"
+                                id="expenseTransactionNumber"
+                                name="expenseTransactionNumber"
+                                placeholder="Optional transaction / reference number"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         REMARKS
+                         ================================================= -->
+
+                    <div class="form-group form-group-full">
+
+                        <label for="expenseRemarks">
+
+                            <i class="fa-solid fa-comment"></i>
+
+                            Remarks
+
+                        </label>
+
+
+                        <div class="input-with-icon">
+
+                            <i class="fa-solid fa-comment-dots"></i>
+
+                            <textarea
+                                id="expenseRemarks"
+                                name="expenseRemarks"
+                                rows="4"
+                                placeholder="Enter any additional remarks..."
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FORM ACTIONS
+                 ================================================= -->
+
+            <div class="expense-form-actions">
+
+                <button
+                    type="reset"
+                    class="expense-reset-btn"
+                >
+
+                    <i class="fa-solid fa-rotate-left"></i>
+
+                    <span>
+                        Reset
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="expense-save-btn"
+                    id="saveExpenseBtn"
+                >
+
+                    <i class="fa-solid fa-floppy-disk"></i>
+
+                    <span>
+                        Save Expense
+                    </span>
+
+                </button>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     EXPENSE HISTORY / MANAGE EXPENSES
+     ===================================================== -->
+
+<section
+    class="admin-section expense-history-section"
+    id="expenseHistory"
+>
+
+    <!-- ================= SECTION HEADING ================= -->
+
+    <div class="section-heading">
+
+        <div class="section-heading-icon">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+        </div>
+
+        <div>
+
+            <span class="section-eyebrow">
+                FINANCIAL RECORDS
+            </span>
+
+            <h2>
+                Expense History
+            </h2>
+
+            <p>
+                View, search and manage all institute
+                expense records.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= EXPENSE SUMMARY ================= -->
+
+    <div class="expense-history-summary">
+
+        <!-- TOTAL RECORDS -->
+
+        <div class="expense-summary-card">
+
+            <div class="expense-summary-icon">
+                <i class="fa-solid fa-receipt"></i>
+            </div>
+
+            <div>
+
+                <span>
+                    Total Records
+                </span>
+
+                <strong id="totalExpenseRecords">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- TOTAL EXPENSE -->
+
+        <div class="expense-summary-card">
+
+            <div class="expense-summary-icon">
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+            </div>
+
+            <div>
+
+                <span>
+                    Total Expenses
+                </span>
+
+                <strong>
+                    ₹<span id="totalExpenseAmount">0</span>
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- TODAY EXPENSE -->
+
+        <div class="expense-summary-card">
+
+            <div class="expense-summary-icon">
+                <i class="fa-solid fa-calendar-day"></i>
+            </div>
+
+            <div>
+
+                <span>
+                    Today's Expense
+                </span>
+
+                <strong>
+                    ₹<span id="todayExpenseAmount">0</span>
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= SEARCH / FILTER ================= -->
+
+    <div class="expense-history-toolbar">
+
+        <!-- SEARCH -->
+
+        <div class="expense-history-search">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="search"
+                id="expenseHistorySearch"
+                placeholder="Search expense..."
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <!-- CATEGORY FILTER -->
+
+        <div
+            class="premium-select expense-history-filter"
+            id="expenseHistoryCategorySelect"
+        >
+
+            <button
+                type="button"
+                class="premium-select-trigger"
+                aria-expanded="false"
+            >
+
+                <span class="premium-select-value">
+
+                    <i class="fa-solid fa-layer-group"></i>
+
+                    All Categories
+
+                </span>
+
+                <i
+                    class="fa-solid fa-chevron-down select-arrow"
+                ></i>
+
+            </button>
+
+
+            <div class="premium-select-menu">
+
+                <button
+                    type="button"
+                    class="premium-option"
+                    data-value="All"
+                >
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>All Categories</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="premium-option"
+                    data-value="Electricity"
+                >
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>Electricity</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="premium-option"
+                    data-value="Rent"
+                >
+                    <i class="fa-solid fa-building"></i>
+                    <span>Rent</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="premium-option"
+                    data-value="Stationery"
+                >
+                    <i class="fa-solid fa-pen"></i>
+                    <span>Stationery</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="premium-option"
+                    data-value="Internet"
+                >
+                    <i class="fa-solid fa-wifi"></i>
+                    <span>Internet</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="premium-option"
+                    data-value="Salary"
+                >
+                    <i class="fa-solid fa-users"></i>
+                    <span>Salary</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="premium-option"
+                    data-value="Maintenance"
+                >
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <span>Maintenance</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="premium-option"
+                    data-value="Marketing"
+                >
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <span>Marketing</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="premium-option"
+                    data-value="Transport"
+                >
+                    <i class="fa-solid fa-car"></i>
+                    <span>Transport</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="premium-option"
+                    data-value="Equipment"
+                >
+                    <i class="fa-solid fa-computer"></i>
+                    <span>Equipment</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="premium-option"
+                    data-value="Other"
+                >
+                    <i class="fa-solid fa-ellipsis"></i>
+                    <span>Other</span>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- DATE FILTER -->
+
+        <div class="expense-history-date">
+
+            <i class="fa-solid fa-calendar-days"></i>
+
+            <input
+                type="date"
+                id="expenseHistoryDate"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= RESULT INFO ================= -->
+
+    <div class="expense-history-result-bar">
+
+        <span id="expenseHistoryResultInfo">
+            Showing all expenses
+        </span>
+
+    </div>
+
+
+    <!-- ================= EXPENSE TABLE ================= -->
+
+    <div class="expense-history-card">
+
+        <div class="expense-history-table-wrapper">
+
+            <table class="expense-history-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Expense
+                        </th>
+
+                        <th>
+                            Category
+                        </th>
+
+                        <th>
+                            Amount
+                        </th>
+
+                        <th>
+                            Payment Mode
+                        </th>
+
+                        <th>
+                            Date
+                        </th>
+
+                        <th>
+                            Transaction
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="expenseHistoryTableBody">
+
+                    <!-- Firebase records will appear here -->
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- ================= EMPTY STATE ================= -->
+
+        <div
+            class="expense-history-empty"
+            id="expenseHistoryEmpty"
+            hidden
+        >
+
+            <div class="expense-history-empty-icon">
+
+                <i class="fa-solid fa-receipt"></i>
+
+            </div>
+
+            <h3>
+                No Expenses Found
+            </h3>
+
+            <p>
+                Expense records will appear here
+                after you save an expense.
+            </p>
+
+        </div>
+
+    </div>
+
+</section> 
+<!-- =====================================================
+     EXPENSE DETAILS MODAL
+     ===================================================== -->
+
+<div
+    class="expense-details-modal"
+    id="expenseDetailsModal"
+    hidden
+>
+
+    <div class="expense-details-overlay"></div>
+
+
+    <div
+        class="expense-details-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="expenseDetailsTitle"
+    >
+
+        <!-- ================= HEADER ================= -->
+
+        <div class="expense-details-header">
+
+            <div class="expense-details-heading">
+
+                <div class="expense-details-icon">
+
+                    <i class="fa-solid fa-receipt"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        EXPENSE RECORD
+                    </span>
+
+                    <h2 id="expenseDetailsTitle">
+                        Expense Details
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="expense-details-close"
+                id="closeExpenseDetailsModal"
+                title="Close"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <div
+            class="expense-details-content"
+            id="expenseDetailsContent"
+        >
+
+            <!-- JavaScript will insert details here -->
+
+        </div>
+
+
+        <!-- ================= FOOTER ================= -->
+
+        <div class="expense-details-footer">
+
+            <button
+                type="button"
+                class="expense-details-close-btn"
+                data-close-expense-modal
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+                Close
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- =====================================================
+     DELETE EXPENSE CONFIRMATION MODAL
+     ===================================================== -->
+
+<div
+    class="expense-delete-modal"
+    id="expenseDeleteModal"
+    hidden
+>
+
+    <div class="expense-delete-overlay"></div>
+
+
+    <div
+        class="expense-delete-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="expenseDeleteTitle"
+    >
+
+        <!-- ICON -->
+
+        <div class="expense-delete-icon">
+
+            <i class="fa-solid fa-trash-can"></i>
+
+        </div>
+
+
+        <!-- CONTENT -->
+
+        <div class="expense-delete-content">
+
+            <span class="expense-delete-eyebrow">
+                DELETE EXPENSE
+            </span>
+
+            <h2 id="expenseDeleteTitle">
+                Delete this expense?
+            </h2>
+
+            <p id="expenseDeleteMessage">
+                This expense record will be permanently
+                removed from the system.
+            </p>
+
+        </div>
+
+
+        <!-- ACTIONS -->
+
+        <div class="expense-delete-actions">
+
+            <button
+                type="button"
+                class="expense-delete-cancel-btn"
+                id="cancelExpenseDelete"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+                Cancel
+
+            </button>
+
+            <button
+                type="button"
+                class="expense-delete-confirm-btn"
+                id="confirmExpenseDelete"
+            >
+
+                <i class="fa-solid fa-trash-can"></i>
+
+                Delete Expense
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+    <!-- =====================================================
+     TOTAL TRANSACTION HISTORY
+     INCOME + EXPENSE
+     ===================================================== -->
+
+<section
+    class="admin-section transaction-history-section"
+    id="transactionHistory"
+>
+
+    <!-- ================= SECTION HEADING ================= -->
+
+    <div class="section-heading">
+
+        <div class="section-heading-icon">
+            <i class="fa-solid fa-money-bill-transfer"></i>
+        </div>
+
+        <div>
+
+            <span class="section-eyebrow">
+                FINANCIAL RECORDS
+            </span>
+
+            <h2>
+                Total Transaction History
+            </h2>
+
+            <p>
+                View all income and expense transactions
+                in one place.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= SUMMARY ================= -->
+
+    <div class="transaction-summary-grid">
+
+
+        <!-- TOTAL INCOME -->
+
+        <div class="transaction-summary-card income">
+
+            <div class="transaction-summary-icon">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+            </div>
+
+            <div>
+
+                <span>
+                    Total Income
+                </span>
+
+                <strong>
+                    ₹<span id="transactionTotalIncome">
+                        0
+                    </span>
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- TOTAL EXPENSE -->
+
+        <div class="transaction-summary-card expense">
+
+            <div class="transaction-summary-icon">
+                <i class="fa-solid fa-arrow-trend-down"></i>
+            </div>
+
+            <div>
+
+                <span>
+                    Total Expense
+                </span>
+
+                <strong>
+                    ₹<span id="transactionTotalExpense">
+                        0
+                    </span>
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- NET BALANCE -->
+
+        <div class="transaction-summary-card balance">
+
+            <div class="transaction-summary-icon">
+                <i class="fa-solid fa-wallet"></i>
+            </div>
+
+            <div>
+
+                <span>
+                    Net Balance
+                </span>
+
+                <strong>
+                    ₹<span id="transactionNetBalance">
+                        0
+                    </span>
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- TOTAL TRANSACTIONS -->
+
+        <div class="transaction-summary-card records">
+
+            <div class="transaction-summary-icon">
+                <i class="fa-solid fa-receipt"></i>
+            </div>
+
+            <div>
+
+                <span>
+                    Total Transactions
+                </span>
+
+                <strong id="transactionTotalRecords">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= TOOLBAR ================= -->
+
+    <div class="transaction-history-toolbar">
+
+
+        <!-- SEARCH -->
+
+        <div class="transaction-history-search">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="search"
+                id="transactionHistorySearch"
+                placeholder="Search transaction..."
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <!-- TYPE FILTER -->
+
+        <div
+            class="premium-select transaction-history-filter"
+            id="transactionTypeSelect"
+        >
+
+            <button
+                type="button"
+                class="premium-select-trigger"
+                aria-expanded="false"
+            >
+
+                <span class="premium-select-value">
+
+                    <i class="fa-solid fa-filter"></i>
+
+                    All Transactions
+
+                </span>
+
+                <i
+                    class="fa-solid fa-chevron-down select-arrow"
+                ></i>
+
+            </button>
+
+
+            <div class="premium-select-menu">
+
+
+                <!-- ALL -->
+
+                <button
+                    type="button"
+                    class="premium-option"
+                    data-value="All"
+                >
+
+                    <i class="fa-solid fa-layer-group"></i>
+
+                    <span>
+                        All Transactions
+                    </span>
+
+                </button>
+
+
+                <!-- INCOME -->
+
+                <button
+                    type="button"
+                    class="premium-option"
+                    data-value="Income"
+                >
+
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+
+                    <span>
+                        Income
+                    </span>
+
+                </button>
+
+
+                <!-- EXPENSE -->
+
+                <button
+                    type="button"
+                    class="premium-option"
+                    data-value="Expense"
+                >
+
+                    <i class="fa-solid fa-arrow-trend-down"></i>
+
+                    <span>
+                        Expense
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- DATE FILTER -->
+
+        <div class="transaction-history-date">
+
+            <i class="fa-solid fa-calendar-days"></i>
+
+            <input
+                type="date"
+                id="transactionHistoryDate"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= RESULT INFO ================= -->
+
+    <div class="transaction-history-result-bar">
+
+        <span id="transactionHistoryResultInfo">
+            Showing all transactions
+        </span>
+
+    </div>
+
+
+    <!-- ================= TRANSACTION TABLE ================= -->
+
+    <div class="transaction-history-card">
+
+        <div class="transaction-history-table-wrapper">
+
+            <table class="transaction-history-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Type
+                        </th>
+
+                        <th>
+                            Transaction
+                        </th>
+
+                        <th>
+                            Category
+                        </th>
+
+                        <th>
+                            Amount
+                        </th>
+
+                        <th>
+                            Payment Mode
+                        </th>
+
+                        <th>
+                            Date
+                        </th>
+
+                        <th>
+                            Reference
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody
+                    id="transactionHistoryTableBody"
+                >
+
+                    <!-- Firebase transactions will appear here -->
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- ================= EMPTY STATE ================= -->
+
+        <div
+            class="transaction-history-empty"
+            id="transactionHistoryEmpty"
+            hidden
+        >
+
+            <div class="transaction-history-empty-icon">
+
+                <i class="fa-solid fa-money-bill-transfer"></i>
+
+            </div>
+
+            <h3>
+                No Transactions Found
+            </h3>
+
+            <p>
+                Income and expense records will
+                appear here automatically.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =====================================================
+     FINANCIAL REPORTS
+     ===================================================== -->
+
+<section
+    class="admin-section financial-reports-section"
+    id="financialReports"
+>
+
+    <!-- ================= SECTION HEADING ================= -->
+
+    <div class="section-heading">
+
+        <div class="section-heading-icon">
+            <i class="fa-solid fa-chart-column"></i>
+        </div>
+
+        <div>
+
+            <span class="section-eyebrow">
+                FINANCIAL ANALYTICS
+            </span>
+
+            <h2>
+                Financial Reports
+            </h2>
+
+            <p>
+                Analyze institute income, expenses and
+                overall financial performance.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         REPORT FILTER
+         ================================================= -->
+
+    <div class="financial-report-filter-card">
+
+        <div class="financial-filter-heading">
+
+            <div class="financial-filter-icon">
+                <i class="fa-solid fa-filter"></i>
+            </div>
+
+            <div>
+
+                <h3>
+                    Report Period
+                </h3>
+
+                <p>
+                    Select the period you want to analyze.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="financial-filter-grid">
+
+
+            <!-- START DATE -->
+
+            <div class="form-group">
+
+                <label for="financialReportStartDate">
+
+                    <i class="fa-solid fa-calendar-days"></i>
+
+                    Start Date
+
+                </label>
+
+                <div class="input-with-icon">
+
+                    <i class="fa-solid fa-calendar-days"></i>
+
+                    <input
+                        type="date"
+                        id="financialReportStartDate"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- END DATE -->
+
+            <div class="form-group">
+
+                <label for="financialReportEndDate">
+
+                    <i class="fa-solid fa-calendar-days"></i>
+
+                    End Date
+
+                </label>
+
+                <div class="input-with-icon">
+
+                    <i class="fa-solid fa-calendar-days"></i>
+
+                    <input
+                        type="date"
+                        id="financialReportEndDate"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- REPORT BUTTON -->
+
+            <div class="financial-report-action">
+
+                <button
+                    type="button"
+                    class="financial-generate-btn"
+                    id="generateFinancialReport"
+                >
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <span>
+                        Generate Report
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         REPORT SUMMARY
+         ================================================= -->
+
+    <div
+        class="financial-report-summary"
+        id="financialReportSummary"
+    >
+
+
+        <!-- TOTAL INCOME -->
+
+        <div class="financial-summary-card income">
+
+            <div class="financial-summary-icon">
+
+                <i class="fa-solid fa-arrow-trend-up"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    Total Income
+                </span>
+
+                <strong>
+                    ₹<span id="reportTotalIncome">0</span>
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- TOTAL EXPENSE -->
+
+        <div class="financial-summary-card expense">
+
+            <div class="financial-summary-icon">
+
+                <i class="fa-solid fa-arrow-trend-down"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    Total Expense
+                </span>
+
+                <strong>
+                    ₹<span id="reportTotalExpense">0</span>
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- NET BALANCE -->
+
+        <div class="financial-summary-card balance">
+
+            <div class="financial-summary-icon">
+
+                <i class="fa-solid fa-wallet"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    Net Balance
+                </span>
+
+                <strong>
+                    ₹<span id="reportNetBalance">0</span>
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- TOTAL TRANSACTIONS -->
+
+        <div class="financial-summary-card transactions">
+
+            <div class="financial-summary-icon">
+
+                <i class="fa-solid fa-money-bill-transfer"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    Total Transactions
+                </span>
+
+                <strong id="reportTotalTransactions">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         PAYMENT MODE BREAKDOWN
+         ================================================= -->
+
+    <div class="financial-payment-breakdown-card">
+
+        <div class="financial-subheading">
+
+            <div class="financial-subheading-icon">
+
+                <i class="fa-solid fa-credit-card"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Payment Mode Breakdown
+                </h3>
+
+                <p>
+                    Income and expense distribution by
+                    payment mode.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="financial-payment-grid">
+
+
+            <!-- CASH -->
+
+            <div class="financial-payment-item">
+
+                <div class="financial-payment-icon">
+
+                    <i class="fa-solid fa-money-bill-wave"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Cash
+                    </span>
+
+                    <strong>
+                        ₹<span id="reportCashAmount">0</span>
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- ONLINE -->
+
+            <div class="financial-payment-item">
+
+                <div class="financial-payment-icon">
+
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Online
+                    </span>
+
+                    <strong>
+                        ₹<span id="reportOnlineAmount">0</span>
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- BANK -->
+
+            <div class="financial-payment-item">
+
+                <div class="financial-payment-icon">
+
+                    <i class="fa-solid fa-building-columns"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Bank
+                    </span>
+
+                    <strong>
+                        ₹<span id="reportBankAmount">0</span>
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         REPORT STATUS
+         ================================================= -->
+
+    <div
+        class="financial-report-status"
+        id="financialReportStatus"
+    >
+
+        <i class="fa-solid fa-circle-info"></i>
+
+        <span>
+            Select a date range and generate your report.
+        </span>
+
+    </div>
+
+
+</section>
+        <!-- =====================================================
+     PREMIUM FOOTER
+     ===================================================== -->
+
+<footer class="premium-footer">
+
+    <div class="footer-glow footer-glow-one"></div>
+    <div class="footer-glow footer-glow-two"></div>
+
+
+    <div class="footer-main">
+
+
+        <!-- ================= BRAND ================= -->
+
+        <div class="footer-brand">
+
+            <div class="footer-logo">
+
+                <img
+                    src="/images/logo.png"
+                    alt="LBS Computer Training Institute">
+
+            </div>
+
+            <h3>
+                Lal Bahadur Shastri
+                <span>Computer Training Institute</span>
+            </h3>
+
+            <p>
+                Empowering students with practical computer
+                education, digital skills and a better future
+                through quality training.
+            </p>
+
+
+            <!-- SOCIAL -->
+
+            <div class="footer-social">
+
+                <a
+                    href="#"
+                    aria-label="Instagram">
+
+                    <i class="fa-brands fa-instagram"></i>
+
+                </a>
+
+                <a
+                    href="#"
+                    aria-label="Facebook">
+
+                    <i class="fa-brands fa-facebook-f"></i>
+
+                </a>
+
+                <a
+                    href="#"
+                    aria-label="YouTube">
+
+                    <i class="fa-brands fa-youtube"></i>
+
+                </a>
+
+                <a
+                    href="#"
+                    aria-label="WhatsApp">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= QUICK LINKS ================= -->
+
+        <div class="footer-column">
+
+            <h4>
+                Quick Links
+            </h4>
+
+            <span class="footer-line"></span>
+
+            <a href="#home">
+                <i class="fa-solid fa-angle-right"></i>
+                Home
+            </a>
+
+            <a href="#about">
+                <i class="fa-solid fa-angle-right"></i>
+                About Us
+            </a>
+
+            <a href="#courses">
+                <i class="fa-solid fa-angle-right"></i>
+                Courses
+            </a>
+
+            <a href="#gallery">
+                <i class="fa-solid fa-angle-right"></i>
+                Gallery
+            </a>
+
+            <a href="#location">
+                <i class="fa-solid fa-angle-right"></i>
+                Location
+            </a>
+
+            <a href="#contact">
+                <i class="fa-solid fa-angle-right"></i>
+                Contact
+            </a>
+
+        </div>
+
+
+
+        <!-- ================= COURSES ================= -->
+
+        <div class="footer-column">
+
+            <h4>
+                Our Courses
+            </h4>
+
+            <span class="footer-line"></span>
+
+            <a href="/index.html#courses">
+                <i class="fa-solid fa-angle-right"></i>
+                ADCA
+            </a>
+
+            <a href="/index.html#courses">
+                <i class="fa-solid fa-angle-right"></i>
+                O Level
+            </a>
+
+            <a href="/index.html#courses">
+                <i class="fa-solid fa-angle-right"></i>
+                Tally Prime
+            </a>
+
+            <a href="/index.html#courses">
+                <i class="fa-solid fa-angle-right"></i>
+                Photoshop
+            </a>
+
+            <a href="/index.html#courses">
+                <i class="fa-solid fa-angle-right"></i>
+                CorelDRAW
+            </a>
+
+            <a href="/index.html#courses">
+                <i class="fa-solid fa-angle-right"></i>
+                Computer Typing
+            </a>
+
+        </div>
+
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <div class="footer-column footer-contact">
+
+            <h4>
+                Contact Us
+            </h4>
+
+            <span class="footer-line"></span>
+
+
+            <div class="footer-contact-item">
+
+                <div class="footer-contact-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+
+                <div>
+                    <strong>
+                        Visit Us
+                    </strong>
+
+                    <span>
+                        Shukul Bazar, Near Arahi Pul,
+                        Pandey Ganj, Amethi – 227811
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="footer-contact-item">
+
+                <div class="footer-contact-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+
+                <div>
+
+                    <strong>
+                        Email
+                    </strong>
+
+                    <a href="mailto:vickykumarvikas18@gmail.com">
+                        vickykumarvikas18@gmail.com
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-contact-item">
+
+                <div class="footer-contact-icon">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                </div>
+
+                <div>
+
+                    <strong>
+                        Location
+                    </strong>
+
+                    <a
+                        href="https://maps.app.goo.gl/XE1kd7AiBhdCCJ4Y8"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        Open in Google Maps
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= FOOTER BOTTOM ================= -->
+
+    <div class="footer-bottom">
+
+        <div class="footer-copyright">
+
+            <i class="fa-regular fa-copyright"></i>
+
+            <span>
+                2026 LBS Computer Training Institute.
+                All Rights Reserved.
+            </span>
+
+        </div>
+
+
+        <div class="footer-made">
+
+            Designed with
+            <i class="fa-solid fa-heart"></i>
+            for digital learning
+
+        </div>
+
+    </div>
+
+</footer>
+<!-- Premium Logout Modal -->
+<div class="premium-modal" id="logoutModal">
+    <div class="premium-modal-overlay"></div>
+
+    <div class="premium-modal-box">
+
+        <button type="button" class="premium-modal-close" id="closeLogoutModal">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="premium-modal-icon logout-icon">
+            <i class="fa-solid fa-right-from-bracket"></i>
+        </div>
+
+        <h3>Logout from Admin Panel?</h3>
+
+        <p>
+            Are you sure you want to logout from your admin account?
+        </p>
+
+        <div class="premium-modal-actions">
+            <button type="button" class="modal-cancel-btn" id="cancelLogout">
+                <i class="fa-solid fa-arrow-left"></i>
+                Stay Logged In
+            </button>
+
+            <button type="button" class="modal-confirm-btn" id="confirmLogout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Yes, Logout
+            </button>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Premium Logout Success -->
+<div class="logout-success-toast" id="logoutSuccess">
+    <div class="success-toast-icon">
+        <i class="fa-solid fa-check"></i>
+    </div>
+
+    <div class="success-toast-content">
+        <strong>Logged Out Successfully</strong>
+        <span>You have been safely logged out.</span>
+    </div>
+
+    <button type="button" id="closeSuccessToast">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+</div>
+<script type="module" src="admin.js"></script>
+<script>
+    /* =========================================================
+   DARK / LIGHT MODE
+   ========================================================= */
+
+const themeToggle =
+    document.getElementById("themeToggle");
+
+
+if (themeToggle) {
+    
+    const themeIcon =
+        themeToggle.querySelector("i");
+    
+    const savedTheme =
+        localStorage.getItem("lbs-theme");
+    
+    
+    if (savedTheme === "dark") {
+        
+        document.body.classList.add("dark-mode");
+        
+        if (themeIcon) {
+            themeIcon.classList.remove("fa-moon");
+            themeIcon.classList.add("fa-sun");
+        }
+    }
+    
+    
+    themeToggle.addEventListener("click", function() {
+        
+        document.body.classList.toggle("dark-mode");
+        
+        const isDark =
+            document.body.classList.contains("dark-mode");
+        
+        
+        if (isDark) {
+            
+            if (themeIcon) {
+                themeIcon.classList.remove("fa-moon");
+                themeIcon.classList.add("fa-sun");
+            }
+            
+            localStorage.setItem(
+                "lbs-theme",
+                "dark"
+            );
+            
+        } else {
+            
+            if (themeIcon) {
+                themeIcon.classList.remove("fa-sun");
+                themeIcon.classList.add("fa-moon");
+            }
+            
+            localStorage.setItem(
+                "lbs-theme",
+                "light"
+            );
+        }
+        
+    });
+    
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navMenu =
+    document.querySelector(".nav-menu");
+
+
+if (menuToggle && navMenu) {
+    
+    const menuIcon =
+        menuToggle.querySelector("i");
+    
+    
+    menuToggle.addEventListener("click", function() {
+        
+        navMenu.classList.toggle("show");
+        
+        
+        const menuOpen =
+            navMenu.classList.contains("show");
+        
+        
+        menuToggle.setAttribute(
+            "aria-expanded",
+            menuOpen
+        );
+        
+        
+        if (menuIcon) {
+            
+            if (menuOpen) {
+                
+                menuIcon.classList.remove("fa-bars");
+                menuIcon.classList.add("fa-xmark");
+                
+            } else {
+                
+                menuIcon.classList.remove("fa-xmark");
+                menuIcon.classList.add("fa-bars");
+            }
+        }
+        
+    });
+    
+    
+    const navLinks =
+        document.querySelectorAll(".nav-link");
+    
+    
+    navLinks.forEach(function(link) {
+        
+        link.addEventListener("click", function() {
+            
+            navMenu.classList.remove("show");
+            
+            
+            if (menuIcon) {
+                menuIcon.classList.remove("fa-xmark");
+                menuIcon.classList.add("fa-bars");
+            }
+            
+            
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+            
+            
+            navLinks.forEach(function(item) {
+                item.classList.remove("active");
+            });
+            
+            
+            link.classList.add("active");
+            
+        });
+        
+    });
+    
+}
+</script>
+</body>
+</html>
