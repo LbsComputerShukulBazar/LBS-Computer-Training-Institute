@@ -5874,3 +5874,206 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 });
+
+
+/* =========================================================
+   LBS PREMIUM INTRO CONTROLLER
+   ========================================================= */
+
+(function () {
+
+    const intro =
+        document.getElementById("lbsPremiumIntro");
+
+    const progress =
+        document.getElementById("lbsIntroProgress");
+
+    const percent =
+        document.getElementById("lbsIntroPercent");
+
+    if (!intro || !progress || !percent) {
+        return;
+    }
+
+
+    /*
+     * Total welcome duration
+     * 5200ms = 5.2 seconds
+     */
+
+    const duration = 5200;
+
+    const startTime = performance.now();
+
+
+    function updateIntro(currentTime) {
+
+        const elapsed =
+            currentTime - startTime;
+
+        let value =
+            Math.min(
+                (elapsed / duration) * 100,
+                100
+            );
+
+
+        /*
+         * Smooth progress
+         */
+
+        progress.style.width =
+            value.toFixed(1) + "%";
+
+
+        percent.textContent =
+            Math.floor(value) + "%";
+
+
+        if (value < 100) {
+
+            requestAnimationFrame(
+                updateIntro
+            );
+
+        }
+
+    }
+
+
+    requestAnimationFrame(
+        updateIntro
+    );
+
+
+    /*
+     * Subtle mouse parallax
+     */
+
+    document.addEventListener(
+        "mousemove",
+        function (event) {
+
+            const x =
+                (event.clientX / window.innerWidth - .5);
+
+            const y =
+                (event.clientY / window.innerHeight - .5);
+
+
+            const content =
+                intro.querySelector(
+                    ".lbs-intro-content"
+                );
+
+
+            if (content) {
+
+                content.style.transform =
+                    `translate3d(
+                        ${x * 8}px,
+                        ${y * 8}px,
+                        0
+                    )`;
+
+            }
+
+        }
+    );
+
+
+    /*
+     * Touch movement for mobile
+     */
+
+    document.addEventListener(
+        "touchmove",
+        function (event) {
+
+            if (!event.touches.length) {
+                return;
+            }
+
+            const touch =
+                event.touches[0];
+
+            const x =
+                (touch.clientX /
+                    window.innerWidth - .5);
+
+            const y =
+                (touch.clientY /
+                    window.innerHeight - .5);
+
+
+            const content =
+                intro.querySelector(
+                    ".lbs-intro-content"
+                );
+
+
+            if (content) {
+
+                content.style.transform =
+                    `translate3d(
+                        ${x * 5}px,
+                        ${y * 5}px,
+                        0
+                    )`;
+
+            }
+
+        },
+        { passive: true }
+    );
+
+
+    /*
+     * Hide welcome screen
+     */
+
+    setTimeout(function () {
+
+        intro.classList.add(
+            "lbs-intro-exit"
+        );
+
+
+        /*
+         * Remove it completely after
+         * exit animation.
+         */
+
+        setTimeout(function () {
+
+            intro.remove();
+
+            /*
+             * Restore scrolling
+             */
+
+            document.documentElement.style
+                .overflow = "";
+
+            document.body.style
+                .overflow = "";
+
+        }, 1250);
+
+
+    }, duration);
+
+
+    /*
+     * Prevent scrolling while intro
+     * screen is visible.
+     */
+
+    document.documentElement.style
+        .overflow = "hidden";
+
+    document.body.style
+        .overflow = "hidden";
+
+
+})();
