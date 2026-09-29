@@ -29536,4 +29536,592 @@ body.dark-mode .top-student-card {
     }
 
 }
+/* =========================================================
+   BOTTOM FEATURES
+   ========================================================= */
+
+.lbs-intro-bottom {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    margin-top: 20px;
+
+    animation:
+        lbsBottomIn
+        1s
+        1.3s
+        both;
+
+}
+
+
+.lbs-intro-bottom span {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    color:
+        rgba(255,255,255,.32);
+
+}
+
+
+.lbs-intro-bottom i {
+
+    color:
+        rgba(147,197,253,.65);
+
+}
+
+
+.lbs-intro-bottom b {
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(147,197,253,.45);
+
+}
+
+
+@keyframes lbsBottomIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   CORNER DECORATIONS
+   ========================================================= */
+
+.lbs-corner {
+
+    position: absolute;
+
+    width: 60px;
+    height: 60px;
+
+    opacity: .35;
+
+    pointer-events: none;
+
+}
+
+
+.lbs-corner::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #bfdbfe;
+
+    box-shadow:
+        0 0 8px #60a5fa,
+        0 0 18px rgba(59,130,246,.8);
+
+    animation:
+        lbsCornerPulse
+        2.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* Top Left */
+
+.lbs-corner-tl {
+
+    top: 22px;
+    left: 22px;
+
+    border-top:
+        1px solid
+        rgba(147,197,253,.4);
+
+    border-left:
+        1px solid
+        rgba(147,197,253,.4);
+
+}
+
+
+/* Top Right */
+
+.lbs-corner-tr {
+
+    top: 22px;
+    right: 22px;
+
+    border-top:
+        1px solid
+        rgba(147,197,253,.4);
+
+    border-right:
+        1px solid
+        rgba(147,197,253,.4);
+
+}
+
+
+/* Bottom Left */
+
+.lbs-corner-bl {
+
+    bottom: 22px;
+    left: 22px;
+
+    border-bottom:
+        1px solid
+        rgba(147,197,253,.4);
+
+    border-left:
+        1px solid
+        rgba(147,197,253,.4);
+
+}
+
+
+/* Bottom Right */
+
+.lbs-corner-br {
+
+    bottom: 22px;
+    right: 22px;
+
+    border-bottom:
+        1px solid
+        rgba(147,197,253,.4);
+
+    border-right:
+        1px solid
+        rgba(147,197,253,.4);
+
+}
+
+
+/* Corner Light Positions */
+
+.lbs-corner-tl::after {
+
+    top: -3px;
+    left: -3px;
+
+}
+
+
+.lbs-corner-tr::after {
+
+    top: -3px;
+    right: -3px;
+
+}
+
+
+.lbs-corner-bl::after {
+
+    bottom: -3px;
+    left: -3px;
+
+}
+
+
+.lbs-corner-br::after {
+
+    bottom: -3px;
+    right: -3px;
+
+}
+
+
+@keyframes lbsCornerPulse {
+
+    0%,
+    100% {
+
+        opacity: .3;
+
+        transform:
+            scale(.7);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.25);
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    #lbsPremiumIntro {
+
+        padding:
+            env(safe-area-inset-top)
+            12px
+            env(safe-area-inset-bottom);
+
+    }
+
+
+    /* Logo Area */
+
+    .lbs-intro-logo-area {
+
+        width: 145px;
+        height: 145px;
+
+        margin-bottom: 17px;
+
+    }
+
+
+    .lbs-ring-outer {
+
+        width: 142px;
+        height: 142px;
+
+    }
+
+
+    .lbs-ring-middle {
+
+        width: 128px;
+        height: 128px;
+
+    }
+
+
+    .lbs-ring-inner {
+
+        width: 112px;
+        height: 112px;
+
+    }
+
+
+    .lbs-logo-orbit {
+
+        width: 155px;
+        height: 70px;
+
+    }
+
+
+    .lbs-intro-logo {
+
+        width: 98px;
+        height: 98px;
+
+    }
+
+
+    .lbs-intro-logo img {
+
+        width: 80px;
+        height: 80px;
+
+    }
+
+
+    /* Heading */
+
+    .lbs-heading-small {
+
+        font-size: 8px;
+
+        letter-spacing: 4px;
+
+    }
+
+
+    .lbs-intro-heading h1 {
+
+        font-size: 27px;
+
+    }
+
+
+    /* Welcome Text */
+
+    .lbs-intro-welcome {
+
+        margin-top: 14px;
+
+    }
+
+
+    .lbs-intro-welcome span {
+
+        font-size: 9px;
+
+        letter-spacing: 5px;
+
+    }
+
+
+    /* Quote */
+
+    .lbs-intro-quote {
+
+        margin-top: 20px;
+
+        padding:
+            15px
+            12px
+            12px;
+
+    }
+
+
+    .lbs-intro-quote h2 {
+
+        font-size: 22px;
+
+    }
+
+
+    .lbs-intro-quote p {
+
+        font-size: 9px;
+
+        letter-spacing: 1px;
+
+    }
+
+
+    /* Loading */
+
+    .lbs-intro-loading {
+
+        margin-top: 20px;
+
+    }
+
+
+    /* Bottom Features */
+
+    .lbs-intro-bottom {
+
+        gap: 8px;
+
+        margin-top: 14px;
+
+    }
+
+
+    .lbs-intro-bottom span {
+
+        font-size: 7px;
+
+    }
+
+
+    /* Corner Decorations */
+
+    .lbs-corner {
+
+        width: 35px;
+        height: 35px;
+
+    }
+
+
+    .lbs-corner-tl,
+    .lbs-corner-tr {
+
+        top: 12px;
+
+    }
+
+
+    .lbs-corner-bl,
+    .lbs-corner-br {
+
+        bottom: 12px;
+
+    }
+
+
+    .lbs-corner-tl,
+    .lbs-corner-bl {
+
+        left: 12px;
+
+    }
+
+
+    .lbs-corner-tr,
+    .lbs-corner-br {
+
+        right: 12px;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE DEVICES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .lbs-intro-logo-area {
+
+        transform: scale(.88);
+
+        margin-top: -8px;
+
+        margin-bottom: 2px;
+
+    }
+
+
+    .lbs-intro-heading h1 {
+
+        font-size: 24px;
+
+    }
+
+
+    .lbs-intro-quote h2 {
+
+        font-size: 20px;
+
+    }
+
+
+    .lbs-intro-bottom {
+
+        gap: 5px;
+
+    }
+
+
+    .lbs-intro-bottom b {
+
+        width: 2px;
+        height: 2px;
+
+    }
+
+}
+
+
+/* =========================================================
+   LANDSCAPE MOBILE
+   ========================================================= */
+
+@media (max-height: 600px)
+       and (orientation: landscape) {
+
+    .lbs-intro-content {
+
+        transform:
+            scale(.78);
+
+    }
+
+
+    .lbs-intro-logo-area {
+
+        margin-bottom: -5px;
+
+    }
+
+
+    .lbs-intro-quote {
+
+        margin-top: 12px;
+
+    }
+
+
+    .lbs-intro-loading {
+
+        margin-top: 12px;
+
+    }
+
+
+    .lbs-intro-bottom {
+
+        margin-top: 10px;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #lbsPremiumIntro *,
+    #lbsPremiumIntro *::before,
+    #lbsPremiumIntro *::after {
+
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        scroll-behavior:
+            auto !important;
+
+    }
+
+}
 
