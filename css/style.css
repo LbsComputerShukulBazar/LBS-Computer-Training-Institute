@@ -30623,3 +30623,57 @@ body.dark-mode .trust-item i {
     }
 
 }
+/* =====================================================
+   MOBILE — 2 × 2 RECOGNITION CARDS
+   ===================================================== */
+
+@media (max-width: 650px) {
+
+    .recognition-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .recognition-card {
+        min-height: 245px;
+        padding: 18px 10px;
+        border-radius: 20px;
+    }
+
+    .recognition-logo-box {
+        width: 82px;
+        height: 82px;
+        margin-bottom: 14px;
+        border-radius: 18px;
+    }
+
+    .recognition-logo-box img {
+        max-width: 60px;
+        max-height: 60px;
+    }
+
+    .recognition-type {
+        font-size: 0.52rem;
+        letter-spacing: 0.8px;
+        margin-bottom: 5px;
+    }
+
+    .recognition-card h3 {
+        font-size: 0.95rem;
+    }
+
+    .recognition-card p {
+        font-size: 0.68rem;
+        line-height: 1.4;
+        margin-top: 5px;
+    }
+
+    .recognition-check {
+        width: 25px;
+        height: 25px;
+        top: 9px;
+        right: 9px;
+        font-size: 0.6rem;
+    }
+
+}
