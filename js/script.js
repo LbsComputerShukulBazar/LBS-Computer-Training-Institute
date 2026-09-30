@@ -370,7 +370,7 @@ if (admissionForm) {
 
 
             const whatsappNumber =
-                "919807440024";
+                "919198172422";
 
 
             const message =
