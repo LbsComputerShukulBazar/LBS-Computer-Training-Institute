@@ -30677,3 +30677,95 @@ body.dark-mode .trust-item i {
     }
 
 }
+
+/* =====================================================
+   COURSES — MOBILE 2 COLUMN PREMIUM GRID
+   ===================================================== */
+
+@media (max-width: 650px) {
+
+    .courses-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .course-card {
+        min-width: 0;
+        padding: 20px 12px;
+        border-radius: 20px;
+    }
+
+    .course-number {
+        font-size: 0.65rem;
+    }
+
+    .course-icon {
+        width: 58px;
+        height: 58px;
+        margin-bottom: 14px;
+    }
+
+    .course-icon i {
+        font-size: 1.25rem;
+    }
+
+    .course-label {
+        font-size: 0.55rem;
+        letter-spacing: 0.7px;
+    }
+
+    .course-content h3 {
+        font-size: 0.95rem;
+        line-height: 1.25;
+    }
+
+    .course-content p {
+        font-size: 0.68rem;
+        line-height: 1.45;
+    }
+
+    .course-link {
+        font-size: 0.68rem;
+        gap: 5px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+   ===================================================== */
+
+@media (max-width: 380px) {
+
+    .courses-grid {
+        gap: 9px;
+    }
+
+    .course-card {
+        padding: 17px 9px;
+        border-radius: 17px;
+    }
+
+    .course-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .course-icon i {
+        font-size: 1.05rem;
+    }
+
+    .course-content h3 {
+        font-size: 0.86rem;
+    }
+
+    .course-content p {
+        font-size: 0.62rem;
+    }
+
+    .course-link {
+        font-size: 0.62rem;
+    }
+
+}
