@@ -3085,3 +3085,101 @@ function escapeHTML(
         );
 
 }
+/* =========================================
+   PREMIUM EXAM UNAVAILABLE POPUP
+   LBS COMPUTER TRAINING INSTITUTE
+========================================= */
+
+function showExamUnavailablePopup(courseName) {
+
+    document.getElementById("examUnavailablePopup")?.remove();
+
+    const popup = document.createElement("div");
+
+    popup.id = "examUnavailablePopup";
+
+    popup.innerHTML = `
+        <div class="eu-overlay">
+            <div class="eu-card">
+
+                <div class="eu-top-line"></div>
+
+                <button class="eu-close" aria-label="Close">
+                    &times;
+                </button>
+
+                <div class="eu-icon">
+                    <span>📚</span>
+                </div>
+
+                <span class="eu-badge">
+                    EXAMINATION PORTAL
+                </span>
+
+                <h2>Paper Not Available</h2>
+
+                <p class="eu-description">
+                    We're sorry! Your question paper
+                    is currently unavailable.
+                </p>
+
+                <div class="eu-course">
+                    <span>SELECTED COURSE</span>
+                    <strong class="eu-course-name"></strong>
+                </div>
+
+                <div class="eu-message">
+                    <span>💡</span>
+                    <p>
+                        Please contact your institute
+                        for assistance or try again later.
+                    </p>
+                </div>
+
+                <button class="eu-ok">
+                    Okay, Got It
+                    <span>→</span>
+                </button>
+
+                <div class="eu-footer">
+                    <span>🔒</span>
+                    LBS COMPUTER TRAINING INSTITUTE
+                </div>
+
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(popup);
+
+    popup.querySelector(".eu-course-name").textContent =
+        courseName;
+
+    const overlay = popup.querySelector(".eu-overlay");
+
+    requestAnimationFrame(() => {
+        overlay.classList.add("eu-visible");
+    });
+
+    function closePopup() {
+        overlay.classList.remove("eu-visible");
+
+        document.body.style.overflow = "";
+
+        setTimeout(() => popup.remove(), 250);
+    }
+
+    popup.querySelector(".eu-close")
+        .addEventListener("click", closePopup);
+
+    popup.querySelector(".eu-ok")
+        .addEventListener("click", closePopup);
+
+    overlay.addEventListener("click", function(event) {
+        if (event.target === overlay) {
+            closePopup();
+        }
+    });
+
+    document.body.style.overflow = "hidden";
+}
