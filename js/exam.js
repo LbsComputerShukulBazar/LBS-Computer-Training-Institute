@@ -362,11 +362,7 @@ if (
                     
                 } else {
                     
-                    alert(
-                        "Question paper is not available for:\n\n" +
-                        (student.course || "")
-                    );
-                    
+                  showExamUnavailablePopup(student.course || "Unknown Course");
                 }
                 
             })
@@ -386,10 +382,7 @@ if (
         
     } else {
         
-        alert(
-            "Question paper is not available for:\n\n" +
-            (student.course || "")
-        );
+      showExamUnavailablePopup(student.course || "Unknown Course");
         
     }
     
