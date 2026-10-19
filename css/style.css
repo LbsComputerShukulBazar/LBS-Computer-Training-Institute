@@ -29737,3 +29737,327 @@ body.dark-mode .trust-item i {
     scroll-behavior: auto !important;
   }
    }
+
+/* ==========================================
+   LBS PREMIUM NIGHT MODE
+   Midnight Blue + Emerald + Ice Blue
+========================================== */
+
+.lux-offer {
+  --lux-bg: #050b14;
+  --lux-purple: #35f2a1;
+  --lux-pink: #70d7ff;
+  --lux-cyan: #70d7ff;
+  --lux-white: #f1f6fc;
+
+  background:
+    radial-gradient(
+      ellipse at 15% 15%,
+      rgba(53, 242, 161, 0.10),
+      transparent 38%
+    ),
+    radial-gradient(
+      ellipse at 85% 75%,
+      rgba(75, 160, 255, 0.10),
+      transparent 42%
+    ),
+    linear-gradient(
+      145deg,
+      #050b14,
+      #0a1220 50%,
+      #050b14
+    );
+}
+
+/* Animated background grid */
+
+.lux-offer .lux-grid {
+  background-image:
+    linear-gradient(
+      rgba(112, 215, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(112, 215, 255, 0.035) 1px,
+      transparent 1px
+    );
+}
+
+/* Emerald and blue glow */
+
+.lux-offer .lux-orb-one {
+  background: radial-gradient(
+    circle,
+    rgba(53, 242, 161, 0.18),
+    transparent 70%
+  );
+}
+
+.lux-offer .lux-orb-two {
+  background: radial-gradient(
+    circle,
+    rgba(74, 160, 255, 0.18),
+    transparent 70%
+  );
+}
+
+.lux-offer .lux-orb-three {
+  background: radial-gradient(
+    circle,
+    rgba(53, 242, 161, 0.12),
+    transparent 70%
+  );
+}
+
+/* Circle rings */
+
+.lux-offer .lux-ring {
+  border-color: rgba(112, 215, 255, 0.15);
+}
+
+.lux-offer .lux-ring::before {
+  border-color: rgba(53, 242, 161, 0.16);
+}
+
+.lux-offer .lux-ring::after {
+  background: #35f2a1;
+
+  box-shadow:
+    0 0 12px #35f2a1,
+    0 0 30px rgba(53, 242, 161, 0.55);
+}
+
+/* Main card */
+
+.lux-offer .lux-card {
+  border-color: rgba(112, 215, 255, 0.20);
+
+  background: linear-gradient(
+    135deg,
+    rgba(13, 28, 43, 0.98),
+    rgba(7, 15, 27, 0.98) 55%,
+    rgba(10, 31, 36, 0.98)
+  );
+
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.42),
+    0 0 55px rgba(53, 242, 161, 0.045),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.lux-offer .lux-card-glow {
+  background: rgba(53, 242, 161, 0.12);
+}
+
+/* Header gradient */
+
+.lux-offer .lux-header h2 span {
+  background: linear-gradient(
+    100deg,
+    #35f2a1,
+    #70d7ff 55%,
+    #d8f9ff
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Daily offer badge */
+
+.lux-offer .lux-live {
+  border-color: rgba(53, 242, 161, 0.25);
+
+  background: rgba(53, 242, 161, 0.06);
+
+  color: #a8ffdb;
+}
+
+.lux-offer .lux-live-dot {
+  background: #35f2a1;
+
+  box-shadow: 0 0 12px rgba(53, 242, 161, 0.8);
+}
+
+/* Day icon */
+
+.lux-offer .lux-day-icon {
+  border-color: rgba(53, 242, 161, 0.24);
+
+  background: linear-gradient(
+    145deg,
+    rgba(53, 242, 161, 0.15),
+    rgba(112, 215, 255, 0.06)
+  );
+
+  color: #8affc8;
+}
+
+/* 3D discount number */
+
+.lux-offer .lux-percent-number {
+  background: linear-gradient(
+    180deg,
+    #f1fff9 0%,
+    #a9ffda 28%,
+    #35f2a1 58%,
+    #13a970 80%,
+    #086343 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  filter:
+    drop-shadow(0 4px 0 #075c40)
+    drop-shadow(0 10px 18px rgba(53, 242, 161, 0.20));
+}
+
+.lux-offer .lux-percent-sign {
+  color: #70d7ff;
+
+  text-shadow:
+    0 2px 0 #164c6c,
+    0 8px 22px rgba(112, 215, 255, 0.25);
+}
+
+.lux-offer .lux-off-label {
+  color: #a9ffdc;
+}
+
+.lux-offer .lux-divider {
+  background: linear-gradient(
+    90deg,
+    rgba(53, 242, 161, 0.45),
+    transparent
+  );
+}
+
+/* Tags */
+
+.lux-offer .lux-tags span {
+  border-color: rgba(112, 215, 255, 0.14);
+
+  background: rgba(112, 215, 255, 0.035);
+
+  color: #c7eaff;
+}
+
+/* Institute logo ring */
+
+.lux-offer .lux-logo-seal {
+  border-color: rgba(53, 242, 161, 0.38);
+
+  background: radial-gradient(
+    circle at 30% 25%,
+    rgba(53, 242, 161, 0.14),
+    #07131d 72%
+  );
+
+  box-shadow:
+    0 0 0 5px rgba(53, 242, 161, 0.045),
+    0 0 30px rgba(53, 242, 161, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+/* Countdown boxes */
+
+.lux-offer .lux-time-box {
+  border-color: rgba(112, 215, 255, 0.17);
+
+  background: linear-gradient(
+    150deg,
+    rgba(112, 215, 255, 0.07),
+    rgba(255, 255, 255, 0.015)
+  );
+}
+
+.lux-offer .lux-time-colon {
+  color: #35f2a1;
+}
+
+/* Timer progress */
+
+.lux-offer .lux-timer-line span {
+  background: linear-gradient(
+    90deg,
+    #35f2a1,
+    #70d7ff
+  );
+
+  box-shadow: 0 0 14px rgba(53, 242, 161, 0.35);
+}
+
+/* Premium glass button */
+
+.lux-offer .lux-claim-btn {
+  border-color: rgba(53, 242, 161, 0.32);
+
+  background: linear-gradient(
+    120deg,
+    rgba(53, 242, 161, 0.11),
+    rgba(112, 215, 255, 0.035) 55%,
+    rgba(53, 242, 161, 0.06)
+  );
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.lux-offer .lux-btn-icon {
+  border-color: rgba(53, 242, 161, 0.22);
+
+  background: rgba(53, 242, 161, 0.08);
+
+  color: #70ffc0;
+}
+
+.lux-offer .lux-btn-arrow {
+  border-color: rgba(112, 215, 255, 0.16);
+
+  background: rgba(112, 215, 255, 0.06);
+
+  color: #a8eaff;
+}
+
+.lux-offer .lux-claim-btn:hover {
+  border-color: rgba(53, 242, 161, 0.65);
+
+  background: linear-gradient(
+    120deg,
+    rgba(53, 242, 161, 0.18),
+    rgba(112, 215, 255, 0.07) 55%,
+    rgba(53, 242, 161, 0.11)
+  );
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.25),
+    0 0 28px rgba(53, 242, 161, 0.08);
+}
+
+.lux-offer .lux-claim-btn:hover .lux-btn-icon {
+  background: rgba(53, 242, 161, 0.16);
+}
+
+.lux-offer .lux-claim-btn:hover .lux-btn-arrow {
+  background: #35f2a1;
+  color: #05130d;
+}
+
+/* Bottom signature */
+
+.lux-offer .lux-bottom p span {
+  color: #35f2a1;
+}
+
+.lux-offer .lux-bottom-line {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(53, 242, 161, 0.4)
+  );
+}
