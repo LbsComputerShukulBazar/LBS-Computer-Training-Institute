@@ -6491,3 +6491,151 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 })();
+
+/* ==========================================
+   LBS DAILY OFFER + WHATSAPP + COUNTDOWN
+========================================== */
+
+(() => {
+  "use strict";
+
+  const offerSection = document.getElementById("dailyOffer");
+
+  if (!offerSection) return;
+
+  // LBS INSTITUTE WHATSAPP NUMBER
+  const WHATSAPP_NUMBER = "919198172422";
+
+  /*
+    EXAMPLE DISCOUNT SCHEDULE
+
+    Apne actual approved discounts ke mutabik
+    percentages ko edit kar sakte ho.
+  */
+
+  const dailyOffers = [
+    { day: "SUNDAY", discount: 30 },
+    { day: "MONDAY", discount: 20 },
+    { day: "TUESDAY", discount: 25 },
+    { day: "WEDNESDAY", discount: 35 },
+    { day: "THURSDAY", discount: 25 },
+    { day: "FRIDAY", discount: 40 },
+    { day: "SATURDAY", discount: 30 }
+  ];
+
+  const dayElement = document.getElementById("offerDay");
+  const discountElement = document.getElementById("offerDiscount");
+
+  const hoursElement = document.getElementById("offerHours");
+  const minutesElement = document.getElementById("offerMinutes");
+  const secondsElement = document.getElementById("offerSeconds");
+
+  const timerNote = document.getElementById("offerTimerNote");
+
+  const whatsappButton = document.getElementById(
+    "offerWhatsAppButton"
+  );
+
+  let currentDateKey = "";
+
+  function getOfferForToday(now) {
+    const dayIndex = now.getDay();
+
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const date = String(now.getDate()).padStart(2, "0");
+
+    return {
+      ...dailyOffers[dayIndex],
+      dateKey: `${year}-${month}-${date}`
+    };
+  }
+
+  function updateWhatsAppButton(offer) {
+    if (!whatsappButton) return;
+
+    const message =
+      "Hello LBS Computer Training Institute! " +
+      "I want to enquire about today's " +
+      offer.day +
+      " special offer of up to " +
+      offer.discount +
+      "% off. " +
+      "Please tell me which courses are eligible, " +
+      "the offer validity, terms and final course fees.";
+
+    const encodedMessage = encodeURIComponent(message);
+
+    whatsappButton.href =
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+  }
+
+  function updateOfferDetails(offer) {
+    if (dayElement) {
+      dayElement.textContent = offer.day;
+    }
+
+    if (discountElement) {
+      discountElement.textContent = offer.discount;
+    }
+
+    updateWhatsAppButton(offer);
+  }
+
+  function updateCountdown() {
+    const now = new Date();
+    const offer = getOfferForToday(now);
+
+    // New day: update discount and WhatsApp message.
+    if (currentDateKey !== offer.dateKey) {
+      currentDateKey = offer.dateKey;
+      updateOfferDetails(offer);
+    }
+
+    // Countdown to local midnight.
+    const midnight = new Date(now);
+
+    midnight.setHours(24, 0, 0, 0);
+
+    const remainingMilliseconds = Math.max(
+      0,
+      midnight.getTime() - now.getTime()
+    );
+
+    const remainingSeconds = Math.floor(
+      remainingMilliseconds / 1000
+    );
+
+    const hours = Math.floor(remainingSeconds / 3600);
+
+    const minutes = Math.floor(
+      (remainingSeconds % 3600) / 60
+    );
+
+    const seconds = remainingSeconds % 60;
+
+    if (hoursElement) {
+      hoursElement.textContent = String(hours).padStart(2, "0");
+    }
+
+    if (minutesElement) {
+      minutesElement.textContent = String(minutes).padStart(2, "0");
+    }
+
+    if (secondsElement) {
+      secondsElement.textContent = String(seconds).padStart(2, "0");
+    }
+
+    if (timerNote) {
+      timerNote.textContent =
+        "Contact LBS to confirm course eligibility and today's offer validity.";
+    }
+  }
+
+  // Run immediately.
+  updateCountdown();
+
+  // Refresh every second.
+  window.setInterval(updateCountdown, 1000);
+
+})();
