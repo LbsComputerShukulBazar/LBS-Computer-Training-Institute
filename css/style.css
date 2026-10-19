@@ -30061,3 +30061,116 @@ body.dark-mode .trust-item i {
     rgba(53, 242, 161, 0.4)
   );
 }
+/* ==========================================
+   LBS DAILY OFFER — PREMIUM HOVER EFFECTS
+   Midnight Blue + Emerald + Ice Blue
+========================================== */
+
+/* Smooth animation for all offer elements */
+.lux-offer .lux-card,
+.lux-offer .lux-logo-badge,
+.lux-offer .lux-tag,
+.lux-offer .lux-countdown > div,
+.lux-offer .lux-cta,
+.lux-offer .lux-discount,
+.lux-offer .lux-signature {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    background-color 0.35s ease,
+    filter 0.35s ease;
+}
+
+/* Main offer card */
+@media (hover: hover) and (pointer: fine) {
+  .lux-offer .lux-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(53, 242, 161, 0.65);
+    box-shadow:
+      0 25px 65px rgba(0, 0, 0, 0.45),
+      0 0 28px rgba(53, 242, 161, 0.12);
+  }
+
+  /* Logo badge */
+  .lux-offer .lux-logo-badge:hover {
+    transform: translateY(-4px) rotate(-3deg) scale(1.04);
+    box-shadow: 0 0 25px rgba(112, 215, 255, 0.25);
+  }
+
+  /* Offer tags */
+  .lux-offer .lux-tag:hover {
+    transform: translateY(-3px);
+    border-color: #35f2a1;
+    background-color: rgba(53, 242, 161, 0.12);
+    box-shadow: 0 5px 18px rgba(53, 242, 161, 0.12);
+  }
+
+  /* Countdown boxes */
+  .lux-offer .lux-countdown > div:hover {
+    transform: translateY(-5px) scale(1.04);
+    border-color: rgba(112, 215, 255, 0.75);
+    box-shadow: 0 8px 22px rgba(112, 215, 255, 0.12);
+  }
+
+  /* Discount badge */
+  .lux-offer .lux-discount:hover {
+    transform: translateY(-5px) scale(1.04) rotate(-2deg);
+    filter: brightness(1.12);
+    box-shadow: 0 12px 28px rgba(53, 242, 161, 0.2);
+  }
+
+  /* WhatsApp CTA button */
+  .lux-offer .lux-cta:hover {
+    transform: translateY(-4px) scale(1.025);
+    filter: brightness(1.12);
+    box-shadow:
+      0 12px 28px rgba(53, 242, 161, 0.25),
+      0 0 18px rgba(112, 215, 255, 0.12);
+  }
+
+  /* Bottom signature */
+  .lux-offer .lux-signature:hover {
+    transform: translateX(4px);
+    color: #70d7ff;
+  }
+}
+
+/* Keyboard accessibility */
+.lux-offer a:focus-visible,
+.lux-offer button:focus-visible {
+  outline: 3px solid #70d7ff;
+  outline-offset: 5px;
+  border-radius: 10px;
+}
+
+/* Click feedback */
+.lux-offer .lux-cta:active {
+  transform: scale(0.97);
+}
+
+/* Touch devices: avoid sticky hover effects */
+@media (hover: none) {
+  .lux-offer .lux-card:hover,
+  .lux-offer .lux-logo-badge:hover,
+  .lux-offer .lux-tag:hover,
+  .lux-offer .lux-countdown > div:hover,
+  .lux-offer .lux-discount:hover,
+  .lux-offer .lux-cta:hover {
+    transform: none;
+    filter: none;
+  }
+}
+
+/* Respect reduced-motion accessibility settings */
+@media (prefers-reduced-motion: reduce) {
+  .lux-offer .lux-card,
+  .lux-offer .lux-logo-badge,
+  .lux-offer .lux-tag,
+  .lux-offer .lux-countdown > div,
+  .lux-offer .lux-cta,
+  .lux-offer .lux-discount,
+  .lux-offer .lux-signature {
+    transition: none !important;
+  }
+}
