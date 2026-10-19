@@ -6555,14 +6555,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!whatsappButton) return;
 
     const message =
-      "Hello LBS Computer Training Institute! " +
-      "I want to enquire about today's " +
-      offer.day +
-      " special offer of up to " +
-      offer.discount +
-      "% off. " +
-      "Please tell me which courses are eligible, " +
-      "the offer validity, terms and final course fees.";
+  "Hello LBS Computer Training Institute! 👋✨\n\n" +
+  "I’m interested in upgrading my computer skills and would love to know more about your exclusive Daily Offer! 🎯\n\n" +
+  "🏷️ Today's Special: " + offer.day + "\n" +
+  "🎁 Advertised Discount: Up to " + offer.discount + "%\n\n" +
+  "Could you please help me with these details?\n\n" +
+  "📚 Available computer courses\n" +
+  "💰 Course fees after applicable discount\n" +
+  "✅ Offer eligibility and validity\n" +
+  "📋 Course duration and admission process\n\n" +
+  "I’d love to find the right course for my career goals!\n\n" +
+  "Thank you! 😊";
 
     const encodedMessage = encodeURIComponent(message);
 
