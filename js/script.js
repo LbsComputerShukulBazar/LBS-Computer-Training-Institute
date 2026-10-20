@@ -6642,3 +6642,423 @@ document.addEventListener("DOMContentLoaded", () => {
   window.setInterval(updateCountdown, 1000);
 
 })();
+/* =====================================================
+   LBS LAYERED COURSE SLIDER — CLEAN CONTROLLER
+   Compatible with existing #lbsShowcase HTML
+===================================================== */
+
+(() => {
+    "use strict";
+
+    function initLbsSlider() {
+        const slider = document.getElementById("lbsShowcase");
+
+        if (!slider || slider.dataset.initialized === "true") {
+            return;
+        }
+
+        const image = slider.querySelector("#lbsSlideImage");
+        const mainCard = slider.querySelector(".lbs-main-card");
+        const imageHeading = slider.querySelector("#lbsImageHeading");
+        const imageCategory = slider.querySelector("#lbsImageCategory");
+        const imageCount = slider.querySelector("#lbsImageCount");
+
+        const infoEyebrow = slider.querySelector("#lbsInfoEyebrow");
+        const infoTitle = slider.querySelector("#lbsInfoTitle");
+        const infoDescription = slider.querySelector("#lbsInfoDescription");
+        const infoTag = slider.querySelector("#lbsInfoTag");
+        const infoContent = slider.querySelector("#lbsInfoContent");
+
+        const nextButton = slider.querySelector("#lbsNext");
+        const prevButton = slider.querySelector("#lbsPrev");
+
+        const counter = slider.querySelector("#lbsCounter");
+        const dots = [...slider.querySelectorAll(".lbs-dot")];
+
+        const playButton = slider.querySelector("#lbsPlay");
+        const dayButton = slider.querySelector("#lbsDay");
+        const nightButton = slider.querySelector("#lbsNight");
+
+        if (!image || !mainCard || !infoContent) {
+            console.warn("LBS Slider: Required HTML elements are missing.");
+            return;
+        }
+
+        slider.dataset.initialized = "true";
+
+        const courses = [
+            {
+                image: "images/olevel.png",
+                alt: "O Level computer course",
+                category: "COMPUTER EDUCATION",
+                title: "O Level",
+                eyebrow: "BUILD YOUR DIGITAL FUTURE",
+                heading: "O Level Computer Course",
+                description:
+                    "Develop practical computer skills, learn office applications and build a strong digital foundation.",
+                tag: "Computer Applications"
+            },
+            {
+                image: "images/adca.jpg",
+                alt: "ADCA computer course",
+                category: "ADVANCED COMPUTER EDUCATION",
+                title: "ADCA",
+                eyebrow: "ADVANCE YOUR COMPUTER SKILLS",
+                heading: "ADCA Computer Course",
+                description:
+                    "Learn computer applications, office tools and essential digital skills through practical training.",
+                tag: "Advanced Computer Applications"
+            },
+            {
+                image: "images/tally.jpg",
+                alt: "Tally Prime accounting course",
+                category: "ACCOUNTING",
+                title: "Tally Prime",
+                eyebrow: "LEARN PRACTICAL ACCOUNTING",
+                heading: "Tally Prime Course",
+                description:
+                    "Understand accounting entries, ledgers, reports and practical business accounting.",
+                tag: "Accounting & GST"
+            },
+            {
+                image: "images/dca.jpg",
+                alt: "DCA computer course",
+                category: "COMPUTER APPLICATIONS",
+                title: "DCA",
+                eyebrow: "START YOUR DIGITAL JOURNEY",
+                heading: "Diploma in Computer Applications",
+                description:
+                    "Build a foundation in computer operations, office applications and everyday digital tasks.",
+                tag: "Computer Fundamentals"
+            },
+            {
+                image: "images/ccc.png",
+                alt: "CCC computer course",
+                category: "DIGITAL LITERACY",
+                title: "CCC",
+                eyebrow: "BUILD ESSENTIAL DIGITAL SKILLS",
+                heading: "CCC Computer Course",
+                description:
+                    "Learn computer fundamentals, internet usage and essential digital applications.",
+                tag: "Basic Computer Education"
+            },
+            {
+                image: "images/webdesign.png",
+                alt: "Web design course",
+                category: "WEB DEVELOPMENT",
+                title: "Web Design",
+                eyebrow: "TURN IDEAS INTO WEBSITES",
+                heading: "Web Design Course",
+                description:
+                    "Explore HTML, CSS and JavaScript to understand how modern websites are created.",
+                tag: "HTML • CSS • JavaScript"
+            },
+            {
+                image: "images/python.jpg",
+                alt: "Python programming course",
+                category: "PROGRAMMING",
+                title: "Python",
+                eyebrow: "BEGIN YOUR CODING JOURNEY",
+                heading: "Python Programming Course",
+                description:
+                    "Learn programming fundamentals, write Python code and develop logical problem-solving skills.",
+                tag: "Python Programming"
+            }
+        ];
+
+        const reduceMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        const textElements = [
+            infoEyebrow,
+            infoTitle,
+            infoDescription,
+            infoTag
+        ].filter(Boolean);
+
+        let current = 0;
+        let autoplayTimer = null;
+        let typingTimers = [];
+        let isPlaying = !reduceMotion;
+        let typingRun = 0;
+
+        function clearTyping() {
+            typingRun++;
+
+            typingTimers.forEach(timer => clearTimeout(timer));
+            typingTimers = [];
+
+            textElements.forEach(element => {
+                element.classList.remove("lbs-typing-cursor");
+            });
+        }
+
+        function typeElement(element, text, runId, callback) {
+            if (!element) {
+                if (callback) callback();
+                return;
+            }
+
+            element.textContent = "";
+
+            if (reduceMotion) {
+                element.textContent = text;
+                if (callback) callback();
+                return;
+            }
+
+            element.classList.add("lbs-typing-cursor");
+
+            let position = 0;
+
+            function typeNextCharacter() {
+                if (
+                    runId !== typingRun ||
+                    !element.isConnected
+                ) {
+                    return;
+                }
+
+                element.textContent = text.slice(0, position);
+                position++;
+
+                if (position <= text.length) {
+                    const timer = setTimeout(
+                        typeNextCharacter,
+                        24
+                    );
+
+                    typingTimers.push(timer);
+                } else {
+                    element.classList.remove("lbs-typing-cursor");
+
+                    if (callback) callback();
+                }
+            }
+
+            typeNextCharacter();
+        }
+
+        function animateInfo() {
+            clearTyping();
+
+            const runId = typingRun;
+
+            const values = [
+                infoEyebrow,
+                infoTitle,
+                infoDescription,
+                infoTag
+            ].map(element => ({
+                element,
+                text: element ? element.textContent : ""
+            }));
+
+            let index = 0;
+
+            function nextText() {
+                if (runId !== typingRun || index >= values.length) {
+                    return;
+                }
+
+                const item = values[index++];
+
+                typeElement(
+                    item.element,
+                    item.text,
+                    runId,
+                    nextText
+                );
+            }
+
+            nextText();
+        }
+
+        function showSlide(index) {
+            current = (index + courses.length) % courses.length;
+
+            const course = courses[current];
+
+            clearTyping();
+
+            mainCard.classList.add("lbs-changing");
+
+            image.onload = () => {
+                mainCard.classList.remove("lbs-changing");
+            };
+
+            image.onerror = () => {
+                mainCard.classList.remove("lbs-changing");
+                image.alt = course.alt + " — image could not be loaded";
+                console.warn("LBS Slider: Image not found:", course.image);
+            };
+
+            image.alt = course.alt;
+            image.src = course.image;
+
+            imageHeading.textContent = course.title;
+            imageCategory.textContent = course.category;
+
+            infoEyebrow.textContent = course.eyebrow;
+            infoTitle.textContent = course.heading;
+            infoDescription.textContent = course.description;
+            infoTag.textContent = course.tag;
+
+            const number = String(current + 1).padStart(2, "0");
+            const total = String(courses.length).padStart(2, "0");
+            const slideCount = `${number} / ${total}`;
+
+            if (imageCount) {
+                imageCount.textContent = slideCount;
+            }
+
+            if (counter) {
+                counter.textContent = slideCount;
+            }
+
+            dots.forEach((dot, dotIndex) => {
+                dot.classList.toggle("active", dotIndex === current);
+
+                dot.setAttribute(
+                    "aria-current",
+                    dotIndex === current ? "true" : "false"
+                );
+            });
+
+            animateInfo();
+        }
+
+        function stopAutoplay() {
+            if (autoplayTimer !== null) {
+                clearInterval(autoplayTimer);
+                autoplayTimer = null;
+            }
+        }
+
+        function startAutoplay() {
+            stopAutoplay();
+
+            if (!isPlaying || reduceMotion) {
+                return;
+            }
+
+            autoplayTimer = setInterval(() => {
+                showSlide(current + 1);
+            }, 5500);
+        }
+
+        if (nextButton) {
+            nextButton.addEventListener("click", () => {
+                showSlide(current + 1);
+                startAutoplay();
+            });
+        }
+
+        if (prevButton) {
+            prevButton.addEventListener("click", () => {
+                showSlide(current - 1);
+                startAutoplay();
+            });
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener("click", () => {
+                showSlide(index);
+                startAutoplay();
+            });
+        });
+
+        if (playButton) {
+            playButton.textContent = isPlaying ? "Ⅱ" : "▶";
+
+            playButton.addEventListener("click", () => {
+                isPlaying = !isPlaying;
+
+                playButton.textContent = isPlaying ? "Ⅱ" : "▶";
+                playButton.setAttribute(
+                    "aria-label",
+                    isPlaying ? "Pause slideshow" : "Play slideshow"
+                );
+
+                slider.classList.toggle("paused", !isPlaying);
+
+                if (isPlaying) {
+                    startAutoplay();
+                } else {
+                    stopAutoplay();
+                }
+            });
+        }
+
+        if (dayButton) {
+            dayButton.addEventListener("click", () => {
+                slider.classList.remove("lbs-night");
+                dayButton.classList.add("active");
+
+                if (nightButton) {
+                    nightButton.classList.remove("active");
+                }
+            });
+        }
+
+        if (nightButton) {
+            nightButton.addEventListener("click", () => {
+                slider.classList.add("lbs-night");
+                nightButton.classList.add("active");
+
+                if (dayButton) {
+                    dayButton.classList.remove("active");
+                }
+            });
+        }
+
+        slider.addEventListener("mouseenter", stopAutoplay);
+        slider.addEventListener("mouseleave", startAutoplay);
+
+        slider.addEventListener("focusin", stopAutoplay);
+
+        slider.addEventListener("focusout", event => {
+            if (!slider.contains(event.relatedTarget)) {
+                startAutoplay();
+            }
+        });
+
+        let touchStartX = 0;
+
+        mainCard.addEventListener(
+            "touchstart",
+            event => {
+                touchStartX = event.changedTouches[0].clientX;
+            },
+            { passive: true }
+        );
+
+        mainCard.addEventListener(
+            "touchend",
+            event => {
+                const difference =
+                    event.changedTouches[0].clientX - touchStartX;
+
+                if (Math.abs(difference) > 45) {
+                    showSlide(current + (difference < 0 ? 1 : -1));
+                    startAutoplay();
+                }
+            },
+            { passive: true }
+        );
+
+        showSlide(0);
+        startAutoplay();
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener(
+            "DOMContentLoaded",
+            initLbsSlider,
+            { once: true }
+        );
+    } else {
+        initLbsSlider();
+    }
+})();
