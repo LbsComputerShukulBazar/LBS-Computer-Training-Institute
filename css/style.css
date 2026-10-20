@@ -30174,3 +30174,462 @@ body.dark-mode .trust-item i {
     transition: none !important;
   }
 }
+/* =========================================
+   LBS LAYERED CARD SLIDER
+========================================= */
+
+.lbs-showcase {
+    --lbs-bg: #ffffff;
+    --lbs-text: #182238;
+    --lbs-muted: #68758b;
+    --lbs-border: #e6e9f1;
+    --lbs-panel: #f6f8fc;
+    --lbs-accent: #6865f5;
+
+    width: min(1050px, 94%);
+    margin: 55px auto;
+    color: var(--lbs-text);
+    font-family: inherit;
+    transition: color .35s ease;
+}
+
+.lbs-showcase.lbs-night {
+    --lbs-bg: #111827;
+    --lbs-text: #f5f7ff;
+    --lbs-muted: #b3bfd2;
+    --lbs-border: #344156;
+    --lbs-panel: #1b2639;
+    --lbs-accent: #a5a3ff;
+}
+
+/* Day / Night controls */
+
+.lbs-mode-switch {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+.lbs-mode-switch button,
+.lbs-footer-controls button {
+    min-height: 42px;
+    min-width: 44px;
+    padding: 10px 15px;
+    border: 1px solid var(--lbs-border);
+    border-radius: 30px;
+    background: var(--lbs-bg);
+    color: var(--lbs-text);
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.lbs-mode-switch button.active {
+    background: var(--lbs-accent);
+    color: #fff;
+    border-color: var(--lbs-accent);
+}
+
+/* Card stack */
+
+.lbs-card-stack {
+    position: relative;
+    padding: 0 0 80px;
+}
+
+.lbs-back-card {
+    position: absolute;
+    top: -24px;
+    left: 7%;
+    width: 86%;
+    height: 88%;
+    border-radius: 23px;
+    background: #e5e7eb;
+    border: 1px solid rgba(100, 116, 139, .18);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, .08);
+    transition: background .35s ease;
+}
+
+.lbs-back-one {
+    top: -18px;
+    left: 4%;
+    width: 92%;
+    background: #dce8f8;
+    transform: rotate(-1.3deg);
+}
+
+.lbs-back-two {
+    top: -30px;
+    left: 9%;
+    width: 82%;
+    background: #edf0f6;
+    transform: rotate(1deg);
+}
+
+.lbs-night .lbs-back-one {
+    background: #253a57;
+}
+
+.lbs-night .lbs-back-two {
+    background: #202b3e;
+}
+
+/* Main photo */
+
+.lbs-main-card {
+    position: relative;
+    height: 440px;
+    border-radius: 25px;
+    overflow: hidden;
+    background: #1d2b43;
+    box-shadow: 0 25px 55px rgba(15, 23, 42, .2);
+    isolation: isolate;
+}
+
+.lbs-main-card > img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 1s ease, opacity .3s ease;
+}
+
+.lbs-main-card.lbs-changing > img {
+    opacity: .3;
+    transform: scale(1.04);
+}
+
+.lbs-image-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 27px 30px;
+    color: white;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8, 16, 35, .78),
+            rgba(8, 16, 35, .18) 75%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(8, 16, 35, .45),
+            transparent 45%
+        );
+}
+
+.lbs-top-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: 800;
+}
+
+.lbs-image-title {
+    max-width: 75%;
+    animation: lbsTextIn .65s ease both;
+}
+
+.lbs-image-title span {
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: 800;
+    color: #c8d7ff;
+}
+
+.lbs-image-title h2 {
+    margin: 12px 0;
+    font-size: clamp(35px, 6vw, 65px);
+    line-height: 1.05;
+    font-weight: 850;
+    color: #fff;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, .2);
+}
+
+.lbs-image-count {
+    align-self: flex-end;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+/* White details panel */
+
+.lbs-info-panel {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-height: 165px;
+    margin: -48px 25px 0;
+    padding: 25px 25px 25px 32px;
+    border: 1px solid rgba(104, 101, 245, .45);
+    border-radius: 27px;
+    background: var(--lbs-bg);
+    box-shadow:
+        0 10px 30px rgba(20, 30, 60, .08),
+        0 2px 0 rgba(104, 101, 245, .15);
+    transition: background .35s ease, border-color .35s ease;
+}
+
+.lbs-info-content {
+    flex: 1;
+    min-width: 0;
+    animation: lbsTextIn .55s ease both;
+}
+
+.lbs-info-eyebrow {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--lbs-accent);
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 2px;
+}
+
+.lbs-info-content h3 {
+    margin: 0 0 9px;
+    font-size: clamp(21px, 3vw, 30px);
+    line-height: 1.2;
+    font-weight: 800;
+    color: var(--lbs-text);
+}
+
+.lbs-info-content p {
+    max-width: 650px;
+    margin: 0 0 13px;
+    color: var(--lbs-muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.lbs-info-tag {
+    display: inline-block;
+    padding: 7px 11px;
+    border-radius: 8px;
+    background: var(--lbs-panel);
+    border: 1px solid var(--lbs-border);
+    color: var(--lbs-text);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* Next button */
+
+.lbs-next-button {
+    flex-shrink: 0;
+    width: 65px;
+    height: 65px;
+    border: 0;
+    border-radius: 19px;
+    color: white;
+    background: var(--lbs-accent);
+    cursor: pointer;
+    box-shadow: 0 7px 18px rgba(104, 101, 245, .25);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.lbs-next-button span {
+    display: block;
+    font-size: 42px;
+    line-height: 1;
+    font-weight: 300;
+    transform: translateY(-2px);
+}
+
+.lbs-next-button:hover {
+    transform: translateX(3px);
+    box-shadow: 0 10px 25px rgba(104, 101, 245, .35);
+}
+
+/* Footer */
+
+.lbs-slider-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-top: 22px;
+}
+
+.lbs-dots,
+.lbs-footer-controls {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.lbs-dots button {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: 0;
+    border-radius: 20px;
+    background: #cbd2df;
+    cursor: pointer;
+    transition: width .3s ease, background .3s ease;
+}
+
+.lbs-dots button.active {
+    width: 28px;
+    background: var(--lbs-accent);
+}
+
+.lbs-footer-controls button {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.lbs-footer-controls button:hover {
+    border-color: var(--lbs-accent);
+}
+
+#lbsCounter {
+    color: var(--lbs-muted);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Text animation */
+
+@keyframes lbsTextIn {
+    from {
+        opacity: 0;
+        transform: translateY(17px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+
+@media (max-width: 650px) {
+    .lbs-showcase {
+        width: 96%;
+        margin: 35px auto;
+    }
+
+    .lbs-card-stack {
+        padding-bottom: 65px;
+    }
+
+    .lbs-main-card {
+        height: 330px;
+        border-radius: 20px;
+    }
+
+    .lbs-image-overlay {
+        padding: 20px;
+    }
+
+    .lbs-image-title {
+        max-width: 95%;
+    }
+
+    .lbs-image-title h2 {
+        font-size: 36px;
+    }
+
+    .lbs-info-panel {
+        margin: -35px 10px 0;
+        padding: 21px 16px;
+        gap: 12px;
+        border-radius: 21px;
+    }
+
+    .lbs-info-content p {
+        font-size: 13px;
+    }
+
+    .lbs-next-button {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+    }
+
+    .lbs-next-button span {
+        font-size: 33px;
+    }
+
+    .lbs-slider-footer {
+        align-items: flex-start;
+    }
+
+    .lbs-dots {
+        flex-wrap: wrap;
+        max-width: 120px;
+        padding-top: 15px;
+    }
+
+    .lbs-footer-controls {
+        gap: 5px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .lbs-showcase *,
+    .lbs-showcase *::before,
+    .lbs-showcase *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}
+/* Text typing animation */
+.lbs-typing {
+    display: block;
+    overflow: hidden;
+    white-space: normal;
+    animation: lbsTypeReveal 0.8s ease both;
+}
+
+.lbs-info-eyebrow.lbs-typing {
+    animation-delay: 0s;
+}
+
+.lbs-info-content h3.lbs-typing {
+    animation-delay: 0.25s;
+}
+
+.lbs-info-content p.lbs-typing {
+    animation-delay: 0.5s;
+}
+
+.lbs-info-tag.lbs-typing {
+    animation-delay: 0.75s;
+}
+
+@keyframes lbsTypeReveal {
+    from {
+        opacity: 0;
+        clip-path: inset(0 100% 0 0);
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        transform: translateY(0);
+    }
+}
+/* White details box typing animation */
+.lbs-typing-text {
+    display: inline;
+    white-space: pre-wrap;
+}
+
+.lbs-cursor::after {
+    content: "|";
+    animation: lbsBlink 0.7s infinite;
+}
+
+@keyframes lbsBlink {
+    50% {
+        opacity: 0;
+    }
+}
