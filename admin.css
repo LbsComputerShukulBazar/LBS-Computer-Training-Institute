@@ -13220,3 +13220,204 @@ body.dark-mode
     }
 
 }
+
+/* ==========================================
+   COLORFUL SECTION BORDERS
+   Navbar ko change nahi karna hai
+========================================== */
+
+/* 1. Dashboard - Blue */
+.admin-dashboard .dashboard-header {
+    border: 2px solid #3b82f6 !important;
+}
+
+.admin-dashboard .dashboard-card {
+    border: 1px solid #3b82f6 !important;
+    border-top: 4px solid #3b82f6 !important;
+}
+
+.admin-dashboard .dashboard-card-label {
+    color: #2563eb !important;
+}
+
+.admin-dashboard .dashboard-card-icon {
+    color: #2563eb !important;
+}
+
+/* 2. Overview - Purple */
+.dashboard-overview .overview-card {
+    border: 1px solid #a855f7 !important;
+    border-top: 4px solid #a855f7 !important;
+}
+
+.overview-card strong {
+    color: #9333ea !important;
+}
+
+.overview-icon {
+    color: #9333ea !important;
+}
+
+/* 3. Fees Management - Green */
+.fees-management-section,
+.fees-form-section,
+.fee-breakdown-section {
+    border-color: #22c55e !important;
+}
+
+.fees-form-card,
+.fee-breakdown-card,
+.financial-summary-card {
+    border: 1px solid #22c55e !important;
+    border-top: 4px solid #22c55e !important;
+}
+
+.fees-form-section-title,
+.fee-breakdown-info strong {
+    color: #16a34a !important;
+}
+
+/* 4. Student Management - Cyan */
+.manage-students-section,
+.add-student-section {
+    border-color: #06b6d4 !important;
+}
+
+.student-form-card,
+.student-list-card,
+.student-search-card {
+    border: 1px solid #06b6d4 !important;
+    border-top: 4px solid #06b6d4 !important;
+}
+
+.student-info-section-title,
+.student-list-header {
+    color: #0891b2 !important;
+}
+
+/* 5. Expense Management - Orange */
+.expense-management-section,
+.expense-history-section {
+    border-color: #f97316 !important;
+}
+
+.expense-form-card,
+.expense-history-card,
+.expense-summary-card {
+    border: 1px solid #f97316 !important;
+    border-top: 4px solid #f97316 !important;
+}
+
+.expense-management-section .section-heading,
+.expense-history-section .section-heading {
+    color: #ea580c !important;
+}
+
+/* 6. Financial Reports - Pink */
+.financial-reports-section {
+    border-color: #ec4899 !important;
+}
+
+.financial-report-filter-card,
+.financial-payment-breakdown-card {
+    border: 1px solid #ec4899 !important;
+    border-top: 4px solid #ec4899 !important;
+}
+
+.financial-reports-section .section-heading {
+    color: #db2777 !important;
+}
+
+/* 7. Student Ledger - Indigo */
+.student-ledger-search-card,
+.student-ledger-summary-card,
+.student-ledger-history-card,
+.student-ledger-profile-card {
+    border: 1px solid #6366f1 !important;
+    border-top: 4px solid #6366f1 !important;
+}
+
+.student-ledger-search-heading,
+.student-ledger-history-heading {
+    color: #4f46e5 !important;
+}
+
+/* 8. Quick Access - Teal */
+.quick-access-section .quick-access-card {
+    border: 1px solid #14b8a6 !important;
+    border-top: 4px solid #14b8a6 !important;
+}
+
+.quick-access-section .quick-access-card:hover {
+    border-color: #0d9488 !important;
+}
+
+/* 9. Tables - Clear borders */
+.student-management-table th,
+.expense-history-table th,
+.student-ledger-table th {
+    border-bottom: 2px solid #6366f1 !important;
+}
+
+/* 10. Smooth hover effects */
+.dashboard-card,
+.overview-card,
+.fees-form-card,
+.fee-breakdown-card,
+.student-form-card,
+.student-list-card,
+.student-search-card,
+.expense-form-card,
+.expense-history-card,
+.expense-summary-card,
+.financial-summary-card,
+.financial-report-filter-card,
+.financial-payment-breakdown-card,
+.student-ledger-search-card,
+.student-ledger-summary-card,
+.student-ledger-history-card,
+.student-ledger-profile-card {
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.dashboard-card:hover,
+.overview-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+/* 11. Dark mode support */
+body.dark-mode .dashboard-card-label {
+    color: #93c5fd !important;
+}
+
+body.dark-mode .overview-card strong {
+    color: #d8b4fe !important;
+}
+
+body.dark-mode .fees-form-section-title,
+body.dark-mode .fee-breakdown-info strong {
+    color: #86efac !important;
+}
+
+body.dark-mode .student-info-section-title,
+body.dark-mode .student-list-header {
+    color: #67e8f9 !important;
+}
+
+body.dark-mode .expense-management-section .section-heading,
+body.dark-mode .expense-history-section .section-heading {
+    color: #fdba74 !important;
+}
+
+body.dark-mode .financial-reports-section .section-heading {
+    color: #f9a8d4 !important;
+}
+
+body.dark-mode .student-ledger-search-heading,
+body.dark-mode .student-ledger-history-heading {
+    color: #a5b4fc !important;
+}
