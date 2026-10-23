@@ -30633,3 +30633,23 @@ body.dark-mode .trust-item i {
         opacity: 0;
     }
 }
+
+/* Continuous Discount Percentage Animation */
+.lux-percent-number,
+.lux-percent-sign {
+    display: inline-block;
+    animation: discountPulse 1.5s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes discountPulse {
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.4));
+    }
+
+    50% {
+        transform: scale(1.15);
+        filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.9));
+    }
+}
