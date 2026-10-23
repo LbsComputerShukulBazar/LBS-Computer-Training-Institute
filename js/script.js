@@ -881,6 +881,23 @@ examForm.addEventListener(
 
                     .then(
                         function () {
+                           /* =========================================
+   SAVE STUDENT TO PUBLIC STUDENTS
+   ========================================= */
+
+database
+    .ref("publicStudents/" + rollNumber)
+    .set({
+        studentName: studentData.name,
+        course: studentData.course,
+        createdAt: studentData.registeredAt
+    })
+    .then(function () {
+        console.log("Student saved to publicStudents!");
+    })
+    .catch(function (error) {
+        console.error("Error saving public student:", error);
+    });
 
                             /* =========================
                                LOCAL STORAGE
