@@ -5885,6 +5885,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const intro =
         document.getElementById("lbsPremiumIntro");
+   // Intro animation sirf ek baar dikhayein
+if (sessionStorage.getItem("lbsIntroPlayed") === "true") {
+    if (intro) {
+        intro.remove();
+    }
+    return;
+}
+
+sessionStorage.setItem("lbsIntroPlayed", "true");
 
     const progress =
         document.getElementById("lbsIntroProgress");
