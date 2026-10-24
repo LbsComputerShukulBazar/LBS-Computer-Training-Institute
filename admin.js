@@ -11558,3 +11558,148 @@ function escapeStudentLedgerHTML(
     );
 
 }
+
+
+
+
+
+document.querySelectorAll('input[type="date"]').forEach(function (input) {
+    flatpickr(input, {
+        dateFormat: "Y-m-d",
+        altInput: true,
+        altFormat: "d/m/Y",
+        allowInput: true,
+        disableMobile: true,
+        animate: true,
+        monthSelectorType: "static",
+
+        onReady: function (dates, dateStr, instance) {
+            const header = instance.calendarContainer.querySelector(
+                ".flatpickr-current-month"
+            );
+
+            const oldMonth = header.querySelector(
+                ".flatpickr-monthDropdown-months"
+            );
+
+            if (oldMonth) {
+                const monthButton = document.createElement("button");
+                monthButton.type = "button";
+                monthButton.className = "custom-month-button";
+                monthButton.textContent = instance.l10n.months.longhand[
+                    instance.currentMonth
+                ];
+
+                oldMonth.replaceWith(monthButton);
+
+                monthButton.addEventListener("click", function (event) {
+                    event.stopPropagation();
+
+                    showPickerMenu(
+                        monthButton,
+                        instance.l10n.months.longhand,
+                        instance.currentMonth,
+                        function (index) {
+                            instance.changeMonth(
+                                index - instance.currentMonth
+                            );
+                            monthButton.textContent =
+                                instance.l10n.months.longhand[
+                                    instance.currentMonth
+                                ];
+                        },
+                        "month"
+                    );
+                });
+            }
+
+            const yearInput = instance.currentYearElement;
+
+            if (yearInput) {
+                const yearSelect = document.createElement("button");
+                yearSelect.type = "button";
+                yearSelect.className = "custom-year-button";
+                yearSelect.textContent = instance.currentYear;
+                yearInput.replaceWith(yearSelect);
+
+                yearSelect.addEventListener("click", function (event) {
+                    event.stopPropagation();
+
+                    const years = [];
+                    for (let y = instance.currentYear + 20; y >= 1950; y--) {
+                        years.push(String(y));
+                    }
+
+                    showPickerMenu(
+                        yearSelect,
+                        years,
+                        years.indexOf(String(instance.currentYear)),
+                        function (index) {
+                            instance.changeYear(Number(years[index]));
+                            yearSelect.textContent = instance.currentYear;
+                        },
+                        "year"
+                    );
+                });
+            }
+
+            function showPickerMenu(anchor, items, selectedIndex, onSelect, type) {
+                document.querySelectorAll(".custom-date-menu").forEach(
+                    menu => menu.remove()
+                );
+
+                const menu = document.createElement("div");
+                menu.className = "custom-date-menu " + type + "-menu";
+
+                items.forEach(function (item, index) {
+                    const option = document.createElement("button");
+                    option.type = "button";
+                    option.className =
+                        "custom-date-option" +
+                        (index === selectedIndex ? " active" : "");
+                    option.textContent = item;
+
+                    option.addEventListener("click", function () {
+                        onSelect(index);
+                        menu.remove();
+                    });
+
+                    menu.appendChild(option);
+                });
+
+                anchor.parentElement.appendChild(menu);
+
+                const closeMenu = function (event) {
+                    if (!menu.contains(event.target) && event.target !== anchor) {
+                        menu.remove();
+                        document.removeEventListener("click", closeMenu);
+                    }
+                };
+
+                setTimeout(function () {
+                    document.addEventListener("click", closeMenu);
+                }, 0);
+            }
+        },
+
+        onMonthChange: function (dates, dateStr, instance) {
+            const button = instance.calendarContainer.querySelector(
+                ".custom-month-button"
+            );
+            if (button) {
+                button.textContent = instance.l10n.months.longhand[
+                    instance.currentMonth
+                ];
+            }
+        },
+
+        onYearChange: function (dates, dateStr, instance) {
+            const button = instance.calendarContainer.querySelector(
+                ".custom-year-button"
+            );
+            if (button) {
+                button.textContent = instance.currentYear;
+            }
+        }
+    });
+});
