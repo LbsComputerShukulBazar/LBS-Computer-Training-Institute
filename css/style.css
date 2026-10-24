@@ -31403,3 +31403,423 @@ body.dark-mode .trust-item i {
         transition: none !important;
     }
 }
+
+
+/* ==========================================
+LBS DAILY OFFER — PURE BLACK BACKGROUND
+========================================== */
+
+.lux-offer {
+background: #000000 !important;
+}
+
+/* Remove Animated Background Colors */
+.lux-offer .lux-grid {
+opacity: 0 !important;
+background: none !important;
+}
+
+.lux-offer .lux-orb {
+display: none !important;
+}
+
+.lux-offer .lux-ring {
+opacity: 0 !important;
+}
+
+/* Main Offer Card */
+.lux-offer .lux-card {
+background: #000000 !important;
+box-shadow: none !important;
+}
+
+/* Remove Card Glow */
+.lux-offer .lux-card-glow {
+display: none !important;
+}
+
+/* Left Panel */
+.lux-offer .lux-left {
+background: #000000 !important;
+}
+
+/* Right Panel */
+.lux-offer .lux-right {
+background: #000000 !important;
+}
+
+/* Countdown Boxes */
+.lux-offer .lux-time-box {
+background: #000000 !important;
+box-shadow: none !important;
+}
+
+/* Logo Background */
+.lux-offer .lux-logo-seal {
+background: #000000 !important;
+box-shadow: none !important;
+}
+
+/* WhatsApp Button */
+.lux-offer .lux-claim-btn {
+background: #000000 !important;
+box-shadow: none !important;
+}
+
+/* Remove Background Gradients from Hover */
+.lux-offer .lux-claim-btn:hover {
+background: #000000 !important;
+box-shadow: none !important;
+}
+
+/* Disable Moving Background Shine */
+.lux-offer .lux-claim-btn::before {
+display: none !important;
+}
+
+/* ==========================================
+   LBS PREMIUM OFFER — BLACK + GOLD + BLUE
+   Background black hi rahega
+========================================== */
+
+/* 1. Animated Grid — Subtle Golden Lines */
+.lux-offer .lux-grid {
+    opacity: 0.22 !important;
+    background-image:
+        linear-gradient(
+            rgba(255, 193, 7, 0.12) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(0, 195, 255, 0.10) 1px,
+            transparent 1px
+        ) !important;
+
+    background-size: 45px 45px !important;
+    animation: luxGridMove 18s linear infinite !important;
+}
+
+/* 2. Golden + Blue Floating Glow */
+.lux-offer .lux-orb {
+    display: block !important;
+    opacity: 0.65 !important;
+    filter: blur(75px) !important;
+    animation: luxOrbFloat 8s ease-in-out infinite alternate !important;
+}
+
+/* Left Orb — Gold */
+.lux-offer .lux-orb:nth-of-type(1) {
+    background: #ffc107 !important;
+}
+
+/* Right Orb — Electric Blue */
+.lux-offer .lux-orb:nth-of-type(2) {
+    background: #00c3ff !important;
+    animation-delay: -4s !important;
+}
+
+/* 3. Animated Ring — Gold & Blue */
+.lux-offer .lux-ring {
+    opacity: 0.65 !important;
+    border-color: rgba(255, 193, 7, 0.45) !important;
+    box-shadow:
+        0 0 18px rgba(255, 193, 7, 0.12),
+        inset 0 0 18px rgba(0, 195, 255, 0.08) !important;
+
+    animation: luxRingRotate 18s linear infinite !important;
+}
+
+/* 4. Offer Card — Pure Black */
+.lux-offer .lux-card {
+    background: #000000 !important;
+    border: 1px solid rgba(255, 193, 7, 0.35) !important;
+
+    box-shadow:
+        0 0 25px rgba(255, 193, 7, 0.06),
+        0 0 50px rgba(0, 195, 255, 0.04) !important;
+}
+
+/* 5. Moving Light Border */
+.lux-offer .lux-card-glow {
+    display: block !important;
+    opacity: 0.8 !important;
+    background: linear-gradient(
+        120deg,
+        transparent 20%,
+        rgba(255, 193, 7, 0.65) 45%,
+        rgba(0, 195, 255, 0.65) 55%,
+        transparent 80%
+    ) !important;
+
+    background-size: 250% 250% !important;
+    animation: luxBorderShine 6s ease-in-out infinite !important;
+}
+
+/* 6. Countdown Boxes */
+.lux-offer .lux-time-box {
+    background: #000000 !important;
+    border: 1px solid rgba(255, 193, 7, 0.35) !important;
+    box-shadow: 0 0 12px rgba(255, 193, 7, 0.05) !important;
+    transition: all 0.3s ease !important;
+}
+
+.lux-offer .lux-time-box:hover {
+    border-color: #00c3ff !important;
+    box-shadow: 0 0 18px rgba(0, 195, 255, 0.2) !important;
+    transform: translateY(-3px) !important;
+}
+
+/* 7. WhatsApp Button — Black with Gold Border */
+.lux-offer .lux-claim-btn {
+    background: #000000 !important;
+    border: 1px solid #ffc107 !important;
+    color: #ffc107 !important;
+    box-shadow: 0 0 12px rgba(255, 193, 7, 0.12) !important;
+    transition: all 0.3s ease !important;
+}
+
+.lux-offer .lux-claim-btn:hover {
+    background: #ffc107 !important;
+    color: #000000 !important;
+    box-shadow: 0 0 25px rgba(255, 193, 7, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* ==========================================
+   ANIMATION KEYFRAMES
+========================================== */
+
+/* Moving Grid */
+@keyframes luxGridMove {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 45px 45px;
+    }
+}
+
+/* Floating Glow */
+@keyframes luxOrbFloat {
+    0% {
+        transform: translate3d(-15px, -10px, 0) scale(0.9);
+    }
+    100% {
+        transform: translate3d(20px, 15px, 0) scale(1.15);
+    }
+}
+
+/* Rotating Ring */
+@keyframes luxRingRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Moving Border Shine */
+@keyframes luxBorderShine {
+    0% {
+        background-position: 100% 50%;
+    }
+    50% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Accessibility — Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .lux-offer .lux-grid,
+    .lux-offer .lux-orb,
+    .lux-offer .lux-ring,
+    .lux-offer .lux-card-glow {
+        animation: none !important;
+    }
+}
+
+/* ==========================================
+   LBS PREMIUM OFFER — EXTRA ANIMATIONS
+   Black + Gold + Electric Blue
+========================================== */
+
+/* 1. Animated Neon Card Border */
+.lux-offer .lux-card {
+    position: relative;
+    isolation: isolate;
+    border: 1px solid transparent !important;
+
+    background:
+        linear-gradient(#000000, #000000) padding-box,
+        linear-gradient(
+            120deg,
+            #ffc107,
+            #000000,
+            #00c3ff,
+            #000000,
+            #ffc107
+        ) border-box !important;
+
+    background-size: 100% 100%, 300% 300% !important;
+
+    animation: luxNeonBorder 8s linear infinite !important;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease !important;
+}
+
+@keyframes luxNeonBorder {
+    0% {
+        background-position: 0 0, 0% 50%;
+    }
+    50% {
+        background-position: 0 0, 100% 50%;
+    }
+    100% {
+        background-position: 0 0, 0% 50%;
+    }
+}
+
+/* 2. Smooth Card Hover Lift */
+@media (hover: hover) {
+    .lux-offer .lux-card:hover {
+        transform: translateY(-5px) !important;
+
+        box-shadow:
+            0 15px 40px rgba(255, 193, 7, 0.10),
+            0 0 25px rgba(0, 195, 255, 0.08) !important;
+    }
+}
+
+/* 3. Shimmer Light Across Card */
+.lux-offer .lux-card {
+    overflow: hidden;
+}
+
+.lux-offer .lux-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 70%;
+    height: 100%;
+
+    background: linear-gradient(
+        110deg,
+        transparent,
+        rgba(255, 255, 255, 0.035),
+        rgba(255, 193, 7, 0.08),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+    pointer-events: none;
+    z-index: 2;
+
+    animation: luxCardShimmer 8s ease-in-out infinite;
+}
+
+@keyframes luxCardShimmer {
+    0%, 60% {
+        left: -150%;
+    }
+    85%, 100% {
+        left: 160%;
+    }
+}
+
+/* 4. Countdown Hover Glow */
+.lux-offer .lux-time-box {
+    position: relative;
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease !important;
+}
+
+@media (hover: hover) {
+    .lux-offer .lux-time-box:hover {
+        transform: translateY(-4px) scale(1.03) !important;
+        border-color: #00c3ff !important;
+
+        box-shadow:
+            0 0 12px rgba(0, 195, 255, 0.18),
+            inset 0 0 12px rgba(0, 195, 255, 0.05) !important;
+    }
+}
+
+/* 5. Premium Button Pulse */
+.lux-offer .lux-claim-btn {
+    position: relative;
+    animation: luxButtonPulse 3s ease-in-out infinite;
+}
+
+@keyframes luxButtonPulse {
+    0%, 100% {
+        box-shadow: 0 0 8px rgba(255, 193, 7, 0.10);
+    }
+    50% {
+        box-shadow:
+            0 0 18px rgba(255, 193, 7, 0.28),
+            0 0 30px rgba(0, 195, 255, 0.08);
+    }
+}
+
+/* 6. Logo Seal Glow */
+.lux-offer .lux-logo-seal {
+    animation: luxLogoGlow 4s ease-in-out infinite;
+}
+
+@keyframes luxLogoGlow {
+    0%, 100% {
+        box-shadow: 0 0 8px rgba(255, 193, 7, 0.08);
+    }
+    50% {
+        box-shadow:
+            0 0 20px rgba(255, 193, 7, 0.20),
+            0 0 28px rgba(0, 195, 255, 0.08);
+    }
+}
+
+/* 7. Floating Background Glow */
+.lux-offer .lux-orb {
+    will-change: transform;
+    animation: luxOrbPremiumFloat 10s ease-in-out infinite alternate !important;
+}
+
+@keyframes luxOrbPremiumFloat {
+    0% {
+        transform: translate3d(-12px, -8px, 0) scale(0.9);
+    }
+    50% {
+        transform: translate3d(12px, 10px, 0) scale(1.05);
+    }
+    100% {
+        transform: translate3d(-5px, 15px, 0) scale(1.12);
+    }
+}
+
+/* 8. Accessibility — Reduce Motion */
+@media (prefers-reduced-motion: reduce) {
+    .lux-offer .lux-card,
+    .lux-offer .lux-card::after,
+    .lux-offer .lux-claim-btn,
+    .lux-offer .lux-logo-seal,
+    .lux-offer .lux-orb {
+        animation: none !important;
+    }
+
+    .lux-offer .lux-card,
+    .lux-offer .lux-time-box,
+    .lux-offer .lux-claim-btn {
+        transition: none !important;
+    }
+}
