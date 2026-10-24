@@ -31355,3 +31355,252 @@ display: none !important;
         transition: none !important;
     }
 }
+
+/* ==========================================
+   LBS FLOATING MARQUEE — NO BACKGROUND STRIP
+========================================== */
+
+.welcome-marquee {
+    --wm-gold: #ffc857;
+    --wm-blue: #36cfff;
+
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 35px 0;
+    padding: 12px 0;
+
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Remove background light strips */
+.welcome-marquee::before,
+.welcome-marquee::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* ==========================================
+   CONTINUOUS CARD MOVEMENT
+========================================== */
+
+.welcome-marquee-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    gap: 22px;
+
+    animation: wmCardsMove 28s linear infinite;
+    will-change: transform;
+}
+
+.welcome-marquee:hover .welcome-marquee-track {
+    animation-play-state: paused;
+}
+
+/* ==========================================
+   FLOATING GLASS CARDS
+========================================== */
+
+.welcome-marquee-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+
+    padding: 14px 22px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(35, 55, 95, 0.94),
+        rgba(20, 28, 52, 0.96)
+    );
+
+    border: 1px solid rgba(54, 207, 255, 0.38);
+    border-radius: 14px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.12),
+        0 0 12px rgba(54, 207, 255, 0.05);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+/* Gold and blue card hover */
+@media (hover: hover) {
+    .welcome-marquee-item:hover {
+        transform: translateY(-4px);
+
+        border-color: var(--wm-gold);
+
+        box-shadow:
+            0 8px 25px rgba(54, 207, 255, 0.14),
+            0 0 16px rgba(255, 200, 87, 0.10);
+    }
+}
+
+/* ==========================================
+   ICON
+========================================== */
+
+.welcome-marquee-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 44px;
+    height: 44px;
+
+    color: var(--wm-gold);
+    font-size: 21px;
+
+    background: rgba(255, 200, 87, 0.09);
+    border: 1px solid rgba(255, 200, 87, 0.42);
+    border-radius: 12px;
+
+    animation: wmIconPulse 3s ease-in-out infinite;
+}
+
+/* ==========================================
+   TEXT
+========================================== */
+
+.welcome-marquee-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.welcome-marquee-text strong {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}
+
+.welcome-marquee-text small {
+    color: #b9d8f5;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 1.2px;
+}
+
+/* ==========================================
+   STAR / SPARKLE
+========================================== */
+
+.welcome-marquee-star {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    margin-left: 4px;
+
+    color: var(--wm-blue);
+    font-size: 17px;
+
+    filter: drop-shadow(0 0 5px rgba(54, 207, 255, 0.35));
+
+    animation: wmStarGlow 2.5s ease-in-out infinite;
+}
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes wmCardsMove {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes wmIconPulse {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(255, 200, 87, 0.05);
+    }
+
+    50% {
+        box-shadow: 0 0 16px rgba(255, 200, 87, 0.20);
+    }
+}
+
+@keyframes wmStarGlow {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.75;
+    }
+
+    50% {
+        transform: scale(1.16);
+        opacity: 1;
+    }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+    .welcome-marquee {
+        margin: 24px 0;
+        padding: 8px 0;
+    }
+
+    .welcome-marquee-track {
+        gap: 14px;
+        animation-duration: 24s;
+    }
+
+    .welcome-marquee-item {
+        gap: 10px;
+        padding: 10px 13px;
+        border-radius: 11px;
+    }
+
+    .welcome-marquee-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 17px;
+    }
+
+    .welcome-marquee-text strong {
+        font-size: 11px;
+        letter-spacing: 0.2px;
+    }
+
+    .welcome-marquee-text small {
+        font-size: 9px;
+        letter-spacing: 0.5px;
+    }
+
+    .welcome-marquee-star {
+        font-size: 14px;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .welcome-marquee-track,
+    .welcome-marquee-icon,
+    .welcome-marquee-star {
+        animation: none !important;
+    }
+}
