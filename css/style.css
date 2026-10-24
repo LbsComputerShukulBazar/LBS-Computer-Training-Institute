@@ -31811,3 +31811,17 @@ padding-right: 14px;
 }
 
 }
+
+
+/* ===== MARQUEE TEXT WHITE ===== */
+
+.welcome-marquee-title,
+.welcome-marquee-content h3,
+.welcome-marquee-content h3 a {
+color: #ffffff !important;
+}
+
+.welcome-marquee-subtitle,
+.welcome-marquee-content p {
+color: #ffffff !important;
+}
