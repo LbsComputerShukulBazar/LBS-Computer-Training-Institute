@@ -31604,3 +31604,143 @@ display: none !important;
         animation: none !important;
     }
 }
+
+/* ==========================================
+LBS — FLOATING SHAPES AROUND EACH CARD
+========================================== */
+
+.welcome-marquee-item {
+position: relative;
+isolation: isolate;
+}
+
+/* Tiny floating decorative shapes */
+.welcome-marquee-item::before,
+.welcome-marquee-item::after {
+position: absolute;
+pointer-events: none;
+z-index: 3;
+}
+
+/* Small glowing diamond */
+.welcome-marquee-item::before {
+content: "✦";
+top: -13px;
+right: 24px;
+
+color: #ffc857;
+font-size: 13px;
+
+text-shadow:
+    0 0 6px rgba(255, 200, 87, 0.8),
+    0 0 14px rgba(255, 200, 87, 0.4);
+
+animation: wmDiamondFloat 3s ease-in-out infinite;
+
+}
+
+/* Tiny blue sparkle */
+.welcome-marquee-item::after {
+content: "✧";
+bottom: -10px;
+left: 30px;
+
+color: #36cfff;
+font-size: 16px;
+
+text-shadow:
+    0 0 7px rgba(54, 207, 255, 0.9),
+    0 0 15px rgba(54, 207, 255, 0.4);
+
+animation: wmSparkleFloat 3.5s ease-in-out infinite;
+
+}
+
+/* Gold diamond floating up and down */
+@keyframes wmDiamondFloat {
+0%, 100% {
+transform: translateY(0) rotate(0deg) scale(1);
+opacity: 0.55;
+}
+
+50% {
+    transform: translateY(-9px) rotate(45deg) scale(1.3);
+    opacity: 1;
+}
+
+}
+
+/* Blue sparkle floating */
+@keyframes wmSparkleFloat {
+0%, 100% {
+transform: translateY(0) rotate(0deg) scale(0.8);
+opacity: 0.5;
+}
+
+50% {
+    transform: translateY(8px) rotate(-25deg) scale(1.2);
+    opacity: 1;
+}
+
+}
+
+/* Small glowing dots */
+.welcome-marquee-icon {
+position: relative;
+}
+
+.welcome-marquee-icon::after {
+content: "";
+position: absolute;
+
+width: 5px;
+height: 5px;
+top: -4px;
+right: -4px;
+
+border-radius: 50%;
+background: #36cfff;
+
+box-shadow: 0 0 9px #36cfff;
+
+animation: wmDotPulse 2s ease-in-out infinite;
+
+}
+
+@keyframes wmDotPulse {
+0%, 100% {
+transform: scale(0.7);
+opacity: 0.5;
+}
+
+50% {
+    transform: scale(1.5);
+    opacity: 1;
+}
+
+}
+
+/* Mobile adjustment */
+@media (max-width: 600px) {
+.welcome-marquee-item::before {
+top: -9px;
+right: 16px;
+font-size: 11px;
+}
+
+.welcome-marquee-item::after {
+    bottom: -7px;
+    left: 20px;
+    font-size: 13px;
+}
+
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+.welcome-marquee-item::before,
+.welcome-marquee-item::after,
+.welcome-marquee-icon::after {
+animation: none !important;
+}
+}
