@@ -11571,7 +11571,7 @@ document.querySelectorAll('input[type="date"]').forEach(function (input) {
         allowInput: true,
         disableMobile: true,
         animate: true,
-        monthSelectorType: "static",
+        monthSelectorType: "dropdown",
 
         onReady: function (dates, dateStr, instance) {
             const header = instance.calendarContainer.querySelector(
