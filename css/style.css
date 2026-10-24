@@ -31744,3 +31744,70 @@ font-size: 11px;
 animation: none !important;
 }
 }
+
+
+/* ===== WELCOME MARQUEE ===== */
+
+.welcome-marquee {
+width: 100%;
+overflow: hidden;
+position: relative;
+isolation: isolate;
+margin: 35px 0;
+padding: 12px 0;
+background: transparent;
+}
+
+/* SMOOTH RIGHT-TO-LEFT MOVEMENT */
+
+.welcome-marquee-track {
+display: flex;
+align-items: center;
+width: max-content;
+gap: 0;
+animation: wmCardsMove 28s linear infinite;
+will-change: transform;
+}
+
+/* BOTH GROUPS MUST HAVE EQUAL WIDTH */
+
+.welcome-marquee-group {
+display: flex;
+align-items: center;
+flex-shrink: 0;
+gap: 22px;
+padding-right: 22px;
+}
+
+/* CONTINUOUS LOOP */
+
+@keyframes wmCardsMove {
+from {
+transform: translateX(0);
+}
+
+to {
+    transform: translateX(-50%);
+}
+
+}
+
+/* PAUSE ON HOVER */
+
+.welcome-marquee:hover .welcome-marquee-track {
+animation-play-state: paused;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 600px) {
+.welcome-marquee-group {
+gap: 14px;
+padding-right: 14px;
+}
+
+.welcome-marquee-track {
+    animation-duration: 24s;
+}
+
+}
