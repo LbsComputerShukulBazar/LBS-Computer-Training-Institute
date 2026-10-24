@@ -31081,3 +31081,325 @@ body.dark-mode .trust-item i {
         animation: none !important;
     }
    }
+
+
+/* ============================================
+   LBS COURSES — PREMIUM MOTION EFFECTS
+   Uses existing style.css class names
+============================================ */
+
+.courses-section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+/* Keep courses content above decorative shapes */
+.courses-section > *:not(.courses-geometry) {
+    position: relative;
+    z-index: 2;
+}
+
+/* Colourful border for existing course cards */
+.courses-section .course-card {
+    --course-accent: #38bdf8;
+
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid
+        color-mix(in srgb, var(--course-accent) 45%, transparent);
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+.courses-section .course-card:nth-child(5n + 2) {
+    --course-accent: #a78bfa;
+}
+
+.courses-section .course-card:nth-child(5n + 3) {
+    --course-accent: #34d399;
+}
+
+.courses-section .course-card:nth-child(5n + 4) {
+    --course-accent: #fb923c;
+}
+
+.courses-section .course-card:nth-child(5n + 5) {
+    --course-accent: #f472b6;
+}
+
+/* Card hover glow */
+.courses-section .course-card:hover {
+    border-color: var(--course-accent);
+
+    box-shadow:
+        0 14px 35px
+        color-mix(in srgb, var(--course-accent) 18%, transparent),
+        0 0 0 1px
+        color-mix(in srgb, var(--course-accent) 15%, transparent);
+
+    transform: translateY(-7px);
+}
+
+/* Animated shine */
+.courses-section .course-card::before {
+    content: "";
+
+    position: absolute;
+    top: -50%;
+    left: -120%;
+
+    width: 65%;
+    height: 200%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, .13),
+        transparent
+    );
+
+    transform: rotate(22deg);
+    transition: left .7s ease;
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+.courses-section .course-card:hover::before {
+    left: 150%;
+}
+
+/* Icon floating effect */
+.courses-section .course-icon {
+    animation: lbsCourseFloat 3.2s ease-in-out infinite;
+    transition: transform .35s ease;
+}
+
+.courses-section .course-card:nth-child(even) .course-icon {
+    animation-delay: .8s;
+}
+
+.courses-section .course-card:hover .course-icon {
+    transform: scale(1.1) rotate(-6deg);
+}
+
+@keyframes lbsCourseFloat {
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -5px;
+    }
+}
+
+/* Course link arrow movement */
+.courses-section .course-link i {
+    display: inline-block;
+    transition: transform .3s ease;
+}
+
+.courses-section .course-card:hover .course-link i {
+    transform: translateX(5px);
+}
+
+/* ============================================
+   FLOATING CIRCLE, TRIANGLE, SQUARE & RING
+============================================ */
+
+.courses-geometry {
+    position: absolute;
+    inset: 0;
+
+    overflow: hidden;
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.courses-geometry span {
+    position: absolute;
+    display: block;
+    pointer-events: none;
+}
+
+/* Circle */
+.courses-geometry .geo-circle {
+    width: 58px;
+    height: 58px;
+
+    top: 12%;
+    left: 3%;
+
+    border: 2px solid rgba(56, 189, 248, .6);
+    border-radius: 50%;
+
+    animation: lbsShapeFloat 7s ease-in-out infinite;
+}
+
+/* Triangle */
+.courses-geometry .geo-triangle {
+    width: 0;
+    height: 0;
+
+    top: 38%;
+    right: 4%;
+
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 44px solid rgba(167, 139, 250, .55);
+
+    animation: lbsShapeSpin 14s linear infinite;
+}
+
+/* Square */
+.courses-geometry .geo-square {
+    width: 38px;
+    height: 38px;
+
+    left: 7%;
+    bottom: 12%;
+
+    border: 2px solid rgba(52, 211, 153, .7);
+    border-radius: 8px;
+
+    animation: lbsSquareMove 8s ease-in-out infinite;
+}
+
+/* Dashed ring */
+.courses-geometry .geo-ring {
+    width: 65px;
+    height: 65px;
+
+    right: 9%;
+    bottom: 15%;
+
+    border: 2px dashed rgba(244, 114, 182, .7);
+    border-radius: 50%;
+
+    animation: lbsShapeSpin 12s linear infinite;
+}
+
+/* Floating dots */
+.courses-geometry .geo-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+    background: #38bdf8;
+
+    box-shadow: 0 0 14px currentColor;
+
+    animation: lbsDotPulse 2.5s ease-in-out infinite;
+}
+
+.courses-geometry .geo-dot-1 {
+    top: 25%;
+    left: 18%;
+    color: #38bdf8;
+}
+
+.courses-geometry .geo-dot-2 {
+    top: 65%;
+    left: 45%;
+    color: #f472b6;
+    background: currentColor;
+    animation-delay: .7s;
+}
+
+.courses-geometry .geo-dot-3 {
+    top: 20%;
+    right: 20%;
+    color: #34d399;
+    background: currentColor;
+    animation-delay: 1.2s;
+}
+
+/* Shape animations */
+@keyframes lbsShapeFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-22px) rotate(25deg);
+    }
+}
+
+@keyframes lbsShapeSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes lbsSquareMove {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(14px, -18px) rotate(90deg);
+    }
+}
+
+@keyframes lbsDotPulse {
+    0%, 100% {
+        opacity: .45;
+        scale: .8;
+    }
+
+    50% {
+        opacity: 1;
+        scale: 1.5;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .courses-geometry .geo-circle {
+        width: 32px;
+        height: 32px;
+    }
+
+    .courses-geometry .geo-triangle {
+        border-left-width: 16px;
+        border-right-width: 16px;
+        border-bottom-width: 29px;
+    }
+
+    .courses-geometry .geo-square {
+        width: 24px;
+        height: 24px;
+    }
+
+    .courses-geometry .geo-ring {
+        width: 38px;
+        height: 38px;
+    }
+
+    .courses-section .course-card:hover {
+        transform: translateY(-3px);
+    }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .courses-geometry span,
+    .courses-section .course-icon {
+        animation: none !important;
+    }
+
+    .courses-section .course-card,
+    .courses-section .course-card::before {
+        transition: none !important;
+    }
+}
