@@ -33642,3 +33642,56 @@ body:not(.dark-mode) .lbs-hero .lbs-float-card strong {
 body:not(.dark-mode) .lbs-hero .lbs-float-card small {
     opacity: 1;
 }
+
+
+   /* =========================================
+   GALLERY FIX — DESKTOP + MOBILE
+   Remove unwanted decorative boxes
+   ========================================= */
+
+/* Hide unwanted decorative elements */
+.gallery-teaser-card .gallery-floating-icon,
+.gallery-teaser-card .gallery-orbit,
+.gallery-teaser-card .gallery-floating-star {
+    display: none !important;
+}
+
+/* Desktop layout */
+@media (min-width: 701px) {
+    .gallery-teaser-section {
+        padding: 80px 24px;
+    }
+
+    .gallery-teaser-card {
+        width: min(1050px, 100%);
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .gallery-teaser-content {
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+
+/* Mobile layout */
+@media (max-width: 700px) {
+    .gallery-teaser-section {
+        padding: 55px 14px;
+    }
+
+    .gallery-teaser-card {
+        width: 100%;
+        box-sizing: border-box;
+        min-height: 390px;
+        padding: 45px 22px;
+    }
+
+    .gallery-teaser-content {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+}
