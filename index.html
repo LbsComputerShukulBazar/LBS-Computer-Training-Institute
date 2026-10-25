@@ -9541,6 +9541,58 @@ topStudentsList.innerHTML =
 <script src="js/exam.js"></script>
     <!-- Main JavaScript -->
     <script src="js/script.js"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const line1 = document.getElementById("line1");
+  const line2 = document.getElementById("line2");
+  const line3 = document.getElementById("line3");
+
+  if (!line1 || !line2) return;
+
+  const firstText = "Let's Learn";
+  const secondText = "with LBS Computer";
+
+  line1.textContent = "";
+  line2.textContent = "";
+
+  if (line3) line3.textContent = "";
+
+  const cursor = document.createElement("span");
+  cursor.className = "typing-cursor";
+  cursor.setAttribute("aria-hidden", "true");
+
+  line2.appendChild(cursor);
+
+  let index = 0;
+  let deleting = false;
+
+  function typeAnimation() {
+    const fullText = firstText + "|" + secondText;
+    const currentText = fullText.substring(0, index);
+    const parts = currentText.split("|");
+
+    line1.textContent = parts[0] || "";
+    line2.textContent = parts[1] || "";
+    line2.appendChild(cursor);
+
+    let delay = deleting ? 45 : 95;
+
+    if (!deleting && index === fullText.length) {
+      delay = 1400;
+      deleting = true;
+    } else if (deleting && index === 0) {
+      deleting = false;
+      delay = 400;
+    }
+
+    index += deleting ? -1 : 1;
+
+    setTimeout(typeAnimation, delay);
+  }
+
+  typeAnimation();
+});
+    </script>
 
 </body>
 </html>
