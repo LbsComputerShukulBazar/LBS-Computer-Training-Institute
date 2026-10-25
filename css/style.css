@@ -33485,15 +33485,15 @@ body:not(.dark-mode) .lbs-hero .lbs-float-card small {
   .lbs-hero .card-bottom {
     left: -2% !important;
     right: auto !important;
-    bottom: 1% !important;
+    bottom: -5% !important;
   }
 }
 
 /* Mobile: move further left to avoid girl's feet */
 @media (max-width: 768px) {
   .lbs-hero .card-bottom {
-    left: -9% !important;
+    left: -5% !important;
     right: auto !important;
-    bottom: 2% !important;
+    bottom: -9% !important;
   }
 }
