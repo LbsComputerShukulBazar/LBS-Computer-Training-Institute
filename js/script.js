@@ -7088,3 +7088,121 @@ sessionStorage.setItem("lbsIntroPlayed", "true");
         initLbsSlider();
     }
 })();
+
+
+/* =========================================
+   LBS HERO: LETTER-BY-LETTER ANIMATION
+========================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const lines = [
+    {
+      element: document.getElementById("line1"),
+      text: "Let's Learn"
+    },
+    {
+      element: document.getElementById("line2"),
+      text: "Computer"
+    },
+    {
+      element: document.getElementById("line3"),
+      text: "with LBS Computer"
+    }
+  ];
+
+  // Clear existing text
+  lines.forEach(function (line) {
+    if (line.element) {
+      line.element.textContent = "";
+    }
+  });
+
+  // Type each letter smoothly
+  function typeLine(lineIndex, characterIndex) {
+
+    if (lineIndex >= lines.length) {
+      return;
+    }
+
+    const currentLine = lines[lineIndex];
+
+    if (!currentLine.element) {
+      typeLine(lineIndex + 1, 0);
+      return;
+    }
+
+    const text = currentLine.text;
+
+    // Move to the next line when the current line is complete
+    if (characterIndex >= text.length) {
+
+      setTimeout(function () {
+        typeLine(lineIndex + 1, 0);
+      }, 180);
+
+      return;
+    }
+
+    const character = text[characterIndex];
+
+    const span = document.createElement("span");
+
+    span.className = "letter";
+    span.textContent = character;
+
+    span.style.animationDelay = "0s";
+
+    currentLine.element.appendChild(span);
+
+    // Slight delay between letters
+    setTimeout(function () {
+      typeLine(lineIndex, characterIndex + 1);
+    }, 65);
+  }
+
+  // Start animation
+  setTimeout(function () {
+    typeLine(0, 0);
+  }, 350);
+
+
+  /* =========================================
+     GENTLE MOUSE MOVEMENT ON DESKTOP
+  ========================================= */
+
+  const scene = document.querySelector(".lbs-girl-scene");
+
+  if (
+    scene &&
+    window.matchMedia("(hover: hover) and (pointer: fine)").matches
+  ) {
+
+    scene.addEventListener("mousemove", function (event) {
+
+      const rect = scene.getBoundingClientRect();
+
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+      const girl = scene.querySelector(".lbs-working-girl");
+
+      if (girl) {
+        girl.style.transform =
+          `translate(${x * 4}px, ${y * 4}px)`;
+      }
+    });
+
+    scene.addEventListener("mouseleave", function () {
+
+      const girl = scene.querySelector(".lbs-working-girl");
+
+      if (girl) {
+        girl.style.transform = "";
+      }
+
+    });
+
+  }
+
+});
