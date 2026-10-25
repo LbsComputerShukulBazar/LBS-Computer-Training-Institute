@@ -33477,3 +33477,23 @@ body:not(.dark-mode) .lbs-hero .lbs-float-card strong {
 body:not(.dark-mode) .lbs-hero .lbs-float-card small {
     opacity: 1;
 }
+
+/* Learn Something New card — responsive positioning */
+
+/* Laptop / Desktop: move further down */
+@media (min-width: 769px) {
+  .lbs-hero .card-bottom {
+    left: -2% !important;
+    right: auto !important;
+    bottom: 1% !important;
+  }
+}
+
+/* Mobile: move further left to avoid girl's feet */
+@media (max-width: 768px) {
+  .lbs-hero .card-bottom {
+    left: -9% !important;
+    right: auto !important;
+    bottom: 2% !important;
+  }
+}
