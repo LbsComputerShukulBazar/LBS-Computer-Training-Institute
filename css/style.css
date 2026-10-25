@@ -34913,3 +34913,34 @@ animation: lbsCursorBlink 0.7s step-end infinite;
 @keyframes lbsCursorBlink {
 50% { opacity: 0; }
 }
+
+
+/* ===== FIX: MOBILE HERO HEADING DUPLICATE ===== */
+
+/* Duplicate third line ko har screen par hide karo */
+#lbsHero #line3 {
+    display: none !important;
+}
+
+/* Mobile heading fix */
+@media (max-width: 768px) {
+    #lbsHero .lbs-hero-title {
+        font-size: clamp(27px, 8vw, 36px) !important;
+        line-height: 1.2 !important;
+        letter-spacing: -1px !important;
+    }
+
+    #lbsHero #line1 {
+        display: block !important;
+        white-space: nowrap !important;
+    }
+
+    #lbsHero #line2 {
+        display: block !important;
+        white-space: nowrap !important;
+        word-break: normal !important;
+        overflow-wrap: normal !important;
+        font-size: 0.82em !important;
+        max-width: 100% !important;
+    }
+}
