@@ -33331,3 +33331,149 @@ color: #ffffff !important;
     font-size: 16px;
   }
 }
+
+
+/* ==========================================
+   LBS HERO FLOATING CARDS — PREMIUM DARK MODE
+   Smart Learning & Learn Something New
+   ========================================== */
+
+/* Shared card styling */
+body.dark-mode .lbs-hero .lbs-float-card {
+    background: linear-gradient(
+        145deg,
+        rgba(24, 35, 58, 0.98),
+        rgba(12, 20, 36, 0.98)
+    ) !important;
+
+    color: #f8fafc !important;
+
+    border: 1px solid rgba(129, 140, 248, 0.42) !important;
+
+    border-radius: 20px !important;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 0 22px rgba(99, 102, 241, 0.10) !important;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Make ALL card text clearly readable */
+body.dark-mode .lbs-hero .lbs-float-card strong {
+    display: block;
+    color: #ffffff !important;
+    opacity: 1 !important;
+    font-weight: 800;
+    letter-spacing: 0.1px;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .lbs-hero .lbs-float-card small {
+    display: block;
+    color: #cbd5e1 !important;
+    opacity: 1 !important;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* CARD 1 — SMART LEARNING */
+body.dark-mode .lbs-hero .lbs-float-card.card-top {
+    background: linear-gradient(
+        135deg,
+        #172554 0%,
+        #172033 55%,
+        #101827 100%
+    ) !important;
+
+    border-color: rgba(96, 165, 250, 0.65) !important;
+
+    box-shadow:
+        0 14px 35px rgba(0, 0, 0, 0.32),
+        0 0 24px rgba(59, 130, 246, 0.13),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10) !important;
+}
+
+/* Blue icon background */
+body.dark-mode .lbs-hero .card-top .float-card-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: rgba(59, 130, 246, 0.17);
+
+    padding: 9px;
+
+    filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.25));
+}
+
+/* CARD 2 — LEARN SOMETHING NEW */
+body.dark-mode .lbs-hero .lbs-float-card.card-bottom {
+    background: linear-gradient(
+        135deg,
+        #12352f 0%,
+        #142b2b 52%,
+        #101827 100%
+    ) !important;
+
+    border-color: rgba(52, 211, 153, 0.55) !important;
+
+    box-shadow:
+        0 14px 35px rgba(0, 0, 0, 0.32),
+        0 0 24px rgba(16, 185, 129, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10) !important;
+}
+
+/* Green success icon */
+body.dark-mode .lbs-hero .card-bottom .success-check {
+    color: #6ee7b7 !important;
+
+    background: rgba(16, 185, 129, 0.16);
+
+    border: 1px solid rgba(52, 211, 153, 0.35);
+
+    border-radius: 50%;
+
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.12);
+}
+
+/* Different text accent for second card */
+body.dark-mode .lbs-hero .card-bottom strong {
+    color: #d1fae5 !important;
+}
+
+body.dark-mode .lbs-hero .card-bottom small {
+    color: #a7f3d0 !important;
+}
+
+/* Premium hover effect — desktop */
+@media (hover: hover) {
+    body.dark-mode .lbs-hero .lbs-float-card:hover {
+        transform: translateY(-4px);
+
+        border-color: rgba(165, 180, 252, 0.85) !important;
+
+        box-shadow:
+            0 20px 45px rgba(0, 0, 0, 0.4),
+            0 0 28px rgba(99, 102, 241, 0.17) !important;
+    }
+}
+
+/* Light mode: retain readable text too */
+body:not(.dark-mode) .lbs-hero .lbs-float-card strong {
+    opacity: 1;
+}
+
+body:not(.dark-mode) .lbs-hero .lbs-float-card small {
+    opacity: 1;
+}
