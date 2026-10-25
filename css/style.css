@@ -34944,3 +34944,90 @@ animation: lbsCursorBlink 0.7s step-end infinite;
         max-width: 100% !important;
     }
 }
+
+
+/* =========================================
+   LBS DAILY OFFER — DAY MODE COLOR FIX
+   Clear Text + Premium Purple & Gold
+========================================= */
+
+body:not(.dark-mode) .lux-offer {
+    background: linear-gradient(135deg, #f8faff, #eee9ff, #fff8e8) !important;
+    color: #1e293b !important;
+}
+
+/* Main Offer Card */
+body:not(.dark-mode) .lux-offer .lux-card {
+    background: rgba(255, 255, 255, 0.97) !important;
+    border: 1px solid #ddd6fe !important;
+    box-shadow: 0 15px 40px rgba(76, 29, 149, 0.12) !important;
+}
+
+/* Left & Right Panels */
+body:not(.dark-mode) .lux-offer .lux-left,
+body:not(.dark-mode) .lux-offer .lux-right {
+    background: transparent !important;
+    color: #1e293b !important;
+}
+
+/* All Offer Text — Dark & Readable */
+body:not(.dark-mode) .lux-offer h1,
+body:not(.dark-mode) .lux-offer h2,
+body:not(.dark-mode) .lux-offer h3,
+body:not(.dark-mode) .lux-offer h4,
+body:not(.dark-mode) .lux-offer p,
+body:not(.dark-mode) .lux-offer span,
+body:not(.dark-mode) .lux-offer label {
+    color: #263248 !important;
+}
+
+/* Highlight / Discount Text */
+body:not(.dark-mode) .lux-offer .lux-highlight,
+body:not(.dark-mode) .lux-offer .lux-discount,
+body:not(.dark-mode) .lux-offer .lux-price {
+    color: #6d28d9 !important;
+}
+
+/* Countdown Boxes */
+body:not(.dark-mode) .lux-offer .lux-time-box {
+    background: #ffffff !important;
+    border: 1px solid #c4b5fd !important;
+    color: #312e81 !important;
+    box-shadow: 0 4px 14px rgba(109, 40, 217, 0.10) !important;
+}
+
+/* Countdown Numbers */
+body:not(.dark-mode) .lux-offer .lux-time-box * {
+    color: #4c1d95 !important;
+}
+
+/* Claim / WhatsApp Button */
+body:not(.dark-mode) .lux-offer .lux-claim-btn {
+    background: linear-gradient(135deg, #6d28d9, #7c3aed) !important;
+    border: 1px solid #6d28d9 !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 18px rgba(109, 40, 217, 0.22) !important;
+}
+
+body:not(.dark-mode) .lux-offer .lux-claim-btn * {
+    color: #ffffff !important;
+}
+
+body:not(.dark-mode) .lux-offer .lux-claim-btn:hover {
+    background: linear-gradient(135deg, #5b21b6, #6d28d9) !important;
+}
+
+/* Logo Background */
+body:not(.dark-mode) .lux-offer .lux-logo-seal {
+    background: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Remove Dark Overlays */
+body:not(.dark-mode) .lux-offer .lux-grid {
+    opacity: 0.12 !important;
+}
+
+body:not(.dark-mode) .lux-offer .lux-card-glow {
+    opacity: 0.15 !important;
+       }
