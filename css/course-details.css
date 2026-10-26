@@ -2341,3 +2341,11 @@ body.dark-mode #syllabusList .syllabus-item-content > span {
     font-size: 42px;
     color: #2563eb;
 }
+
+#courseIcon {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-size: 42px;
+    color: #2563eb;
+}
