@@ -972,7 +972,7 @@ const courses = {
     "dca": {
     title: "DCA - Diploma in Computer Application",
     description: "Learn computer fundamentals, office applications, internet, database management, and practical computer skills.",
-    icon: "💻",
+    icon: "fa-solid fa-desktop",
     duration: "6 Months",
     fees: "₹8,000",
     eligibility: "10th Pass",
@@ -1336,7 +1336,7 @@ const courses = {
    "ccc": {
     title: "CCC - Course on Computer Concepts",
     description: "Learn computer fundamentals, office applications, internet, digital payments, cybersecurity, and essential digital skills.",
-    icon: "🖥️",
+    icon: "fa-solid fa-certificate",
     duration: "3 Months",
     fees: "₹3,000",
     eligibility: "No formal educational qualification required",
