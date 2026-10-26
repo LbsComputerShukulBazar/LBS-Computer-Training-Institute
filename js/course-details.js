@@ -6356,70 +6356,70 @@ return `
          * Create PDF
          */
 
-        const pdf =
-            new jsPDF(
-                "p",
-                "mm",
-                "a4"
-            );
+        /* Create PDF */
 
+const { jsPDF } = window.jspdf;
 
-        const pageWidth =
-            pdf.internal.pageSize.getWidth();
+const pdf = new jsPDF("p", "mm", "a4");
 
-        const pageHeight =
-            pdf.internal.pageSize.getHeight();
+const pageWidth = pdf.internal.pageSize.getWidth();
+const pageHeight = pdf.internal.pageSize.getHeight();
 
+const margin = 12;
+const topMargin = 15;
+const bottomMargin = 15;
 
-        const imageWidth =
-            pageWidth - 20;
+const imageWidth = pageWidth - (margin * 2);
+const imageHeight = canvas.height * imageWidth / canvas.width;
 
-        const imageHeight =
-            (canvas.height * imageWidth) /
-            canvas.width;
+const usableHeight = pageHeight - topMargin - bottomMargin;
 
+let remainingHeight = imageHeight;
+let sourceY = 0;
 
-        let heightLeft =
-            imageHeight;
+while (remainingHeight > 0) {
 
-        let position = 10;
+const sliceHeight = Math.min(usableHeight, remainingHeight);
 
+const pageCanvas = document.createElement("canvas");
 
-        pdf.addImage(
-            imageData,
-            "PNG",
-            10,
-            position,
-            imageWidth,
-            imageHeight
-        );
+pageCanvas.width = canvas.width;
+pageCanvas.height = Math.ceil(sliceHeight * canvas.width / imageWidth);
 
+const ctx = pageCanvas.getContext("2d");
 
-        heightLeft -=
-            pageHeight - 20;
+ctx.fillStyle = "#ffffff";
+ctx.fillRect(0, 0, pageCanvas.width, pageCanvas.height);
 
+ctx.drawImage(
+    canvas,
+    0,
+    Math.round(sourceY * canvas.width / imageWidth),
+    canvas.width,
+    pageCanvas.height,
+    0,
+    0,
+    pageCanvas.width,
+    pageCanvas.height
+);
 
-        while (heightLeft > 0) {
+if (pdf.getNumberOfPages() > 1) {
+    pdf.addPage();
+}
 
-            position =
-                heightLeft - imageHeight + 10;
+pdf.addImage(
+    pageCanvas.toDataURL("image/jpeg", 0.95),
+    "JPEG",
+    margin,
+    topMargin,
+    imageWidth,
+    sliceHeight
+);
 
-            pdf.addPage();
+sourceY += sliceHeight;
+remainingHeight -= sliceHeight;
 
-            pdf.addImage(
-                imageData,
-                "PNG",
-                10,
-                position,
-                imageWidth,
-                imageHeight
-            );
-
-            heightLeft -=
-                pageHeight - 20;
-
-        }
-
+}
 
         /*
          * Download
