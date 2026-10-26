@@ -6195,48 +6195,110 @@ pdfContent.style.background = "#ffffff";
 
                 ${course.syllabus.map(function(item, index) {
 
-                    return `
+const moduleTitle = typeof item === "string"
+    ? item
+    : (item.module || item.title || item.name || `Module ${index + 1}`);
 
-                        <div style="
-                            display:flex;
-                            align-items:center;
-                            gap:12px;
-                            padding:12px;
-                            margin-bottom:8px;
-                            background:#f6f8fc;
-                            border:1px solid #e6eaf1;
-                            border-radius:9px;
-                        ">
+const details = [];
 
-                            <div style="
-                                width:28px;
-                                height:28px;
-                                display:flex;
-                                align-items:center;
-                                justify-content:center;
-                                background:#2563eb;
-                                color:white;
-                                border-radius:7px;
-                                font-size:10px;
-                                font-weight:bold;
-                                flex-shrink:0;
-                            ">
-                                ${String(index + 1).padStart(2,"0")}
-                            </div>
+if (typeof item === "object" && item !== null) {
 
-                            <div style="
-                                font-size:12px;
-                                font-weight:bold;
-                                color:#172033;
-                            ">
-                                ${item}
-                            </div>
+    if (item.description) {
+        details.push(`<div style="margin-top:5px;">${item.description}</div>`);
+    }
 
-                        </div>
+    if (item.theory) {
+        details.push(`
+            <div style="margin-top:5px;">
+                <strong style="color:#1d4ed8;">Theory:</strong>
+                ${Array.isArray(item.theory) ? item.theory.join(", ") : item.theory}
+            </div>
+        `);
+    }
 
-                    `;
+    if (item.practical) {
+        details.push(`
+            <div style="margin-top:5px;">
+                <strong style="color:#059669;">Practical:</strong>
+                ${Array.isArray(item.practical) ? item.practical.join(", ") : item.practical}
+            </div>
+        `);
+    }
 
-                }).join("")}
+    if (item.project) {
+        details.push(`
+            <div style="margin-top:5px;">
+                <strong style="color:#7c3aed;">Project:</strong>
+                ${Array.isArray(item.project) ? item.project.join(", ") : item.project}
+            </div>
+        `);
+    }
+
+    if (Array.isArray(item.projects) && item.projects.length) {
+        details.push(`
+            <div style="margin-top:5px;">
+                <strong style="color:#7c3aed;">Projects:</strong>
+                ${item.projects.join(", ")}
+            </div>
+        `);
+    }
+}
+
+return `
+    <div style="
+        display:flex;
+        align-items:flex-start;
+        gap:12px;
+        padding:12px;
+        margin-bottom:8px;
+        background:#f6f8fc;
+        border:1px solid #e2e8f0;
+        border-radius:8px;
+        page-break-inside:avoid;
+        break-inside:avoid;
+    ">
+
+        <div style="
+            width:28px;
+            height:28px;
+            min-width:28px;
+            border-radius:7px;
+            background:#2563eb;
+            color:white;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:9px;
+            font-weight:700;
+        ">
+            ${String(index + 1).padStart(2, "0")}
+        </div>
+
+        <div style="
+            flex:1;
+            min-width:0;
+            color:#334155;
+            font-size:11px;
+            line-height:1.6;
+            overflow-wrap:break-word;
+        ">
+
+            <div style="
+                font-size:12px;
+                font-weight:700;
+                color:#1e293b;
+            ">
+                ${moduleTitle}
+            </div>
+
+            ${details.join("")}
+
+        </div>
+
+    </div>
+`;
+
+}).join("")}
 
             </div>
 
