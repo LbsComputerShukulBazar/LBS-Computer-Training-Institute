@@ -35077,3 +35077,46 @@ body:not(.dark-mode) .lux-offer .lux-card-glow {
         max-height: 220px !important;
     }
 }
+
+
+/* ONLINE EXAM MOBILE INPUT DISPLAY FIX */
+
+#examRegistrationForm .exam-input-box {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    min-width: 0 !important;
+}
+
+#examRegistrationForm .exam-input-box > i {
+    flex: 0 0 42px !important;
+}
+
+#examRegistrationForm #examMobile {
+    display: block !important;
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    text-align: left !important;
+    direction: ltr !important;
+    font-size: 16px !important;
+    letter-spacing: normal !important;
+    text-indent: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    color: #182230 !important;
+    -webkit-text-fill-color: #182230 !important;
+}/* EXAM MOBILE INPUT PLACEHOLDER COLOR FIX */
+
+#examRegistrationForm #examMobile::placeholder {
+    color: #9ca3af !important;
+    -webkit-text-fill-color: #9ca3af !important;
+    opacity: 1 !important;
+}
+
+#examRegistrationForm #examMobile::-webkit-input-placeholder {
+    color: #9ca3af !important;
+    -webkit-text-fill-color: #9ca3af !important;
+}
