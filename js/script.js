@@ -884,12 +884,12 @@ examForm.addEventListener(
                            /* =========================================
    SAVE STUDENT TO PUBLIC STUDENTS
    ========================================= */
-
-database
+                           database
     .ref("publicStudents/" + rollNumber)
     .set({
         studentName: studentData.name,
         course: studentData.course,
+        admissionDate: studentData.admissionDate,
         createdAt: studentData.registeredAt
     })
     .then(function () {
