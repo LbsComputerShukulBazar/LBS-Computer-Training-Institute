@@ -295,7 +295,25 @@ if (!savedStudent) {
     }
 
 }
+/* =========================================
+   HTML + CSS QUESTION BANK
+   ========================================= */
 
+else if (
+    course.includes("html") ||
+    course.includes("css")
+) {
+
+    if (
+        typeof HTML_QUESTIONS !== "undefined" &&
+        Array.isArray(HTML_QUESTIONS)
+    ) {
+
+        questionBank = HTML_QUESTIONS;
+
+    }
+
+}
 
     /* =================================================
    QUESTION BANK CHECK + PREVIOUS RESULT CHECK
