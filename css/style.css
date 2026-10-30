@@ -35031,3 +35031,49 @@ body:not(.dark-mode) .lux-offer .lux-grid {
 body:not(.dark-mode) .lux-offer .lux-card-glow {
     opacity: 0.15 !important;
        }
+
+
+/* =========================================
+   LBS COURSE SLIDER - FIXED WHITE CARD HEIGHT
+========================================= */
+
+#lbsShowcase .lbs-info-panel {
+    height: 230px !important;
+    min-height: 230px !important;
+    max-height: 230px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    align-items: center !important;
+}
+
+#lbsShowcase .lbs-info-content {
+    min-width: 0 !important;
+    max-height: 100% !important;
+    overflow: hidden !important;
+}
+
+#lbsShowcase .lbs-info-content h3 {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+#lbsShowcase .lbs-info-content p {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+#lbsShowcase .lbs-next-button {
+    flex-shrink: 0 !important;
+}
+
+@media (max-width: 650px) {
+    #lbsShowcase .lbs-info-panel {
+        height: 220px !important;
+        min-height: 220px !important;
+        max-height: 220px !important;
+    }
+}
