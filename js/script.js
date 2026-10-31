@@ -4583,7 +4583,7 @@ const reviewPopupOverlay =
 const studentReviews = [
 
     {
-        name: "Rahul Kumar",
+        name: "Mohammad Hasnain",
 
         course: "ADCA Student",
 
@@ -4595,7 +4595,7 @@ const studentReviews = [
 
 
     {
-        name: "Priya Singh",
+        name: "Priya Pandey",
 
         course: "O Level Student",
 
@@ -4607,9 +4607,9 @@ const studentReviews = [
 
 
     {
-        name: "Amit Verma",
+        name: "Astha Gupta",
 
-        course: "CCC Student",
+        course: "O Level Student",
 
         stars: "★★★★★",
 
